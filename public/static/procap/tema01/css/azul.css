@@ -1,0 +1,284 @@
+
+
+div.successMessage{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1em;
+	font-style: italic;
+	color: #03C;
+	margin: 3px;
+}
+
+div.errorMessage{
+	background-color: #FF6;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: center;
+	vertical-align: middle;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: 0;
+	border-right-style: 0;
+	border-bottom-style: 0;
+	border-left-style: 0;
+	width:200px;
+	color: #C00;
+	margin: 5px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+
+}
+
+
+
+
+div.error{
+color:red;
+margin-left:5px;
+}
+
+
+span.error{
+color:red;
+margin-left:5px;
+}
+
+
+
+
+input.error , textarea.error , select.error {
+    border:solid red 1px;
+  }
+
+
+
+
+
+ input.botao , input.list_button {
+    background-color:#F6F9FE;
+    border: solid 1px #0066CC;
+    COLOR: #444;
+    font-weight:none;
+     -moz-box-shadow: 0px 0px 0px 0px ;
+  }
+
+
+ select , input,  textarea {
+    background-color:#F6F9FE;
+    border: solid 1px #0066CC;
+    COLOR: #444;
+    font-weight:none;
+     -moz-box-shadow: 0px 0px 5px 3px #bbb;
+  }
+
+
+
+input,  textarea {
+   -moz-border-radius:3px;
+   border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-top-left-radius: 10px;
+  }
+
+
+
+select {
+   -moz-border-radius:3px;
+   -webkit-border-radius: 3px;
+   border-top-left-radius: 3px;
+   border-bottom-left-radius: 3px;
+  }
+
+
+fieldset.interno {
+     background-color:#eee;
+  -moz-border-radius:15px;
+  border-radius: 15px;
+  -webkit-border-radius: 5px;
+  }
+
+
+
+
+legend {
+    color : #D2560F;
+    font-size : 1.3em;
+  }
+
+
+
+input.botao {
+    background-color : #45578A;
+    height : 24px;
+    text-align : center;
+    min-width : 130px;
+    border-width:1px;
+    border-color:#1F1869;
+    font-weight:bolder;
+    border-style:outset;
+    color:white;
+    /* font-weight: bold;
+    *//* color:#373737;
+    */;
+  }
+
+
+input.botao:hover {
+    /* color : #FF5A00;
+    */ cursor : pointer;
+    background-color:#7694FF;
+    /* border: solid 1px #362AB6;
+    border-color:#DF9439;
+    */ border-style:inset;
+  }
+
+
+
+
+input.list_button {
+    background-color : #aaa;
+    height : 24px;
+    text-align : center;
+    min-width : 130px;
+    border-width:1px;
+    border-color:#1F1869;
+    font-weight:bolder;
+    border-style:outset;
+    color:#006;
+  }
+
+
+input.list_button:hover {
+    cursor : pointer;
+    background-color:#bbb;
+    border-style:inset;
+  }
+
+
+
+table.outershowlist {
+    padding : 0px;
+    margin-top : 0px;
+    border-style : ridge;
+    border-width : 2px;
+    border-color : #DC861D;
+    max-width : 960px;
+    min-width : 900px;
+    height:98%;
+    background-color:#F6F9FE;
+    /* border-collapse: separate;
+    */ border-spacing: 0px;
+  }
+
+
+tr.item1 {
+	background-color : #E9F1FF;
+	margin:20px;
+	padding:20px;
+	border-spacing:20px;
+	height:25px;
+	vertical-align:middle;
+  }
+
+
+tr.item1 td{
+	border: 1px solid white;
+  }
+
+
+tr.item2 {
+    background-color:#F7FAFF;
+	margin:20px;
+	padding:20px;
+	border-spacing:20px;
+	height:25px;
+	vertical-align:middle;
+  }
+
+
+tr.item2 td{
+	border: 1px solid white;
+  }
+
+
+tr.item3 {
+	background-color : #C2CAFF;
+  }
+
+
+tr.item3 th{
+	border: 1px solid white;
+  }
+
+
+tr.item4 {
+    background-color : #E2E2E2;
+  }
+
+
+tr.item5 {
+    background-color : #E2E2E2;
+	border: 1px solid white;
+	margin:20px;
+	padding:20px;
+	border-spacing:20px;
+	height:25px;
+	vertical-align:middle;
+  }
+
+
+tr.item4 th{s
+	border: 1px solid white;
+  }
+
+
+tr.item1:hover , tr.item2:hover {
+    background-color : #DCDCDC;
+  }
+
+
+table.campo {
+	background-color : #E1EDFF;
+	border-spacing : 1px;
+	text-align : center;
+	width : 100%;
+	border: 1px groove #D3760E;
+	margin: 1px;
+	padding: 1px;
+	border: 2px groove #CC6600;
+  }
+
+
+  table.geral a {
+  text-decoration:none;
+  }
+
+  table.geral a:hover {
+  text-decoration:underline;
+  }
+
+  @charset "utf-8";
+#button_menu {
+	text-align: right;
+}
+
+
+.campo th {
+border: 0px groove #D3760E;
+	}
+
+.campo td {
+border: 0px groove #D3760E;
+	}
+
+
+
+table.geral  {
+	font-size: 13.5px;
+	font-family: Verdana, Geneva, sans-serif;
+	margin: 5px;
+	padding: 5px;
+}
+

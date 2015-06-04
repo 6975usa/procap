@@ -1,0 +1,425 @@
+div.header{
+}
+
+div.list{
+}
+
+div.form{
+}
+
+div.geral{
+	background-color: #EEF0FD;
+	width: 800px;
+	border: 2px outset #DC861D;
+
+}
+
+
+body {
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+	background-color:#FFF;
+	color: #333;
+  }
+
+
+input, select , textarea {
+	background-color:#F6F9FE;
+	border: solid 1px #0066CC;
+	COLOR: #1F1869;
+  }
+
+
+input.error, select.error , textarea.error {
+	background-color:#F6F9FE;
+	border: solid 1px red ;
+	COLOR: #1F1869;
+  }
+
+
+
+table.fieldset_interno {
+    background-color:#B0C4DE;
+    border-style:none;
+    /* margin:0px;
+    *//* margin-bottom:5px;
+    */ padding:1px;
+  }
+
+
+fieldset.interno {
+	width: 500px;
+	background-color: #CCC;
+
+  }
+
+
+table.fieldset {
+    background-color:#B0C4DE;
+    border-style:none;
+    margin:0px;
+    margin-bottom:5px;
+    padding:1px;
+  }
+
+
+fieldset {
+
+
+
+
+
+    border-style:
+  }
+
+
+legend.interno {
+    background-color : #EDD5AF;
+  }
+
+
+legend {
+	font-size: 1.3em;
+	color: #DC861D;
+	font-weight: bold;
+	background-color: #CCC;
+	padding-right: 15px;
+	padding-left: 15px;
+
+  }
+
+
+input.botao {
+    background-color : #45578A;
+    height : 20px;
+    text-align : center;
+    min-width : 100px;
+    border-width:1px;
+    border-color:#1F1869;
+    font-weight:bolder;
+    border-style:outset;
+    color:white;
+    /* font-weight: bold;
+    *//* color:#373737;
+    */;
+  }
+
+
+input.botao:hover {
+    /* color : #FF5A00;
+    */ cursor : pointer;
+    background-color:#7694FF;
+    /* border: solid 1px #362AB6;
+    border-color:#DF9439;
+    */ border-style:inset;
+  }
+
+
+A {
+    color:#362AB6;
+    text-decoration : none;
+  }
+
+
+A:visited {
+    color:#362AB6;
+    text-decoration : none;
+  }
+
+
+A:hover {
+    COLOR: #FF3300;
+  }
+
+
+P {
+    color : black;
+  }
+
+
+h1 {
+    color : #DC861D;
+    font-weight : bolder;
+    margin-bottom : 12px;
+    margin-left : 26px;
+    margin-right : 26px;
+    margin-top : 4px;
+  }
+
+
+h2 {
+    font-size : 16px;
+    padding : 0px 0;
+    margin : 0px 0 0px 6px;
+    color : #FF5A00;
+  }
+
+
+h3 {
+    font-size : 16px;
+    padding : 0px 0;
+    margin : 0px 0 0px 36px;
+    color : black;
+  }
+
+
+table {
+    /* background-color : #F6F9FE;
+    font-size : 12px; */
+  }
+
+
+table.titulo {
+    background-color : #F7FAFF;
+    font-size : 12px;
+    width:100%;
+  }
+
+
+th {
+    COLOR: #1F1869;
+  }
+
+
+ul.menu {
+  }
+
+
+li.menuTitle {
+    position:relative;
+    left:-44px;
+    LIST-STYLE-TYPE:none;
+    color:#1F1869;
+    margin-top:10px;
+    font-weight:bold;
+  }
+
+
+li.menuItem {
+    LIST-STYLE-TYPE : none;
+    color : #1F1869;
+    display : list-item;
+    left : -75px;
+    position : relative;
+  }
+
+
+table.campo {
+    background-color : #F7FAFF;
+    border-color : #AAD2FF;
+    border-style : groove;
+    border-width : 2px;
+    border-spacing : 1px;
+    padding-bottom : 1px;
+    padding-left : 1px;
+    padding-right : 1px;
+    padding-top : 1px;
+    text-align : center;
+    width : 100%;
+  }
+
+
+table.exibecampo {
+    padding : 0px;
+    margin : 0px;
+    border-spacing : 1px 1px;
+    text-align : center;
+    width : 100%;
+  }
+
+
+table.geral {
+     border-spacing : 0px;
+     border-collapse : separate;
+    background-color : #F6F9FE;
+    border-bottom-color : #DC861D;
+    border-bottom-style : ridge;
+    border-bottom-width : 2px;
+    border-left-color : #DC861D;
+    border-left-style : ridge;
+    border-left-width : 2px;
+    border-right-color : #DC861D;
+    border-right-style : ridge;
+    border-right-width : 2px;
+    border-top-color : #DC861D;
+    border-top-style : ridge;
+    border-top-width : 2px;
+    margin-top : 0px;
+    max-width : 1300px;
+    min-height : 1px;
+    min-width : 1000px;
+    padding-bottom : 6px;
+    padding-left : 6px;
+    padding-right : 6px;
+    padding-top : 6px;
+  }
+
+
+table.showlist {
+    padding : 0px;
+    margin-top : 0px;
+    border-width : 0px;
+    border-style:solid;
+    min-width:100%;
+    max-width:100%;
+    border-spacing: 1px 0px;
+  }
+
+
+table.outershowlist {
+    padding : 0px;
+    margin-top : 0px;
+    border-style : ridge;
+    border-width : 2px;
+    border-color : #DC861D;
+    max-width : 960px;
+    min-width : 900px;
+    height:98%;
+    background-color:#F6F9FE;
+    /* border-collapse: separate;
+    */ border-spacing: 0px;
+  }
+
+
+tr.item1 {
+    background-color : #E9F1FF;
+    padding:5px;
+  }
+
+
+tr.item2 {
+    background-color:#F7FAFF;
+  }
+
+
+tr.item3 {
+    background-color : #C2CAFF;
+  }
+
+
+tr.item4 {
+    background-color : #E2E2E2;
+  }
+
+
+input:hover , select:hover , textarea:hover {
+    border: solid 1px #1F1869;
+  }
+
+
+tr.item1:hover , tr.item2:hover {
+    background-color : #DCDCDC;
+  }
+
+
+td.titulo {
+    background-color:#B0C4DE;
+    white-space: nowrap;
+    border-bottom-width:1px;
+    border-bottom-color:#DC861D;
+    border-bottom-style:solid;
+  }
+
+
+td.tituloSelected {
+    background-color:#FFCC99;
+    white-space: nowrap;
+    border-bottom-width:1px;
+    border-bottom-color:#C8B42F;
+    border-bottom-style:solid;
+    border-top-width:1px;
+    border-top-color:#C8B42F;
+    border-top-style:solid;
+  }
+
+
+td.rodape {
+    white-space : nowrap;
+    color : #706F6F;
+    font-style : italic;
+    height:30px;
+    vertical-align:bottom;
+  }
+
+
+p.warning {
+    /* height:25px;
+    background-color:#FFDCA8;
+    border-color:#FF8000;
+    border-left-style:groove;
+    border-width:2px;
+    */ /* background-color : #F9EBD3;
+    border-color : #D6DCE4;
+    border-style : dotted;
+    border-width : 2px;
+    */ font-size : 1.2em;
+    font-style : italic;
+    font-variant : normal;
+    font-weight : bold;
+    letter-spacing : 1.5px;
+    color:#C05800;
+  }
+
+
+p.destaque {
+    color : #FF5A00;
+    font-size : 1.2em;
+    font-style : italic;
+    margin-bottom : -2px;
+    margin-top : -2px;
+  }
+
+
+iframe {
+    background-color:#B0C4DE;
+  }
+.geral center .login .fieldset #form1 div {
+	padding: 10px;
+}
+.geral center .login .fieldset #loginForm div {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.geral center div .fieldset_interno #officeForm div {
+	padding: 5px;
+}
+.geral center div .interno #officeForm table {
+	height: 40px;
+}
+span.error {
+	font-size: 0.9em;
+	font-style: italic;
+	color: #C00;
+}
+input.button {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #006;
+}
+.geral center .login .interno #loginForm div {
+	margin: 15px;
+}
+.login {
+	background-color: #CCD8EC;
+	width: 600px;
+	border: 1px solid #06C;
+	padding: 20px;
+	margin-top: 100px;
+	margin-right: 100px;
+	margin-bottom: 200px;
+	margin-left: 100px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+div.errorMessage {
+	color: #C00;
+	background-color: #FFFFD2;
+	width: 150px;
+	font-style: italic;
+	text-align: center;
+	padding: 7px;
+	margin: 2px;
+	font-weight: bold;
+}

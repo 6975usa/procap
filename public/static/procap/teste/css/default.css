@@ -1,0 +1,231 @@
+table.formTable{
+	border: 1px dotted #FFF;
+	margin: 0px;
+	padding: 0px;
+}
+
+div.successMessage{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1em;
+	font-style: italic;
+	color: #03C;
+	margin: 3px;
+}
+
+div.errorMessage{
+	background-color: #FF6;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: center;
+	vertical-align: middle;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: 0;
+	border-right-style: 0;
+	border-bottom-style: 0;
+	border-left-style: 0;
+	color: #C00;
+	margin: 5px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+
+}
+
+div.error {
+    font-style : italic;
+    color:#FF0000;
+    font-variant : normal;
+    font-weight : normal;
+    font-size:0.9em;
+    position:relative;
+    float:right;
+  }
+
+
+
+input.error , textarea.error {
+    border:solid red 1px;
+  }
+
+
+div.perguntaDica {
+    position:relative;
+    float:left;
+    width:350px;
+  }
+
+
+div.resposta {
+    float : right;
+    position : relative;
+    width : 400px;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left:5px;
+    margin-right:5px;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:1em;
+    white-space: nowrap;
+  }
+
+
+tr.blocoPergunta {
+    background-color : #dcdcdc;
+    border-bottom-color : #a0a0a0;
+    border-bottom-style : solid;
+    border-bottom-width : 1px;
+    border-left-color : #a0a0a0;
+    border-left-style : solid;
+    border-left-width : 1px;
+    border-right-color : #a0a0a0;
+    border-right-style : solid;
+    border-right-width : 1px;
+    border-top-color : #a0a0a0;
+    border-top-style : solid;
+    border-top-width : 1px;
+    height:80px;
+    vertical-align:middle;
+  }
+
+
+td.resposta {
+    /* nowrap="true" align="left" width="60%" */ : ;
+    vertical-align : top;
+    white-space: nowrap;
+    text-align:left;
+    width:200px;
+  }
+
+
+div.dica {
+    color : #808080;
+    font-family : Arial;
+    font-size : 0.9em;
+    font-style : normal;
+    font-variant : normal;
+    font-weight : normal;
+    text-align : left;
+  }
+
+
+div.pergunta {
+    color : #c05800;
+    font-family : Verdana;
+    font-size : 1.1em;
+    font-style : italic;
+    font-weight : bold;
+    text-align : right;
+  }
+
+
+div.success {
+    color:green;
+    font-weight:bold;
+  }
+
+
+div.alerta {
+    border-color : #D2D2D2;
+    border-style : solid;
+    border-width : 1px;
+    color : #646464;
+    font-size : 12px;
+    font-style : italic;
+    left : 320px;
+    position : absolute;
+    top : 178px;
+  }
+
+
+INPUT  , select , textarea {
+    border: groove 1px #81ADFF;
+    COLOR: #333333;
+  }
+
+
+input:hover , select:hover , textarea:hover {
+    border: solid 1px #1F1869;
+  }
+
+/*
+
+
+A {
+    color:#362AB6;
+    font-family:Verdana, Geneva, sans-serif;
+    text-decoration : none;
+  }
+
+
+A:visited {
+    color:#362AB6;
+    font-family:Verdana, Geneva, sans-serif;
+    text-decoration : none;
+  }
+
+
+A:hover {
+    COLOR: #FF3300;
+  }
+
+
+INPUT {
+    border: groove 1px #81ADFF;
+    COLOR: #333333;
+  }
+
+
+select {
+    border: groove 1px #81ADFF;
+    COLOR: #333333;
+  }
+
+
+textarea {
+    border: groove 1px #81ADFF;
+    COLOR: #333333;
+  }
+
+
+P {
+    font-family:Verdana, Geneva, sans-serif;
+    color : black;
+  }
+
+
+
+th {
+    COLOR: #1F1869;
+    font-family:Verdana, Geneva, sans-serif;
+  }
+
+
+input:hover , select:hover , textarea:hover {
+    border: solid 1px #1F1869;
+  }
+
+
+tr.item1:hover , tr.item2:hover {
+    background-color : #DCDCDC;
+  }
+
+
+hr {
+    border-bottom-color : #aad2ff;
+    border-bottom-width : 2px;
+    border-left-color : #0066cc;
+    border-right-color : #0066cc;
+    border-top-color : #0066cc;
+    width : 80%;
+  }
+
+
+table {
+    font-size : 12px;
+  }
+
+
+*/

@@ -1,0 +1,70 @@
+appendHiddenToForm = function(frm,values){
+   for (c=0 ; c < values.length ; c++){
+      var newField1 = document.createElement('input');
+      newField1.setAttribute('name', values[c]);
+      newField1.setAttribute('id', values[c]);
+      newField1.setAttribute('type', 'hidden');
+      newField1.setAttribute('value', values[c+1] );
+      frm.appendChild(newField1);
+   }
+
+   frm.onsubmit=null;
+   
+   if(values[1]=='delete'){
+      if(!confirm('Confirma DELETAR registro?')){
+         return false; exit;
+      }
+   }
+   
+alert(window.script.innerHTML);
+   validate_psForm(frm);
+    
+
+}
+
+
+
+
+
+linkSubmit = function(values,frmTarget,frmAction){
+
+   frm = document.createElement('form');
+   frm.id = 'linkSubmitForm';
+   frm.target = frmTarget ;
+   frm.action = frmAction;
+   frm.method = 'POST';
+
+   var vl = values.length;
+   var ob = document.getElementById('setPerPage');
+   values[vl+0]='setPerPage';
+   values[vl+1]=ob.options[ob.selectedIndex].value ;
+
+   values[vl+2]='pageID';
+   values[vl+3]= ((ob = document.getElementById('pageID'))!=null) ? ob.options[ob.selectedIndex].value : '';
+
+   var ob = document.getElementById('find_txt');
+   values[vl+4]='find_txt';
+   values[vl+5]=ob.value ;
+
+   //values[vl+6]='action';
+   //values[vl+7]='lsUpdate' ;
+
+   for (c=0 ; c < values.length ; c=c+2){
+      var nf = document.createElement('input');
+      nf.setAttribute('name', values[c]);
+      nf.setAttribute('id', values[c]);
+      nf.setAttribute('type', 'hidden');
+      nf.setAttribute('value', values[c+1] );
+      frm.appendChild(nf);
+   }
+
+
+
+
+
+   document.body.appendChild(frm);
+
+   frm.submit();
+
+}
+
