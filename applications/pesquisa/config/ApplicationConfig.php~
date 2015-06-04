@@ -1,0 +1,24 @@
+<?php
+
+class ps_config_ApplicationConfig{
+
+   public $actions=null;
+
+
+   public function getActions(){
+      if(is_null($this->actions)){
+         $this->setActions();
+      }
+      return $this->actions;
+   }
+
+
+   public function setActions(){
+      $this->actions = array(
+         'teste_act1' => 'ps_teste_controller_act1',
+      );
+   }
+
+}
+
+?>

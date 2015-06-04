@@ -1,0 +1,233 @@
+<?php
+
+/**
+ * Este arquivo Ã© parte do programa LiteFrame - lightWeight FrameWork
+ *
+ * Copyright (C) 2010 Anselmo S Ribeiro
+ *
+ */
+
+/**
+ *
+ * @package	LiteFrame - lightWeight FrameWork
+ * @version	1.0
+ * @since	1.0
+ * @author	Anselmo S Ribeiro <anselmo.sr@gmail.com>
+ * @copyright	2010 Anselmo S Ribeiro
+ * @licence	LGPL
+ */
+
+
+class procap_model_structure_andamentoFormStructure extends classes_model_structure_AbstractStructure
+{
+
+   function __construct(){
+      parent::__construct();
+   }
+
+
+   function setUpStructure(){
+
+
+      $this->formName = 'andamentoForm' ;
+
+      $this->table = 'procap_andamento';
+
+      $this->dao = 'procap_dao_andamentoDAO';
+
+      $this->col = array(
+
+      'id' => array(
+      'type' => 'integer',
+      'size' => 10,
+      'form'=>true,
+      'validate'=>false,
+      'qf_label'=>'id',
+      'qf_type'  => 'hidden',
+      ),
+
+
+
+      'tipo_id' => array(
+      'type' => 'integer',
+      'size' => 10,
+      'form'=>true,
+      'validate'=>true,
+      'qf_label'=>'Tipo',
+      'qf_type'  => 'select',
+      'qf_vals' => array('dao'=>'procap_dao_tipoandamentoDAO','functionName'=>'getTiposDeAndamento'),
+      'qf_rules' =>
+         array(
+         'required' => 'não pode ser vazio',
+         'maxlength' => array('máximo de 10 caracteres',10),
+         ),
+      ),
+
+
+
+      'processo_id' => array(
+      'type' => 'integer',
+      'size' => 10,
+      'form'=>true,
+      'validate'=>true,
+      'qf_label'=>'Processo',
+      'qf_type'  => 'hidden',
+      'qf_rules' =>
+         array(
+         'required' => 'não pode ser vazio',
+         'maxlength' => array('máximo de 10 caracteres',10),
+         ),
+      ),
+
+
+
+      'fase_id' => array(
+      'type' => 'integer',
+      'size' => 10,
+      'form'=>true,
+      'validate'=>true,
+      'qf_label'=>'Fase',
+      'qf_type'  => 'select',
+      'qf_vals' => array('dao'=>'procap_dao_faseDAO','functionName'=>'getFases'),
+      'qf_rules' =>
+         array(
+         'required' => 'não pode ser vazio',
+         'maxlength' => array('máximo de 10 caracteres',10),
+         ),
+      ),
+
+
+
+      'advogado_id' => array(
+      'type' => 'integer',
+      'size' => 10,
+      'form'=>true,
+      'validate'=>true,
+      'qf_label'=>'Distribuído para',
+      'qf_type'  => 'select',
+      'qf_vals' => array('dao'=>'procap_dao_advogadoDAO','functionName'=>'getTodosAdvogados'),
+      'qf_rules' =>
+         array(
+         'required' => 'não pode ser vazio',
+         'maxlength' => array('máximo de 10 caracteres',10),
+         ),
+      ),
+
+
+
+
+      'inicio_data' => array(
+      'type' => 'text',
+      'form'=>true,
+      'jscalendar' => true,
+      'size' => 10,
+      'qf_label' => 'Início',
+      'qf_rules' =>
+         array(
+         'maxlength' => array('máximo de 10 caracteres',10),
+         ),
+      ),
+
+
+
+
+      'termino_data' => array(
+      'type' => 'text',
+      'form'=>true,
+      'jscalendar' => true,
+      'size' => 10,
+      'qf_label' => 'Término',
+      'qf_rules' =>
+         array(
+         'maxlength' => array('máximo de 10 caracteres',10),
+         ),
+      ),
+
+
+
+
+      'conclusao_data' => array(
+      'type' => 'text',
+      'form'=>true,
+      'jscalendar' => true,
+      'size' => 10,
+      'qf_label' => 'Conclusão',
+      'qf_rules' =>
+         array(
+         'maxlength' => array('máximo de 10 caracteres',10),
+         ),
+      ),
+
+
+
+
+      'agenda' => array(
+      'type' => 'integer',
+      'form'=>true,
+      'validate'=>true,
+      'size' => 1,
+      'qf_label' => 'Aparece na Agenda',
+      'qf_type'  => 'radio',
+      'qf_rules' =>
+         array(
+         'required' => 'não pode ser vazio',
+         'numeric' => 'só número',
+         'maxlength' => array('máximo de 1 caracteres',1),
+         ),
+      'qf_vals' =>
+         array(
+         '1' => 'Sim',
+         '0' => 'Não',
+         ),
+      ),
+
+
+
+      'descricao' => array(
+      'type' => 'varchar',
+      'size' => 500,
+      'form'=>true,
+      'validate'=>true,
+      'qf_label'=>'Descrição',
+      'qf_type'  => 'textarea',
+      'qf_rules' =>
+         array(
+         'required' => 'não pode ser vazio',
+         'maxlength' => array('máximo de 500 caracteres',500),
+         ),
+      'qf_attrs' =>
+         array(
+         'rows' => '4',
+         'cols' => '40',
+         ),
+      ),
+
+
+
+
+
+
+
+      );
+
+
+
+      $this->idx = array(
+      'id' => 'primary',
+      );
+
+
+
+      $this->auto_inc_col = 'id';
+
+
+   }
+
+
+
+
+}
+
+
+
+?>
