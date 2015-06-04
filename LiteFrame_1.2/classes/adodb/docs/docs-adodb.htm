@@ -1,0 +1,1205 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="docs-adodb_files/filelist.xml">
+<link rel=Edit-Time-Data href="docs-adodb_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>ADODB Manual</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="country-region"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>John</o:Author>
+  <o:LastAuthor>John</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>3</o:TotalTime>
+  <o:Created>2008-12-24T10:43:00Z</o:Created>
+  <o:LastSaved>2008-12-24T10:46:00Z</o:LastSaved>
+  <o:Pages>73</o:Pages>
+  <o:Words>30239</o:Words>
+  <o:Characters>172366</o:Characters>
+  <o:Company> </o:Company>
+  <o:Lines>1436</o:Lines>
+  <o:Paragraphs>404</o:Paragraphs>
+  <o:CharactersWithSpaces>202201</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>140</w:Zoom>
+  <w:FormsDesign/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+f
+
+
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Tms Rmn";
+	panose-1:2 2 6 3 4 5 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Helv;
+	panose-1:2 11 6 4 2 2 2 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"New York";
+	panose-1:2 4 5 3 6 5 6 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:System;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:Batang;
+	panose-1:2 3 6 0 0 1 1 1 1 1;
+	mso-font-alt:\BC14\D0D5;
+	mso-font-charset:129;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 151388160 16 0 524288 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\5B8B\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-alt:\65B0\7D30\660E\9AD4;
+	mso-font-charset:136;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:1 134742016 16 0 1048576 0;}
+@font-face
+	{font-family:"MS Gothic";
+	panose-1:2 11 6 9 7 2 5 8 2 4;
+	mso-font-alt:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:Dotum;
+	panose-1:2 11 6 0 0 1 1 1 1 1;
+	mso-font-alt:\B3CB\C6C0;
+	mso-font-charset:129;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 151388160 16 0 524288 0;}
+@font-face
+	{font-family:SimHei;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:\9ED1\4F53;
+	mso-font-charset:134;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:MingLiU;
+	panose-1:2 2 3 9 0 0 0 0 0 0;
+	mso-font-alt:\7D30\660E\9AD4;
+	mso-font-charset:136;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134742016 16 0 1048576 0;}
+@font-face
+	{font-family:Mincho;
+	panose-1:2 2 6 9 4 3 5 8 3 5;
+	mso-font-alt:\660E\671D;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:Gulim;
+	panose-1:2 11 6 0 0 1 1 1 1 1;
+	mso-font-alt:\AD74\B9BC;
+	mso-font-charset:129;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 151388160 16 0 524288 0;}
+@font-face
+	{font-family:Century;
+	panose-1:2 4 6 4 5 5 5 2 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Angsana New";
+	panose-1:2 2 6 3 5 4 5 2 3 4;
+	mso-font-charset:222;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:16777217 0 0 0 65536 0;}
+@font-face
+	{font-family:"Cordia New";
+	panose-1:2 11 3 4 2 2 2 2 2 4;
+	mso-font-charset:222;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:16777217 0 0 0 65536 0;}
+@font-face
+	{font-family:Mangal;
+	panose-1:0 0 4 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:32768 0 0 0 0 0;}
+@font-face
+	{font-family:Latha;
+	panose-1:2 0 4 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:1048576 0 0 0 0 0;}
+@font-face
+	{font-family:Sylfaen;
+	panose-1:1 10 5 2 5 3 6 3 3 3;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:16778883 0 512 0 13 0;}
+@font-face
+	{font-family:Vrinda;
+	panose-1:0 0 4 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Raavi;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Shruti;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Sendnya;
+	panose-1:0 0 4 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Gautami;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Tunga;
+	panose-1:0 0 4 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:"Estrangelo Edessa";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Kartika;
+	panose-1:1 1 1 0 1 1 1 1 1 1;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	background:#EEEEEE;
+	border:none;
+	mso-border-alt:solid #DDDDDD .75pt;
+	padding:0cm;
+	mso-padding-alt:9.0pt 18.0pt 9.0pt 18.0pt;
+	font-size:9.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+span.msoIns
+	{mso-style-type:export-only;
+	mso-style-name:"";
+	text-decoration:underline;
+	text-underline:single;
+	color:teal;}
+span.msoDel
+	{mso-style-type:export-only;
+	mso-style-name:"";
+	text-decoration:line-through;
+	color:red;}
+span.msoChangeProp
+	{mso-style-type:export-only;
+	mso-style-name:"";}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:3098366;
+	mso-list-template-ids:-1654113918;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:118686534;
+	mso-list-template-ids:1789952844;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:325595838;
+	mso-list-template-ids:-924547596;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:577053254;
+	mso-list-template-ids:1006266472;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:584261941;
+	mso-list-template-ids:1672376844;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:678311197;
+	mso-list-template-ids:-1025849406;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:993068284;
+	mso-list-template-ids:-1149100626;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:1120344907;
+	mso-list-template-ids:-1732590280;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:1134718884;
+	mso-list-template-ids:-1854392276;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l9
+	{mso-list-id:1289897560;
+	mso-list-template-ids:-1284101662;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l10
+	{mso-list-id:1461026030;
+	mso-list-template-ids:65944450;}
+@list l11
+	{mso-list-id:1566380536;
+	mso-list-template-ids:395727058;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<h2>ADOdb Library for PHP</h2>
+
+<p>V5.06 16 Oct 2008 (c) 2000-2009 John Lim (jlim#natsoft.com)</p>
+
+<p><span style='font-size:7.5pt'>This software is dual licensed using BSD-Style
+and LGPL. This means you can use it in compiled proprietary and commercial
+products.</span></p>
+
+<p>Useful ADOdb links: <a href="http://adodb.sourceforge.net/#download">Download</a>
+&nbsp; <a href="http://adodb.sourceforge.net/#docs">Other Docs</a> </p>
+
+<p><a href="#intro"><b>Introduction</b></a><b><br>
+<a href="#features">Unique Features</a><br>
+<a href="#users">How People are using ADOdb</a><br>
+<a href="#bugs">Feature Requests and Bug Reports</a><br>
+<a href="#install">Installation</a><br>
+<a href="#mininstall">Minimum Install</a><br>
+<a href="#coding">Initializing Code and Connectioning to Databases</a><br>
+</b><span style='font-size:10.0pt'>&nbsp; <a href="#dsnsupport">Data Source
+Name (DSN) Support</a></span> &nbsp; <a href="#connect_ex">Connection Examples</a>
+<br>
+<b><a href="#speed">High Speed ADOdb - tuning tips</a></b><br>
+<b><a href="#hack">Hacking and Modifying ADOdb Safely</a><br>
+<a href="#php5">PHP5 Features</a></b><br>
+<span style='font-size:10.0pt'><a href="#php5iterators">foreach iterators</a> <a
+href="#php5exceptions">exceptions</a></span><br>
+<b><a href="#drivers">Supported Databases</a></b><br>
+<b><a href="#quickstart">Tutorials</a></b><br>
+<a href="#ex1">Example 1: Select</a><br>
+<a href="#ex2">Example 2: Advanced Select</a><br>
+<a href="#ex3">Example 3: Insert</a><br>
+<a href="#ex4">Example 4: Debugging</a> &nbsp;<a href="#exrs2html">rs2html
+example</a><br>
+<a href="#ex5">Example 5: MySQL and Menus</a><br>
+<a href="#ex6">Example 6: Connecting to Multiple Databases at once</a> <br>
+<a href="#ex7">Example 7: Generating Update and Insert SQL</a> <br>
+<a href="#ex8">Example 8: Implementing Scrolling with Next and Previous</a><br>
+<a href="#ex9">Example 9: Exporting in CSV or Tab-Delimited Format</a> <br>
+<a href="#ex10">Example 10: Custom filters</a><br>
+<a href="#ex11">Example 11: Smart Transactions</a><br>
+<br>
+<b><a href="#errorhandling">Using Custom Error Handlers and PEAR_Error</a><br>
+<a href="#DSN">Data Source Names</a><br>
+<a href="#caching">Caching</a></b><br>
+&nbsp; &nbsp; <a href="#memcache">MemCache</a><br>
+&nbsp; &nbsp; <a href="#cacheapi">Caching API</a><br>
+<b><a href="#pivot">Pivot Tables</a></b> </p>
+
+<p><a href="#ref"><b>REFERENCE</b></a> </p>
+
+<p><span style='font-size:10.0pt'>Variables: <a href="#adodb_countrecs">$ADODB_COUNTRECS</a>
+<a href="#adodb_ansi_padding_off">$ADODB_ANSI_PADDING_OFF</a> <a
+href="#adodb_cache_dir">$ADODB_CACHE_DIR</a> <br>
+&nbsp; &nbsp; &nbsp; &nbsp; <a href="#force_type">$ADODB_FORCE_TYPE</a> <a
+href="#adodb_fetch_mode">$ADODB_FETCH_MODE</a> <a href="#adodb_lang">$ADODB_LANG</a>
+<a href="#adodb_auto_quote">ADODB_QUOTE_FIELDNAMES</a> <br>
+Constants: <a href="#adodb_assoc_case">ADODB_ASSOC_CASE</a> </span><br>
+<a href="#ADOConnection"><b>ADOConnection</b></a><br>
+<span style='font-size:10.0pt'>Connections: <a href="#connect">Connect</a> <a
+href="#pconnect">PConnect</a> <a href="#nconnect">NConnect</a> <a
+href="#isconnected">IsConnected</a><br>
+Executing SQL: <a href="#execute">Execute</a> <a href="#cacheexecute"><i>CacheExecute</i></a>
+<a href="#selectlimit">SelectLimit</a> <a href="#cacheSelectLimit"><i>CacheSelectLimit</i></a>
+<a href="#param">Param</a> <a href="#prepare">Prepare</a> <a href="#preparesp">PrepareSP</a>
+<a href="#inparameter">InParameter</a> <a href="#outparameter">OutParameter</a>
+<a href="#autoexecute">AutoExecute</a> <br>
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+href="#getone">GetOne</a> <a href="#cachegetone"><i>CacheGetOne</i></a> <a
+href="#getrow">GetRow</a> <a href="#cachegetrow"><i>CacheGetRow</i></a> <a
+href="#getall">GetAll</a> <a href="#cachegetall"><i>CacheGetAll</i></a> <a
+href="#getcol">GetCol</a> <a href="#cachegetcol"><i>CacheGetCol</i></a> <a
+href="#getassoc1">GetAssoc</a> <a href="#cachegetassoc"><i>CacheGetAssoc</i></a>
+<a href="#replace">Replace</a> <a href="#getmedian">GetMedian</a> <br>
+&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+href="#executecursor">ExecuteCursor</a> (oci8 only)<br>
+Generates SQL strings: <a href="#getupdatesql">GetUpdateSQL</a> <a
+href="#getinsertsql">GetInsertSQL</a> <a href="#concat">Concat</a> <a
+href="#ifnull">IfNull</a> <a href="#length">length</a> <a href="#random">random</a>
+<a href="#substr">substr</a> <a href="#qstr">qstr</a> <a href="#param">Param</a>
+<a href="#OffsetDate">OffsetDate</a> <a href="#sqldate">SQLDate</a> <a
+href="#dbdate">DBDate</a> <a href="#dbtimestamp">DBTimeStamp</a> <a
+href="#binddate">BindDate</a> <a href="#bindtimestamp">BindTimeStamp</a> <br>
+Blobs: <a href="#updateblob">UpdateBlob</a> <a href="#updateclob">UpdateClob</a>
+<a href="#updateblobfile">UpdateBlobFile</a> <a href="#blobencode">BlobEncode</a>
+<a href="#blobdecode">BlobDecode</a><br>
+Paging/Scrolling: <a href="#pageexecute">PageExecute</a> <a
+href="#cachepageexecute">CachePageExecute</a><br>
+Cleanup: <a href="#cacheflush">CacheFlush</a> <a href="#Close">Close</a><br>
+Transactions: <a href="#starttrans">StartTrans</a> <a href="#completetrans">CompleteTrans</a>
+<a href="#failtrans">FailTrans</a> <a href="#hasfailedtrans">HasFailedTrans</a>
+<a href="#begintrans">BeginTrans</a> <a href="#committrans">CommitTrans</a> <a
+href="#rollbacktrans">RollbackTrans</a> <a href="#SetTransactionMode">SetTransactionMode</a><br>
+Fetching Data: <a href="#setfetchmode">SetFetchMode</a><br>
+Strings: <a href="#concat">concat</a> <a href="#length">length</a> <a
+href="#qstr">qstr</a> <a href="#quote">quote</a> <a href="#substr">substr</a><br>
+Dates: <a href="#dbdate">DBDate</a> <a href="#dbtimestamp">DBTimeStamp</a> <a
+href="#unixdate">UnixDate</a> <a href="#binddate">BindDate</a> <a
+href="#bindtimestamp">BindTimeStamp</a> <a href="#unixtimestamp">UnixTimeStamp</a>
+<a href="#OffsetDate">OffsetDate</a> <a href="#SQLDate">SQLDate</a> <br>
+Row Management: <a href="#affected_rows">Affected_Rows</a> <a
+href="#inserted_id">Insert_ID</a> <a href="#rowlock">RowLock</a> <a
+href="#genid">GenID</a> <a href="#createseq">CreateSequence</a> <a
+href="#dropseq">DropSequence</a> <br>
+Error Handling: <a href="#errormsg">ErrorMsg</a> <a href="#errorno">ErrorNo</a>
+<a href="#metaerror">MetaError</a> <a href="#metaerrormsg">MetaErrorMsg</a> <a
+href="#ignoreerrors">IgnoreErrors</a><br>
+Data Dictionary (metadata): <a href="#metadatabases">MetaDatabases</a> <a
+href="#metatables">MetaTables</a> <a href="#metacolumns">MetaColumns</a> <a
+href="#metacolumnames">MetaColumnNames</a> <a href="#metaprimarykeys">MetaPrimaryKeys</a>
+<a href="#metaforeignkeys">MetaForeignKeys</a> <a href="#serverinfo">ServerInfo</a>
+<br>
+Statistics and Query-Rewriting: <a href="#logsql">LogSQL</a> <a
+href="#fnexecute">fnExecute and fnCacheExecute</a><br>
+Deprecated: <a href="#bind">Bind</a> <a href="#blankrecordset">BlankRecordSet</a>
+<a href="#parameter">Parameter</a></span> <a href="#adorecordSet"><b><br>
+ADORecordSet</b></a><br>
+<span style='font-size:10.0pt'>Returns one field: <a href="#fields">Fields</a><br>
+Returns one row:<a href="#fetchrow">FetchRow</a> <a href="#fetchinto">FetchInto</a>
+<a href="#fetchobject">FetchObject</a> <a href="#fetchnextobject">FetchNextObject</a>
+<a href="#fetchobj">FetchObj</a> <a href="#fetchnextobj">FetchNextObj</a> <a
+href="#getrowassoc">GetRowAssoc</a> <br>
+Returns all rows:<a href="#getarray">GetArray</a> <a href="#getrows">GetRows</a>
+<a href="#getassoc">GetAssoc</a><br>
+Scrolling:<a href="#move">Move</a> <a href="#movenext">MoveNext</a> <a
+href="#movefirst">MoveFirst</a> <a href="#movelast">MoveLast</a> <a
+href="#abspos">AbsolutePosition</a> <a href="#currentrow">CurrentRow</a> <a
+href="#atfirstpage">AtFirstPage</a> <a href="#atlastpage">AtLastPage</a> <a
+href="#absolutepage">AbsolutePage</a> <br>
+Menu generation:<a href="#getmenu">GetMenu</a> <a href="#getmenu2">GetMenu2</a><br>
+Dates:<a href="#userdate">UserDate</a> <a href="#usertimestamp">UserTimeStamp</a>
+<a href="#unixdate">UnixDate</a> <a href="#unixtimestamp">UnixTimeStamp<br>
+</a>Recordset Info:<a href="#recordcount">RecordCount</a> <a
+href="#po_recordcount">PO_RecordCount</a> <a href="#nextrecordset">NextRecordSet</a><br>
+Field Info:<a href="#fieldcount">FieldCount</a> <a href="#fetchfield">FetchField</a>
+<a href="#metatype">MetaType</a><br>
+Cleanup: <a href="#rsclose">Close</a></span> </p>
+
+<p><span style='font-size:10.0pt'><a href="#rs2html"><b>rs2html</b></a>&nbsp; <a
+href="#exrs2html">example</a></span><br>
+<a href="#adodiff">Differences between ADOdb and ADO</a><br>
+<a href="#driverguide"><b>Database Driver Guide<br>
+</b></a><b><a href="#changes">Change Log</a></b></p>
+
+<h2>Introduction<a name=intro></a></h2>
+
+<p>PHP's database access functions are not standardised. This creates a need
+for a database class library to hide the differences between the different
+database API's (encapsulate the differences) so we can easily switch databases.
+PHP 4.0.5 or later is now required (because we use array-based str_replace).</p>
+
+<p>We currently support MySQL, Oracle, Microsoft SQL Server, Sybase, Sybase SQL
+Anywhere, Informix, PostgreSQL, FrontBase, SQLite, Interbase (Firebird and
+Borland variants), Foxpro, Access, <st1:City w:st="on"><st1:place w:st="on">ADO</st1:place></st1:City>,
+DB2, SAP DB and ODBC. We have had successful reports of connecting to Progress
+and CacheLite via ODBC. We hope more people will contribute drivers to support
+other databases.</p>
+
+<p>PHP4 supports session variables. You can store your session information
+using ADOdb for true portability and scalability. See adodb-session.php for
+more information.</p>
+
+<p>Also read <a href="http://phplens.com/lens/adodb/tips_portable_sql.htm">tips_portable_sql.htm</a>
+for tips on writing portable SQL.</p>
+
+<h2>Unique Features of ADOdb<a name=features></a></h2>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list 36.0pt'><b>Easy for Windows
+     programmers</b> to adapt to because many of the conventions are similar to
+     Microsoft's <st1:City w:st="on"><st1:place w:st="on">ADO</st1:place></st1:City>.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list 36.0pt'>Unlike other PHP database
+     classes which focus only on select statements, <b>we provide support code
+     to handle inserts and updates which can be adapted to multiple databases
+     quickly.</b> Methods are provided for date handling, string concatenation
+     and string quoting characters for differing databases.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list 36.0pt'>A<b> metatype system </b>is
+     built in so that we can figure out that types such as CHAR, TEXT and
+     STRING are equivalent in different databases.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list 36.0pt'><b>Easy to port</b> because
+     all the database dependant code are stored in stub functions. You do not
+     need to port the core logic of the classes.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list 36.0pt'><b>Portable table and index
+     creation</b> with the <a href="docs-datadict.htm">datadict</a> classes. </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list 36.0pt'><b>Database performance
+     monitoring and SQL tuning</b> with the <a href="docs-perf.htm">performance
+     monitoring</a> classes. </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list 36.0pt'><b>Database-backed sessions</b>
+     with the <a href="docs-session.htm">session management</a> classes.
+     Supports session expiry notification. </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list 36.0pt'><b>Object-Relational
+     Mapping</b> using <a href="docs-active-record.htm">ADOdb_Active_Record</a>
+     classes. </li>
+</ul>
+
+<h2>How People are using ADOdb<a name=users></a></h2>
+
+<p class=MsoNormal>Here are some examples of how people are using ADOdb (for a
+much longer list, visit <a
+href="http://phplens.com/phpeverywhere/adodb-cool-apps">adodb-cool-apps</a>): </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo2;tab-stops:list 36.0pt'><a
+     href="http://phplens.com/">PhpLens</a> is a commercial data grid component
+     that allows both cool Web designers and serious unshaved programmers to
+     develop and maintain databases on the Web easily. Developed by the author
+     of ADOdb.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo2;tab-stops:list 36.0pt'><a
+     href="http://www.interakt.ro/phakt/">PHAkt: PHP Extension for DreamWeaver
+     Ultradev</a> allows you to script PHP in the popular Web page editor.
+     Database handling provided by ADOdb.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo2;tab-stops:list 36.0pt'><a
+     href="http://www.andrew.cmu.edu/%7Erdanyliw/snort/snortacid.html">Analysis
+     Console for Intrusion Databases</a> (ACID): PHP-based analysis engine to
+     search and process a database of security incidents generated by
+     security-related software such as IDSes and firewalls (e.g. Snort,
+     ipchains). By Roman Danyliw.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo2;tab-stops:list 36.0pt'><a
+     href="http://www.postnuke.com/">PostNuke</a> is a very popular free
+     content management system and weblog system. It offers full CSS support,
+     HTML 4.01 transitional compliance throughout, an advanced blocks system,
+     and is fully multi-lingual enabled. </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo2;tab-stops:list 36.0pt'><a
+     href="http://www.auto-net.no/easypublish.php?page=index&amp;lang_id=2">EasyPublish
+     CMS</a> is another free content management system for managing information
+     and integrated modules on your internet, intranet- and extranet-sites.
+     From <st1:country-region w:st="on"><st1:place w:st="on">Norway</st1:place></st1:country-region>.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo2;tab-stops:list 36.0pt'><a
+     href="http://nola.noguska.com/">NOLA</a> is a full featured accounting,
+     inventory, and job tracking application. It is licensed under the GPL, and
+     developed by Noguska. </li>
+</ul>
+
+<h2>Feature Requests and Bug Reports<a name=bugs></a></h2>
+
+<p>Feature requests and bug reports can be emailed to <a
+href="mailto:jlim#natsoft.com">jlim#natsoft.com</a> or posted to the ADOdb Help
+forums at <a href="http://phplens.com/lens/lensforum/topics.php?id=4">http://phplens.com/lens/lensforum/topics.php?id=4</a>.</p>
+
+<h2>Installation Guide<a name=install></a></h2>
+
+<p>Make sure you are running PHP 4.0.5 or later. Unpack all the files into a
+directory accessible by your webserver.</p>
+
+<p>To test, try modifying some of the tutorial examples. Make sure you
+customize the connection settings correctly. You can debug using <i>$db-&gt;debug
+= true</i> as shown below:</p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre
+style='background:#EEEEEE'>&lt;?php<br>
+<span style='mso-tab-count:1'>         </span>include('adodb/adodb.inc.php');<br>
+<span style='mso-tab-count:1'>         </span>$db = <a href="#adonewconnection">ADONewConnection</a>($dbdriver); # eg 'mysql' or 'postgres'<br>
+<span style='mso-tab-count:1'>         </span>$db-&gt;debug = true;<br>
+<span style='mso-tab-count:1'>         </span>$db-&gt;<a href="#connect">Connect</a>($server, $user, $password, $database);<br>
+<span style='mso-tab-count:1'>         </span>$rs = $db-&gt;<a href="#execute">Execute</a>('select * from some_small_table');<br>
+<span style='mso-tab-count:1'>         </span>print &quot;&lt;pre&gt;&quot;;<br>
+<span style='mso-tab-count:1'>         </span>print_r($rs-&gt;<a href="#getrows">GetRows</a>());<br>
+<span style='mso-tab-count:1'>         </span>print &quot;&lt;/pre&gt;&quot;;<br>
+?&gt;</pre></div>
+
+<h3>Minimum Install<a name=mininstall></a></h3>
+
+<p>For developers who want to release a minimal install of ADOdb, you will
+need: </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo3;tab-stops:list 36.0pt'>adodb.inc.php </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo3;tab-stops:list 36.0pt'>adodb-lib.inc.php </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo3;tab-stops:list 36.0pt'>adodb-time.inc.php </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo3;tab-stops:list 36.0pt'>drivers/adodb-$database.inc.php
+     </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo3;tab-stops:list 36.0pt'>license.txt (for legal
+     reasons) </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo3;tab-stops:list 36.0pt'>adodb-php4.inc.php </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo3;tab-stops:list 36.0pt'>adodb-iterator.inc.php
+     (php5 functionality) </li>
+</ul>
+
+<p class=MsoNormal>Optional: </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo4;tab-stops:list 36.0pt'>adodb-error.inc.php and
+     lang/adodb-$lang.inc.php (if you use MetaError()) </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo4;tab-stops:list 36.0pt'>adodb-csvlib.inc.php (if
+     you use cached recordsets - CacheExecute(), etc) </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo4;tab-stops:list 36.0pt'>adodb-exceptions.inc.php
+     and adodb-errorhandler.inc.php (if you use adodb error handler or php5
+     exceptions). </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo4;tab-stops:list 36.0pt'>adodb-active-record.inc.php
+     if you use <a href="docs-active-record.htm">Active Records</a>. </li>
+</ul>
+
+<h3>Code Initialization Examples<a name=coding></a></h3>
+
+<p>When running ADOdb, at least two files are loaded. First is
+adodb/adodb.inc.php, which contains all functions used by all database classes.
+The code specific to a particular database is in the
+adodb/driver/adodb-????.inc.php file.</p>
+
+<p><a name=adonewconnection></a>For example, to connect to a mysql database:</p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre
+style='background:#EEEEEE'>include('/path/to/set/here/adodb.inc.php');<br>
+$conn = &amp;ADONewConnection('mysql');</pre></div>
+
+<p>Whenever you need to connect to a database, you create a Connection object
+using the <b>ADONewConnection</b>($driver) function. <b>NewADOConnection</b>($driver)
+is an alternative name for the same function.</p>
+
+<p>At this point, you are not connected to the database (no longer true if you
+pass in a <a href="#dsnsupport">dsn</a>). You will first need to decide whether
+to use <i>persistent</i> or <i>non-persistent</i> connections. The advantage of
+<i>persistent</i> connections is that they are faster, as the database
+connection is never closed (even when you call Close()). <i>Non-persistent </i>connections
+take up much fewer resources though, reducing the risk of your database and
+your web-server becoming overloaded. </p>
+
+<p>For persistent connections, use $conn-&gt;<a href="#pconnect">PConnect()</a>,
+or $conn-&gt;<a href="#connect">Connect()</a> for non-persistent connections.
+Some database drivers also support <a href="#nconnect">NConnect()</a>, which
+forces the creation of a new connection. <a name="connection_gotcha"></a></p>
+
+<p><b>Connection Gotcha</b>: If you create two connections, but both use the
+same userid and password, PHP will share the same connection. This can cause
+problems if the connections are meant to different databases. The solution is
+to always use different userid's for different databases, or use NConnect(). <a
+name=dsnsupport></a></p>
+
+<h3>Data Source Name (DSN) Support</h3>
+
+<p>Since ADOdb 4.51, you can connect to a database by passing a dsn to
+NewADOConnection() (or ADONewConnection, which is the same function). The dsn
+format is: </p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre
+style='background:#EEEEEE'><span style='mso-tab-count:1'>         </span>$driver://$username:$password@hostname/$database?options[=value]</pre></div>
+
+<p>NewADOConnection() calls Connect() or PConnect() internally for you. If the
+connection fails, false is returned. </p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre><span
+style='mso-tab-count:1'>         </span><span style='color:green'># non-persistent connection</span></pre><pre><span
+style='mso-tab-count:1'>         </span>$dsn = 'mysql://root:pwd@localhost/mydb'; </pre><pre><span
+style='mso-tab-count:1'>         </span>$db = NewADOConnection($dsn);</pre><pre><span
+style='mso-tab-count:1'>         </span>if (!$db) die(&quot;Connection failed&quot;);<span style='mso-spacerun:yes'>   </span></pre><pre><span
+style='mso-tab-count:1'>         </span></pre><pre><span style='mso-tab-count:
+1'>         </span><span style='color:green'># no need to call connect/pconnect!</span></pre><pre><span
+style='mso-tab-count:1'>         </span>$arr = $db-&gt;GetArray(&quot;select * from table&quot;);</pre><pre><span
+style='mso-tab-count:1'>         </span></pre><pre><span style='mso-tab-count:
+1'>         </span><span style='color:green'># persistent connection</span></pre>
+<pre><span
+style='mso-tab-count:1'>         </span>$dsn2 = 'mysql://root:pwd@localhost/mydb?persist'; 
+<span
+style='mso-tab-count:1'></span></pre>
+<pre><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='color:green'># non-persistent connection on port 3000</span></pre>
+<pre><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>$dsn2 = 'mysqli://root:pwd@localhost/mydb?persist=0&amp;port=3000';</pre>
+</div>
+
+<p>If you have special characters such as /:?_ in your dsn, then you need to
+rawurlencode them first: </p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre><span
+style='mso-tab-count:1'>         </span>$pwd = rawurlencode($pwd);<br>
+<span style='mso-tab-count:1'>         </span>$dsn = &quot;mysql://root:$pwd@localhost/mydb&quot;;</pre><pre
+style='background:#EEEEEE'><span style='mso-tab-count:1'>         </span>$dsn2=rawurlencode(&quot;sybase_ase&quot;).&quot;://user:pass@host/path?query&quot;;</pre></div>
+
+<p>Legal options are: </p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellpadding=0 style='mso-cellspacing:1.5pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>For all drivers</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>'persist', 'persistent', 'debug', 'fetchmode', 'new' , 'cachesecs', 'memcache'</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Interbase/Firebird </p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>'dialect','charset','buffers','role' </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>M'soft <st1:City w:st="on"><st1:place w:st="on">ADO</st1:place></st1:City></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>'charpage' </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>MySQL</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>'clientflags' </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>MySQLi</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>'port', 'socket', 'clientflags' </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Oci8</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>'nls_date_format','charset' </p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p>For all drivers, when the options <i>persist</i> or <i>persistent</i> are
+set, a persistent connection is forced; similarly, when <i>new</i> is set, then
+a new connection will be created using NConnect if the underlying driver
+supports it. The <i>debug</i> option enables debugging. The <i>fetchmode</i>
+calls <a href="#setfetchmode">SetFetchMode()</a>. If no value is defined for an
+option, then the value is set to 1. </p>
+
+<p>Since ADOdb 5.09, we added 2 new parameters:</p>
+<ul>
+<li class=MsoNormal><i>cachesecs</i> which globally determines how many seconds to cache recordsets (default is 3600 secs if not defined) when
+CacheExecute() and CacheSelectLimit() are called and no cache-time parameter is passed into these functions.
+<li class=MsoNormal><i>memcache</i> which defines the memcache host, port and whether to use compression. For example:
+<pre>
+	# we have a memcache server at 10.1.1.22 using default port 11211, no compression
+	$dsn = 'mysql://user:pwd@localhost/mydb?memcache=10.1.1.22'; 
+	
+	# we have a memcache server 10.1.1.22 port 8888, compression=on
+	$dsn = 'mysql://user:pwd@localhost/mydb?memcache=10.1.1.22:8888:1';
+	 	
+	# we have a memcache servers mem1,mem2 on port 8888, compression=off
+	$dsn = 'mysql://user:pwd@localhost/mydb?memcache=mem1,mem2:8888:0'; 
+	
+	# we have a memcache servers mem1,mem2 on port 8888, compression=off and cachesecs=120
+	$dsn = 'mysql://user:pwd@localhost/mydb?memcache=mem1,mem2:8888:0&cachesecs=120';
+</pre>
+</ul>
+
+<p>ADOdb DSN's are compatible with version 1.0 of PEAR DB's DSN format. <a
+name="connect_ex"></a></p>
+
+<h3><span style='mso-bookmark:connect_ex'>Examples of Connecting to Databases</span></h3>
+
+<h4><span style='mso-bookmark:connect_ex'>MySQL and Most Other Database Drivers</span></h4>
+
+<p><span style='mso-bookmark:connect_ex'>MySQL connections are very
+straightforward, and the parameters are identical to mysql_connect:</span></p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$conn = &amp;ADONewConnection('mysql'); <br>
+<span style='mso-tab-count:1'>         </span>$conn-&gt;PConnect('localhost','userid','password','database');<br>
+<span style='mso-tab-count:1'>         </span><br>
+<span style='mso-tab-count:1'>         </span></span><span style='mso-bookmark:
+connect_ex'><span style='color:green'># or dsn </span></span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$dsn = 'mysql://user:pwd@localhost/mydb'; </span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$conn = ADONewConnection($dsn);<span style='mso-spacerun:yes'>  </span># no need for Connect()</span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span></span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span></span><span
+style='mso-bookmark:connect_ex'><span style='color:green'># or persistent dsn</span></span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$dsn = 'mysql://user:pwd@localhost/mydb?persist'; </span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$conn = ADONewConnection($dsn);<span style='mso-spacerun:yes'>  </span># no need for PConnect()</span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span></span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span></span><span
+style='mso-bookmark:connect_ex'><span style='color:green'># a more complex example:</span></span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$pwd = urlencode($pwd);</span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$flags =<span style='mso-spacerun:yes'>  </span>MYSQL_CLIENT_COMPRESS;</span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$dsn = &quot;mysql://user:$pwd@localhost/mydb?persist&amp;clientflags=$flags&quot;;</span></pre><pre><span
+style='mso-bookmark:connect_ex'><span style='mso-tab-count:1'>         </span>$conn = ADONewConnection($dsn);<span style='mso-spacerun:yes'>  </span># no need for PConnect()</span></pre><pre
+style='background:#EEEEEE'><span style='mso-bookmark:connect_ex'> </span></pre></div>
+
+<p><span style='mso-bookmark:connect_ex'>For most drivers, you can use the
+standard function: Connect($server, $user, $password, $database), or a </span><a
+href="dsnsupport">DSN</a> since ADOdb 4.51. Exceptions to this are listed
+below. </p>
+
+<h4><a name=pdo>PDO</a></h4>
+
+<p><span style='mso-bookmark:pdo'>PDO, which only works with PHP5, accepts a
+driver specific connection string: </span></p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre><span
+style='mso-bookmark:pdo'><o:p>&nbsp;</o:p></span></pre><pre><span
+style='mso-bookmark:pdo'><span style='mso-tab-count:1'>         </span>$conn =&amp; NewADConnection('pdo');</span></pre><pre><span
+style='mso-bookmark:pdo'><span style='mso-tab-count:1'>         </span>$conn-&gt;Connect('mysql:host=localhost',$user,$pwd,$mydb);</span></pre><pre><span
+style='mso-bookmark:pdo'><span style='mso-tab-count:1'>         </span>$conn-&gt;Connect('mysql:host=localhost;dbname=mydb',$user,$pwd);</span></pre><pre><span
+style='mso-bookmark:pdo'><span style='mso-tab-count:1'>         </span>$conn-&gt;Connect(&quot;mysql:host=localhost;dbname=mydb;username=$user;password=$pwd&quot;);</span></pre></div>
+
+<p><span style='mso-bookmark:pdo'>The DSN mechanism is also supported: </span></p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre><span
+style='mso-bookmark:pdo'><o:p>&nbsp;</o:p></span></pre><pre><span
+style='mso-bookmark:pdo'><span style='mso-tab-count:1'>         </span>$conn =&amp; NewADConnection(&quot;pdo_mysql://user:pwd@localhost/mydb?persist&quot;); # persist is optional</span></pre></div>
+
+<h4><span style='mso-bookmark:pdo'>PostgreSQL</span></h4>
+
+<p><span style='mso-bookmark:pdo'>PostgreSQL 7 and 8 accepts connections using:
+</span></p>
+
+<p><span style='mso-bookmark:pdo'>a. the standard connection string:</span></p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre
+style='background:#EEEEEE'><span style='mso-bookmark:pdo'><span
+style='mso-tab-count:1'>         </span>$conn = &amp;ADONewConnection('postgres');<span style='mso-spacerun:yes'>  </span><br>
+<span style='mso-tab-count:1'>         </span>$conn-&gt;PConnect('host=localhost port=5432 dbname=mary');</span></pre></div>
+
+<p><span style='mso-bookmark:pdo'>b. the classical 4 parameters:</span></p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre
+style='background:#EEEEEE'><span style='mso-bookmark:pdo'><span
+style='mso-tab-count:1'>         </span>$conn-&gt;PConnect('localhost','userid','password','database');<br>
+<span style='mso-spacerun:yes'> </span></span></pre></div>
+
+<p><span style='mso-bookmark:pdo'>c. dsn: </span></p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre><span
+style='mso-bookmark:pdo'><span style='mso-tab-count:1'>         </span>$dsn = 'postgres://user:pwd@localhost/mydb?persist';<span style='mso-spacerun:yes'>  </span># persist is optional</span></pre><pre
+style='background:#EEEEEE'><span style='mso-bookmark:pdo'><span
+style='mso-tab-count:1'>         </span>$conn = ADONewConnection($dsn);<span style='mso-spacerun:yes'>  </span># no need for Connect/PConnect</span></pre></div>
+
+<span style='mso-bookmark:pdo'></span>
+
+<h4><a name=ldap></a>LDAP</h4>
+
+<p>Here is an example of querying a LDAP server. Thanks to Josh Eldridge for
+the driver and this example: </p>
+
+<div style='mso-element:para-border-div;border:solid #DDDDDD 1.0pt;mso-border-alt:
+solid #DDDDDD .75pt;padding:9.0pt 18.0pt 9.0pt 18.0pt;background:#EEEEEE'><pre><o:p>&nbsp;</o:p></pre><pre>require('/path/to/adodb.inc.php');</pre><pre><o:p>&nbsp;</o:p></pre><pre>/* Make sure to set this BEFORE calling Connect() */</pre><pre>$LDAP_CONNECT_OPTIONS = Array(</pre><pre><span
+style='mso-tab-count:1'>         </span>Array (&quot;OPTION_NAME&quot;=&gt;LDAP_OPT_DEREF, &quot;OPTION_VALUE&quot;=&gt;2),</pre><pre><span
+style='mso-tab-count:1'>         </span>Array (&quot;OPTION_NAME&quot;=&gt;LDAP_OPT_SIZELIMIT,&quot;OPTION_VALUE&quot;=&gt;100),</pre><pre><span
+style='mso-tab-count:1'>         </span>Array (&quot;OPTION_NAME&quot;=&gt;LDAP_OPT_TIMELIMIT,&quot;OPTION_VALUE&quot;=&gt;30),</pre><pre><span
+style='mso-tab-count:1'>         </span>Array (&quot;OPTION_NAME&quot;=&gt;LDAP_OPT_PROTOCOL_VERSION,&quot;OPTION_VALUE&quot;=&gt;3),</pre><pre><span
+style='mso-tab-count:1'>         </span>Array (&quot;OPTION_NAME&quot;=&gt;LDAP_OPT_ERROR_NUMBER,&quot;OPTION_VALUE&quot;=&gt;13),</pre><pre><span
+style='mso-tab-count:1'>         </span>Array (&quot;OPTION_NAME&quot;=&gt;LDAP_OPT_REFERRALS,&quot;OPTION_VALUE&quot;=&gt;FALSE),</pre><pre><span
+style='mso-tab-count:1'>         </span>Array (&quot;OPTION_NAME&quot;=&gt;LDAP_OPT_RESTART,&quot;OPTION_VALUE&quot;=&gt;FALSE)</pre><pre>);</pre><pre>$host = 'ldap.baylor.edu';</pre><pre>$ldapbase = 'ou=People,o=<st1:place
+w:st="on"><st1:PlaceName w:st="on">Baylor</st1:PlaceName> <st1:PlaceType w:st="on

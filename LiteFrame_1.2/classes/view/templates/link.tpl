@@ -1,0 +1,1 @@
+<a href="##HREF##" class="##CLASS##" name="##NAME##" id="##ID##" title="##TITLE##">##CONTENT##</a>

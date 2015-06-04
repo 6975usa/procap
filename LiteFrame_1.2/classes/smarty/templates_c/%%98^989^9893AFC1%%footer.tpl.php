@@ -1,0 +1,34 @@
+<?php /* Smarty version 2.6.19, created on 2011-09-09 23:51:49
+         compiled from /var/www/procap/LiteFrame_1.2/config/custom/../../../../procap/applications/login/templates/footer.tpl */ ?>
+                <div class="art-footer">
+                    <div class="art-footer-t"></div>
+                    <div class="art-footer-l"></div>
+                    <div class="art-footer-b"></div>
+                    <div class="art-footer-r"></div>
+                    <div class="art-footer-body">
+                        <div class="art-footer-text">
+                            <p><a href="#">Link1</a> | <a href="#">Link2</a> | <a href="#">Link3</a></p><p>Copyright © 2011. All Rights Reserved.</p>
+
+                        </div>
+                		<div class="cleared"></div>
+                    </div>
+                </div>
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        <div class="cleared"></div>
+        <p class="art-page-footer"></p>
+
+    </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
+
+
+
