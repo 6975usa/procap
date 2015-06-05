@@ -1,6 +1,6 @@
 <?php
 /*
-  (c) 2000-2007 John Lim (jlim#natsoft.com.my). All rights reserved.
+  (c) 2000-2014 John Lim (jlim#natsoft.com.my). All rights reserved.
   Portions Copyright (c) 2007-2009, iAnywhere Solutions, Inc.
   All rights reserved. All unpublished rights reserved.
 
@@ -206,7 +206,7 @@ class ADODB_ads extends ADOConnection {
                 if ($this->_haserrorfunctions) {
       if ($this->_errorCode !== false) {
         // bug in 4.0.6, error number can be corrupted string (should be 6 digits)
-        return (strlen($this->_errorCode)<=2) ? 0 : $this->_errorCode;
+        return (strlen($this->_errorCode)<=2) ? 0 : $this->_errorCode;
       }
 
       if (empty($this->_connectionID)) $e = @ads_error();
@@ -722,7 +722,7 @@ class ADORecordSet_ads extends ADORecordSet {
   function &GetArrayLimit($nrows,$offset=-1)
   {
     if ($offset <= 0) {
-      $rs = $this->GetArray($nrows);
+      $rs =& $this->GetArray($nrows);
       return $rs;
     }
     $savem = $this->fetchMode;
@@ -731,7 +731,7 @@ class ADORecordSet_ads extends ADORecordSet {
     $this->fetchMode = $savem;
 
     if ($this->fetchMode & ADODB_FETCH_ASSOC) {
-      $this->fields = $this->GetRowAssoc(ADODB_ASSOC_CASE);
+      $this->fields =& $this->GetRowAssoc(ADODB_ASSOC_CASE);
     }
 
     $results = array();
@@ -749,18 +749,8 @@ class ADORecordSet_ads extends ADORecordSet {
   {
     if ($this->_numOfRows != 0 && !$this->EOF) {
       $this->_currentRow++;
-
-      if ($this->_has_stupid_odbc_fetch_api_change)
-        $rez = @ads_fetch_into($this->_queryID,$this->fields);
-      else {
-        $row = 0;
-        $rez = @ads_fetch_into($this->_queryID,$row,$this->fields);
-      }
-      if ($rez) {
-        if ($this->fetchMode & ADODB_FETCH_ASSOC) {
-          $this->fields = $this->GetRowAssoc(ADODB_ASSOC_CASE);
-        }
-        return true;
+      if( $this->_fetch() ) {
+          return true;
       }
     }
     $this->fields = false;
@@ -770,7 +760,7 @@ class ADORecordSet_ads extends ADORecordSet {
 
   function _fetch()
   {
-
+    $this->fields = false;
     if ($this->_has_stupid_odbc_fetch_api_change)
       $rez = @ads_fetch_into($this->_queryID,$this->fields);
     else {
@@ -779,11 +769,10 @@ class ADORecordSet_ads extends ADORecordSet {
     }
     if ($rez) {
       if ($this->fetchMode & ADODB_FETCH_ASSOC) {
-        $this->fields = $this->GetRowAssoc(ADODB_ASSOC_CASE);
+        $this->fields =& $this->GetRowAssoc(ADODB_ASSOC_CASE);
       }
       return true;
     }
-    $this->fields = false;
     return false;
   }
 
@@ -793,4 +782,3 @@ class ADORecordSet_ads extends ADORecordSet {
   }
 
 }
-?>
