@@ -8,7 +8,7 @@ try{
       define('SERVER_ADDR','local');
       define('DEBUG_ALLOWED',true);
       ini_set('display_errors','on');
-      error_reporting(E_ALL ^ E_DEPRECATED ^ E_STRICT );
+      error_reporting(E_ALL );
    }
    else{
       //REMOTE
