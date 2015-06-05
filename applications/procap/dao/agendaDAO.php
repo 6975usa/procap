@@ -63,12 +63,12 @@ class procap_dao_agendaDAO extends classes_dao_AbstractDAO
       $tipo = $this->getPessoaTipo($user->id);
       $user = classes_Singleton::getInstance('classes_controller_user');
 
-      if($user->inGroup('Administrador')){
+      //if($user->inGroup('Administrador')){
          $w = $where ;
-      }
-      else{
-         $w = "  and pes.user_id = '{$user->id}' $where " ;
-      }
+      //}
+      //else{
+         //TODO $w = "  and pes.user_id = '{$user->id}' $where " ;
+      //}
 
       $sql =   array(
       'agendaList' => "
