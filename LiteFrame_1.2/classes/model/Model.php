@@ -55,7 +55,7 @@ class classes_model_Model extends classes_model_CRUD  {
       $this->setHierSelectPost();
 
 
-      $this->form = $this->formStructure->getForm($this->getFormStructureCols(),null,array('formName'=>$this->formStructure->formName),$validationSide);
+      $this->form = $this->formStructure->getFormulario($this->getFormStructureCols(),null,array('formName'=>$this->formStructure->formName),$validationSide);
 
       $this->verifyPostValues();
 

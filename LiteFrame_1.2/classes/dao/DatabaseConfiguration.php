@@ -27,7 +27,8 @@ class classes_dao_DatabaseConfiguration extends MDB2_Driver_Common {
 		$phptype = $dsn["phptype"];
 		$dsn = $dsn ['phptype'] . '://' . $dsn ['username'] . ':' . $dsn ['password'] . '@' . $dsn ['hostspec'] . '/' . $dsn ['database'];
 		
-		$mdb2 = MDB2::connect ( $dsn, $options );
+		$m = new MDB2();
+		$mdb2 = $m->connect($dsn, $options);
 		if (PEAR::isError ( $mdb2 )) {
 			throw new Exception ( '[' . $mdb2->getMessage () . '] ' . $mdb2->getUserInfo () );
 		}

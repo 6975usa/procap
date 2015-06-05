@@ -77,8 +77,8 @@ class  classes_model_structure_Structure extends classes_model_DBTable{
    }
 
 
-   function getForm(array $colums=null,string $array_name=null,array $args=array() , $clientValidate=null,array $formFilters=null){
-      return parent::getForm($colums,$array_name,$args,$clientValidate,$formFilters);
+   function getFormulario(array $colums=null,string $array_name=null,array $args=array() , $clientValidate=null,array $formFilters=null){
+      return parent::getFormulario($colums,$array_name,$args,$clientValidate,$formFilters);
    }
 
 
