@@ -28,7 +28,7 @@ class classes_dao_DatabaseConfiguration extends MDB2_Driver_Common {
       'debug'       => 2,
       'portability' => MDB2_PORTABILITY_ALL,
       );
-
+      
       $dsn = $dsn['phptype'].'://'.$dsn['username'].':'.$dsn['password'].'@'.$dsn['hostspec'].'/'.$dsn['database'];
 
      // if(!isset(self::$conn[$dsn['phptype']])){
