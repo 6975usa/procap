@@ -33,7 +33,7 @@
                      <tr nowrap ><td nowrap >{s $termino_data_label s}{s $termino_data_required s} </td><td>{s $termino_data_html s}{s $termino_data_error s}<span class="error">{s $formErrorMessages.termino_data s}</span></td></tr>
                      <tr nowrap ><td nowrap >{s $conclusao_data_label s}{s $conclusao_data_required s} </td><td>{s $conclusao_data_html s}{s $conclusao_data_error s}<span class="error">{s $formErrorMessages.conclusao_data s}</span></td></tr>
                      <tr nowrap ><td nowrap >{s $agenda_label s}{s $agenda_required s} </td><td>{s $agenda_html s}{s $agenda_error s}<span class="error">{s $formErrorMessages.agenda s}</span></td></tr>
-                     <tr nowrap ><td nowrap >{s $descricao_label s}{s $descricao_required s} </td><td>{s $descricao_html s}{s $descricao_error s}<span class="error">{s $formErrorMessages.descricao s}</span></td></tr>
+                     <tr nowrap ><td nowrap >{s $descricao_label s}{s $descricao_required s} </td><td>{s $desc_html s}{s $descricao_error s}<span class="error">{s $formErrorMessages.descricao s}</span></td></tr>
                   </table>
                </fieldset>
             </td>

@@ -23,7 +23,7 @@ class classes_smarty_systemSmarty extends Smarty {
     public $controller;
 
     public function __construct ($controller) {
-    	parent::Smarty();
+        parent::Smarty();
         $this->controller = $controller;
         $this->template_dir = SHARE_ROOT . '/classes/smarty/templates';
         $this->compile_dir = SHARE_ROOT . '/classes/smarty/templates_c';
@@ -43,22 +43,15 @@ class classes_smarty_systemSmarty extends Smarty {
             $this->assign('site_url', SITE_ROOT);
         
         $this->assign('messages', $this->controller->messages->getMessages());
-        $this->assign('crudAction', 
-                $this->controller->getAction()
-                    ->getCrudAction());
+        $this->assign('crudAction', $this->controller->getAction()
+            ->getCrudAction());
         $this->assign('user', $this->controller->user);
-        $this->assign('formErrorMessages', 
-                (! empty($this->controller->env->formErrorMessages)) ? $this->controller->env->formErrorMessages : null);
+        $this->assign('formErrorMessages', (! empty($this->controller->env->formErrorMessages)) ? $this->controller->env->formErrorMessages : null);
         $this->assign('site_url', SITE_ROOT);
-        
-        @$this->assign('welcomeTpl', 
-                APP_ROOT . '/procap/templates/' . DEFAULT_THEME . '/welcome.tpl');
-        
-        $this->assign('user_name', 
-                $this->controller->user->getProperty('loginname'));
-        
-        $this->formOperations();
+        @$this->assign('welcomeTpl', APP_ROOT . '/procap/templates/' . DEFAULT_THEME . '/welcome.tpl');
+        $this->assign('user_name', $this->controller->user->getProperty('loginname'));
         $this->listOperations();
+        $this->formOperations();
         $this->setUserMenu();
     }
 
@@ -113,8 +106,7 @@ class classes_smarty_systemSmarty extends Smarty {
         
         if ($formSet) {
             
-            $this->assign('forms', 
-                    (isset($this->controller->env->forms)) ? $this->controller->env->forms : null);
+            $this->assign('forms', (isset($this->controller->env->forms)) ? $this->controller->env->forms : null);
             $this->assign('controller', $this->controller);
             
             foreach ($this->controller->env->forms as $form) {
@@ -137,9 +129,7 @@ class classes_smarty_systemSmarty extends Smarty {
                     $frm = $form->toArray();
                     // pr($form);
                     $this->assign('jqueryInputMaskScript', 
-                            "<script type='text/javascript'> $(document).ready(function() { jQuery(function($) {" .
-                                     $form->jqueryInputMaskScript .
-                                     " });  }); </script>");
+                            "<script type='text/javascript'> $(document).ready(function() { jQuery(function($) {" . $form->jqueryInputMaskScript . " });  }); </script>");
                     $this->assign('jsValidationScript', $frm['javascript']);
                     $this->assign('formOptions', $frm['attributes']);
                     $this->assign('requiredNote', $frm['requirednote']);
@@ -147,8 +137,7 @@ class classes_smarty_systemSmarty extends Smarty {
                     foreach ($frm['elements'] as $element) {
                         
                         // element type RADIO
-                        if (isset($element['elements']) &&
-                                 ($element['elements'])) {
+                        if (isset($element['elements']) && ($element['elements'])) {
                             $html = '';
                             foreach ($element['elements'] as $el) {
                                 $html .= $el['html'] . $element['separator'];
@@ -166,17 +155,13 @@ class classes_smarty_systemSmarty extends Smarty {
                                     $element['html'] .= $jscalendar[$element['name']];
                                 }
                             }
-                            $this->assign($element['name'] . '_html', 
-                                    $element['html']);
+                            $this->assign($element['name'] . '_html', $element['html']);
                         }
                         
-                        $this->assign($element['name'] . '_label', 
-                                $element['label']);
-                        $this->assign($element['name'] . '_error', 
-                                $element['error']);
+                        $this->assign($element['name'] . '_label', $element['label']);
+                        $this->assign($element['name'] . '_error', $element['error']);
                         if ($element['required']) {
-                            $this->assign($element['name'] . '_required', 
-                                    REQUIRED_FIELD);
+                            $this->assign($element['name'] . '_required', REQUIRED_FIELD);
                         }
                     }
                 }
@@ -189,8 +174,7 @@ class classes_smarty_systemSmarty extends Smarty {
         }
     }
 
-    function assignSelect (array $values, $idName, $descriptionName, 
-            $selectedValue = null, $selectedName = null) {
+    function assignSelect (array $values, $idName, $descriptionName, $selectedValue = null, $selectedName = null) {
         foreach ($values as $key => $value) {
             if (! is_numeric($key)) {
                 throw new Exception('Array Index must be numeric');
@@ -215,6 +199,7 @@ class classes_smarty_systemSmarty extends Smarty {
             $this->assign($selectedName, $selectedValue);
         }
     }
+
     function display ($OriginalTemplate, $cache_id = null, $compile_id = null) {
         // pr($this->lists);
         if (! empty($this->lists)) {
@@ -232,22 +217,15 @@ class classes_smarty_systemSmarty extends Smarty {
             $template = $this->compile_dir . '/' . md5($OriginalTemplate);
             foreach ($this->lists as $list) {
                 if (! empty($list->getListStructure()->listTemplate)) {
-                    if (! $defaultTemp = file_get_contents(
-                            $list->getListStructure()->listTemplate)) {
-                        throw new Exception(
-                                'Template not found: ' .
-                                         $list->getListStructure()->listTemplate);
+                    if (! $defaultTemp = file_get_contents($list->getListStructure()->listTemplate)) {
+                        throw new Exception('Template not found: ' . $list->getListStructure()->listTemplate);
                     }
                 } else {
-                    $defaultTemp = file_get_contents(
-                            SHARE_ROOT .
-                                     '/classes/view/templates/defaultList.tpl');
+                    $defaultTemp = file_get_contents(SHARE_ROOT . '/classes/view/templates/defaultList.tpl');
                 }
-                $tempCont = str_replace('{$' . $list->listName . '}', 
-                        $defaultTemp, $tempCont);
+                $tempCont = str_replace('{$' . $list->listName . '}', $defaultTemp, $tempCont);
                 if (! ($fd = @fopen($template, 'wb'))) {
-                    throw new Exception(
-                            "problem opening temporary file '$template'");
+                    throw new Exception("problem opening temporary file '$template'");
                 }
                 fwrite($fd, $tempCont);
                 fclose($fd);

@@ -19,6 +19,8 @@
 
 
 class procap_controller_andamentoController extends  classes_controller_AbstractSystemController {
+    
+    private $desc_html=null;
 
    function  __construct($controller){
       $this->controller = $controller;
@@ -48,6 +50,7 @@ class procap_controller_andamentoController extends  classes_controller_Abstract
             $form->getElement(LIST_BUTTON_NAME)->setValue('Ver Andamentos');
          }
          $this->controller->env->forms['andamentoForm'] =  $form;
+         $this->acertaTextarea($form);
       }
       else{
          $andamentoList =  $model->getList( new procap_model_structure_andamentoListStructure() );
@@ -56,11 +59,22 @@ class procap_controller_andamentoController extends  classes_controller_Abstract
 
       }
 
+      $this->controller->env->desc_html = $this->desc_html;
 
       $this->controller->env->pastaProcesso =  $model->getPastaDeProcesso($_GET['pc']);
 
       $view = new procap_view_andamentoView($this->controller,$this->env);
 
+   }
+   
+   private function acertaTextarea($form){
+       $desc_html=null;
+       $html = $form->toArray()['elements'][9]['html'];
+       $value = $form->toArray()['elements'][9]['value'];
+       if(strstr ( $html, "></textarea>" )){
+           $this->desc_html = str_replace ( "></textarea>", ">".$value."</textarea>" , $html );
+           return ;
+       }
    }
 
 }
