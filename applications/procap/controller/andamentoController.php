@@ -73,7 +73,8 @@ class procap_controller_andamentoController extends  classes_controller_Abstract
        $value = $form->toArray()['elements'][9]['value'];
        if(strstr ( $html, "></textarea>" )){
            $this->desc_html = str_replace ( "></textarea>", ">".$value."</textarea>" , $html );
-           return ;
+       }else{
+           $this->desc_html =  $html ;
        }
    }
 
