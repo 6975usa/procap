@@ -50,8 +50,8 @@ class procap_controller_andamentoController extends classes_controller_AbstractS
             $this->controller->env->forms['andamentoForm'] = $form;
             $this->acertaTextarea($form);
         } else {
+            $_GET['setPerPage']=10000;
             $andamentoList = $model->getList(new procap_model_structure_andamentoListStructure());
-            //$andamentoList = $model->setPecas($andamentoList);
             $this->controller->env->lists['andamentoList'] = $model->setPecas($andamentoList);
         }
 
