@@ -9,6 +9,7 @@ try{
       define('DEBUG_ALLOWED',true);
       ini_set('display_errors','on');
       error_reporting(E_ALL ^ E_STRICT ^ E_DEPRECATED );
+      //error_reporting(E_ALL  ^ E_DEPRECATED );
    }
    else{
       //REMOTE
