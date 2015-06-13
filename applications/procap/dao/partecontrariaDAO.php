@@ -147,13 +147,13 @@ class procap_dao_partecontrariaDAO extends classes_dao_AbstractDAO
                break;
 
             default:
-               throw new Exception('Tipo de partecontraria não definido');
+               throw new Exception('Tipo de partecontraria nao definido');
                break;
          }
 
       }
       else{
-         throw new Exception('Tipo pessoa não definido');
+         throw new Exception('Tipo pessoa nao definido');
       }
 
       return true  ;
