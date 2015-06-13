@@ -50,7 +50,7 @@ class procap_controller_pecaController extends classes_controller_AbstractSystem
                 $form->getElement(DELETE_BUTTON_NAME)->setValue('Excluir Pe&ccedil;a');
             }
             if ($form->elementExists(LIST_BUTTON_NAME)) {
-                $form->getElement(LIST_BUTTON_NAME)->setValue('Ver Pe�a');
+                $form->getElement(LIST_BUTTON_NAME)->setValue('Ver Pe&ccedil;a');
             }
             $this->acertaTextarea($form);
         }

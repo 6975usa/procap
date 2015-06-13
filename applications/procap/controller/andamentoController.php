@@ -47,10 +47,14 @@ class procap_controller_andamentoController extends classes_controller_AbstractS
             if ($form->elementExists(LIST_BUTTON_NAME)) {
                 $form->getElement(LIST_BUTTON_NAME)->setValue('Ver Andamentos');
             }
+
+            //Faz com que o andamento sempre possa aparecer na agenda. Unless termino is null
+            $form->getElement("agenda")->setValue("1");
+            
             $this->controller->env->forms['andamentoForm'] = $form;
             $this->acertaTextarea($form);
         } else {
-            $_GET['setPerPage']=10000;
+            $_GET['setPerPage'] = 10000;
             $andamentoList = $model->getList(new procap_model_structure_andamentoListStructure());
             $this->controller->env->lists['andamentoList'] = $model->setPecas($andamentoList);
         }
