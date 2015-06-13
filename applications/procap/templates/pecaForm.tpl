@@ -6,7 +6,7 @@
    $("#trocaArquivo").click(function() {
       var arq = document.getElementById('arquivo') ;
       if( arq.disabled == 1){
-         alert('Se a caixa de Arquivo estiver vazia o arquivo será apagado.');
+         alert('Se a caixa de Arquivo estiver vazia o arquivo serï¿½ apagado.');
          arq.disabled = false ;
       }
       else{
@@ -42,9 +42,9 @@
       <table class="geral" >
          <tr>
             <td>
-               <fieldset class="interno"><legend>Peça</legend>
+               <fieldset class="interno"><legend>Peï¿½a</legend>
                   <table class="geral">
-                     <tr nowrap ><td nowrap >{s $descricao_label s}{s $descricao_required s} </td><td>{s $descricao_html s}{s $descricao_error s}<span class="error">{s $formErrorMessages.descricao s}</span></td></tr>
+                     <tr nowrap ><td nowrap >{s $descricao_label s}{s $descricao_required s} </td><td>{s $desc_html s}{s $descricao_error s}<span class="error">{s $formErrorMessages.descricao s}</span></td></tr>
                      <tr nowrap ><td nowrap >{s $andamento_id_label s}{s $andamento_id_required s} </td><td>{s $andamento_id_html s}{s $andamento_id_error s}<span class="error">{s $formErrorMessages.andamento_id s}</span></td></tr>
                      <tr nowrap ><td colspan="2" > <label for="trocaArquivo" > Trocar Arquivo </label><input type="checkbox" id="trocaArquivo" ></td></tr>
                      <tr nowrap ><td nowrap >{s $arquivo_label s}{s $arquivo_required s} </td><td>{s $arquivo_html s}{s $arquivo_error s}<span class="error">{s $formErrorMessages.arquivo s}</span></td></tr>

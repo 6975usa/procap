@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Este arquivo é parte do programa LiteFrame - lightWeight FrameWork
+ * Este arquivo ï¿½ parte do programa LiteFrame - lightWeight FrameWork
  *
  * Copyright (C) 2010 Anselmo S Ribeiro
  *
@@ -16,60 +16,74 @@
  * @copyright  2010 Anselmo S Ribeiro
  * @licence LGPL
  */
+class procap_controller_pecaController extends classes_controller_AbstractSystemController {
 
+    private $desc_html = null;
 
-class procap_controller_pecaController extends  classes_controller_AbstractSystemController {
+    function __construct($controller) {
+        $this->controller = $controller;
+    }
 
-   function  __construct($controller){
-      $this->controller = $controller;
-   }
+    function execute() {
 
-   function execute(){
-      
-      ini_set('upload_max_filesize', 5*1024*1024 ) ;
+        ini_set('upload_max_filesize', 5 * 1024 * 1024);
 
-      $model = new procap_model_pecaModel($this->controller);
+        $model = new procap_model_pecaModel($this->controller);
 
-      $form =  $model->getForm( new procap_model_structure_pecaFormStructure() ,'client' );
+        $form = $model->getForm(new procap_model_structure_pecaFormStructure(), 'client');
 
-      if($form){
+        if ($form) {
 
-         $form->addRule( 'arquivo', 'não', 'maxfilesize', 5);
+            $form->addRule('arquivo', 'n&atilde;o', 'maxfilesize', 5);
 
-         $form->getElement('processo_id')->setValue($_GET['pc']);
-         if( $form->elementExists(INSERT_BUTTON_NAME)  ){
-            $form->getElement(INSERT_BUTTON_NAME)->setValue('Salvar Peça');
-         }
-         if( $form->elementExists(UPDATE_BUTTON_NAME)  ){
-            $form->getElement(UPDATE_BUTTON_NAME)->setValue('Salvar Peça');
-         }
-         if( $form->elementExists(NEW_BUTTON_NAME)  ){
-            $form->getElement(NEW_BUTTON_NAME)->setValue('Novo Peça');
-         }
-         if( $form->elementExists(DELETE_BUTTON_NAME)  ){
-            $form->getElement(DELETE_BUTTON_NAME)->setValue('Excluir Peça');
-         }
-         if( $form->elementExists(LIST_BUTTON_NAME)  ){
-            $form->getElement(LIST_BUTTON_NAME)->setValue('Ver Peça');
-         }
-      }
-
-      $this->controller->env->forms['pecaForm'] =  $form;
-
-      $pecaList =  $model->getList( new procap_model_structure_pecaListStructure() );
-
-      if($pecaList){
-         foreach ($pecaList->data as $key => $lista ){
-            if( !(strstr( $lista['arquivo'],'doc' ) || strstr($lista['arquivo'],'pdf' ) ) ){
-               $pecaList->data[$key]['arquivo'] = null ;
+            $form->getElement('processo_id')->setValue($_GET['pc']);
+            if ($form->elementExists(INSERT_BUTTON_NAME)) {
+                $form->getElement(INSERT_BUTTON_NAME)->setValue('Salvar Pe&ccedil;a');
             }
-         }
-      }
-      $this->controller->env->lists['pecaList'] =  $pecaList;
+            if ($form->elementExists(UPDATE_BUTTON_NAME)) {
+                $form->getElement(UPDATE_BUTTON_NAME)->setValue('Salvar Pe&ccedil;a');
+            }
+            if ($form->elementExists(NEW_BUTTON_NAME)) {
+                $form->getElement(NEW_BUTTON_NAME)->setValue('Novo Pe&ccedil;a');
+            }
+            if ($form->elementExists(DELETE_BUTTON_NAME)) {
+                $form->getElement(DELETE_BUTTON_NAME)->setValue('Excluir Pe&ccedil;a');
+            }
+            if ($form->elementExists(LIST_BUTTON_NAME)) {
+                $form->getElement(LIST_BUTTON_NAME)->setValue('Ver Peï¿½a');
+            }
+            $this->acertaTextarea($form);
+        }
 
-      $view = new procap_view_pecaView($this->controller,$this->env);
+        $this->controller->env->forms['pecaForm'] = $form;
 
-   }
+        $pecaList = $model->getList(new procap_model_structure_pecaListStructure());
+
+        if ($pecaList) {
+            foreach ($pecaList->data as $key => $lista) {
+                if (!(strstr($lista['arquivo'], 'doc') || strstr($lista['arquivo'], 'pdf') )) {
+                    $pecaList->data[$key]['arquivo'] = null;
+                }
+            }
+        }
+
+        $this->controller->env->desc_html = $this->desc_html;
+
+        $this->controller->env->lists['pecaList'] = $pecaList;
+
+        $view = new procap_view_pecaView($this->controller, $this->env);
+    }
+
+    function acertaTextarea($form) {
+        $html = $form->toArray()['elements'][2]['html'];
+        $value = $form->toArray()['elements'][2]['value'];
+        if (strstr($html, "></textarea>")) {
+            $this->desc_html = str_replace("></textarea>", ">" . $value . "</textarea>", $html);
+        } else {
+            $this->desc_html = $html;
+        }
+    }
 
 }
+
 ?>

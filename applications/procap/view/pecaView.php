@@ -33,6 +33,8 @@ class procap_view_pecaView extends classes_smarty_abstractSystemSmarty  {
       //$this->assign('leftmenu',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/leftmenu.tpl' );
       //$this->assign('footer',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/footer.tpl' );
 
+      $this->assign('desc_html', $this->controller->env->desc_html );
+      
       $this->assign('_list',APP_ROOT.'/procap/templates/pecaList.tpl' );
       $this->assign('_form',APP_ROOT.'/procap/templates/pecaForm.tpl' );
 
