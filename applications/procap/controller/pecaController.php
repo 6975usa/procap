@@ -57,6 +57,7 @@ class procap_controller_pecaController extends classes_controller_AbstractSystem
 
         $this->controller->env->forms['pecaForm'] = $form;
 
+        $_GET['setPerPage'] = 10000;
         $pecaList = $model->getList(new procap_model_structure_pecaListStructure());
 
         if ($pecaList) {
@@ -68,6 +69,7 @@ class procap_controller_pecaController extends classes_controller_AbstractSystem
         }
 
         $this->controller->env->desc_html = $this->desc_html;
+
 
         $this->controller->env->lists['pecaList'] = $pecaList;
 
