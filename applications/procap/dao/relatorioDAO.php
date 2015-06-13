@@ -16,40 +16,37 @@
  * @copyright	2010 Anselmo S Ribeiro
  * @licence	LGPL
  */
+class procap_dao_relatorioDAO extends classes_dao_AbstractDAO {
 
-class procap_dao_ultimosAndamentosDAO extends classes_dao_AbstractDAO
-{
+    public $table = 'procap_andamento';
 
-   public $table = 'procap_andamento';
+    function __construct() {
+        parent::__construct();
+    }
 
-   function __construct( ){
-      parent::__construct();
-   }
+    public function setConnString() {
+        return procap_config_DatabaseConfiguration::getConn('procap');
+    }
 
+    public function setMdb2Conn() {
+        return procap_config_DatabaseConfiguration::getConn('procap');
+    }
 
-   public function setConnString(){
-      return procap_config_DatabaseConfiguration::getConn('procap');
-   }
+    public function getConnInfo() {
+        return procap_config_DatabaseConfiguration::getConnInfo('procap');
+    }
 
-   public function setMdb2Conn(){
-      return procap_config_DatabaseConfiguration::getConn('procap');
-   }
+    public function getListNames() {
+        
+    }
 
-   public function getConnInfo(){
-      return procap_config_DatabaseConfiguration::getConnInfo('procap');
-   }
+    public function getUltimosAndamentos($clienteId) {
 
+        $user = classes_Singleton::getInstance('classes_controller_user');
 
-   public function getListNames(){}
-
-
-   public function getUltimosAndamentos($clienteId){
-
-      $user = classes_Singleton::getInstance('classes_controller_user');
-
-      switch ($user->inGroup('Super Administrador')) {
-         case true:
-            $sql =    "
+        switch ($user->inGroup('Super Administrador')) {
+            case true:
+                $sql = "
                   SELECT distinct
                      a.id as andamento_id
                      , proc.id as processo_id
@@ -61,7 +58,7 @@ class procap_dao_ultimosAndamentosDAO extends classes_dao_AbstractDAO
                      ,concat(date_format(a.termino_data,'%d/%m/%Y'),' ', case weekday(a.termino_data) when 6 then 'Dom' when 0 then 'Seg' when 1 then 'Ter'when 2 then 'Qua' when 3 then 'Qui' when 4 then 'Sex' when 5 then 'Sab' End ) as termino_data
                      ,concat(date_format(a.conclusao_data,'%d/%m/%Y'),' ', case weekday(a.conclusao_data) when 6 then 'Dom' when 0 then 'Seg' when 1 then 'Ter'when 2 then 'Qua' when 3 then 'Qui' when 4 then 'Sex' when 5 then 'Sab' End ) as conclusao_data
                      ,a.descricao
-                     ,case a.agenda when 1 then 'Sim' when 0 then 'Não' End as agenda
+                     ,case a.agenda when 1 then 'Sim' when 0 then 'Nï¿½o' End as agenda
                      , proc.valorcausa as valorcausa
                      , vara.descricao as vara
                      , comarca.descricao as comarca
@@ -78,13 +75,13 @@ class procap_dao_ultimosAndamentosDAO extends classes_dao_AbstractDAO
                   order by termino_data desc
                   limit  20
                   ";
-            $res = $this->execute($sql,array($clienteId,$clienteId));
-            return $res->getRows() ;
-            break;
+                $res = $this->execute($sql, array($clienteId, $clienteId));
+                return $res->getRows();
+                break;
 
-         default:
-            $office_id = $user->getProperty('office_id');
-            $sql =    "
+            default:
+                $office_id = $user->getProperty('office_id');
+                $sql = "
                   SELECT distinct
                      a.id as andamento_id
                      , proc.id as processo_id
@@ -96,7 +93,7 @@ class procap_dao_ultimosAndamentosDAO extends classes_dao_AbstractDAO
                      ,concat(date_format(a.termino_data,'%d/%m/%Y'),' ', case weekday(a.termino_data) when 6 then 'Dom' when 0 then 'Seg' when 1 then 'Ter'when 2 then 'Qua' when 3 then 'Qui' when 4 then 'Sex' when 5 then 'Sab' End ) as termino_data
                      ,concat(date_format(a.conclusao_data,'%d/%m/%Y'),' ', case weekday(a.conclusao_data) when 6 then 'Dom' when 0 then 'Seg' when 1 then 'Ter'when 2 then 'Qua' when 3 then 'Qui' when 4 then 'Sex' when 5 then 'Sab' End ) as conclusao_data
                      ,a.descricao
-                     ,case a.agenda when 1 then 'Sim' when 0 then 'Não' End as agenda
+                     ,case a.agenda when 1 then 'Sim' when 0 then 'Nï¿½o' End as agenda
                      , proc.valorcausa as valorcausa
                      , vara.descricao as vara
                      , comarca.descricao as comarca
@@ -115,28 +112,21 @@ class procap_dao_ultimosAndamentosDAO extends classes_dao_AbstractDAO
                   order by termino_data desc
                   limit 20
                   ";
-            $res = $this->execute($sql,array($clienteId,$clienteId,$office_id));
-            return $res->getRows() ;
-            break;
-      }
+                $res = $this->execute($sql, array($clienteId, $clienteId, $office_id));
+                return $res->getRows();
+                break;
+        }
+    }
 
+    function getNextIdVal($pk) {
+        
+    }
 
-
-
-   }
-
-
-   function getNextIdVal($pk){
-   }
-
-
-
-   function getPecasDeAndamento($andamentoId){
-      $sql =  " select descricao from procap_peca where andamento_id = ?" ;
-      $res = $this->execute($sql,array($andamentoId));
-      return $res->getRows() ;
-   }
-
+    function getPecasDeAndamento($andamentoId) {
+        $sql = " select descricao from procap_peca where andamento_id = ?";
+        $res = $this->execute($sql, array($andamentoId));
+        return $res->getRows();
+    }
 
 }
 

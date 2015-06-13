@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Este arquivo é  parte do programa LiteFrame - lightWeight FrameWork
+ * Este arquivo ï¿½  parte do programa LiteFrame - lightWeight FrameWork
  *
  * Copyright (C) 2010 Anselmo S Ribeiro
  *
@@ -57,13 +57,13 @@ class procap_dao_ApplicationDAOFacade extends classes_dao_AbstractDAOFacade
 
 
    function getUltimosAndamentos($clienteId){
-      return $this->getDao('procap_dao_ultimosAndamentosDAO')->getUltimosAndamentos($clienteId);
+      return $this->getDao('procap_dao_relatorioDAO')->getUltimosAndamentos($clienteId);
    }
 
 
 
    function getPecasDeAndamento($andamentoId){
-      return $this->getDao('procap_dao_ultimosAndamentosDAO')->getPecasDeAndamento($andamentoId);
+      return $this->getDao('procap_dao_relatorioDAO')->getPecasDeAndamento($andamentoId);
    }
 
 

@@ -27,7 +27,7 @@ class procap_controller_relatoriosController extends  classes_controller_Abstrac
    function execute(){
 
 
-      $model = new procap_model_ultimosAndamentosModel($this->controller);
+      $model = new procap_model_relatorioModel($this->controller);
       $this->controller->env->listClientes = $model->getClientes($this->controller->user->getProperty('office_id'));
 
 

@@ -35,7 +35,7 @@ class procap_view_relatoriosView extends classes_smarty_abstractSystemSmarty  {
 
       $this->assign('listClientes', $this->controller->env->listClientes );
 
-
+ 
       $this->assign('ultimosAndamentos',APP_ROOT.'/procap/templates/relatorios.tpl' );
 
 

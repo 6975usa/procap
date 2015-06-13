@@ -18,7 +18,7 @@
  */
 
 
-class procap_view_ultimosAndamentosView extends classes_smarty_abstractSystemSmarty  {
+class procap_view_relatorioView extends classes_smarty_abstractSystemSmarty  {
 
 
    function __construct($controller, $env){
@@ -36,7 +36,7 @@ class procap_view_ultimosAndamentosView extends classes_smarty_abstractSystemSma
 
       $this->assign('uaList', $this->controller->env->uaList );
       $this->assign('clienteNome', $this->controller->env->clienteNome );
-      $this->assign('ultimosAndamentos',APP_ROOT.'/procap/templates/ultimosAndamentos.tpl' );
+      $this->assign('ultimosAndamentos',APP_ROOT.'/procap/templates/relatorio.tpl' );
 
 
       $this->display(APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/defaultBody.tpl');

@@ -18,7 +18,7 @@
  */
 
 
-class procap_controller_ultimosAndamentosController extends  classes_controller_AbstractSystemController {
+class procap_controller_relatorioController extends  classes_controller_AbstractSystemController {
 
    function  __construct($controller){
       $this->controller = $controller;
@@ -27,12 +27,12 @@ class procap_controller_ultimosAndamentosController extends  classes_controller_
    function execute(){
 
 
-      $model = new procap_model_ultimosAndamentosModel($this->controller);
+      $model = new procap_model_relatorioModel($this->controller);
 
       $this->controller->env->uaList = $model->getUltimosAndamentos($_POST['cliente_id']);
       $this->controller->env->clienteNome = $model->getClienteNome($_POST['cliente_id']);
 
-      $view = new procap_view_ultimosAndamentosView($this->controller,$this->env);
+      $view = new procap_view_relatorioView($this->controller,$this->env);
 
    }
 

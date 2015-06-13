@@ -18,7 +18,7 @@
  */
 
 
-class procap_model_ultimosAndamentosModel extends classes_model_AbstractModel {
+class procap_model_relatorioModel extends classes_model_AbstractModel {
 
 
 
