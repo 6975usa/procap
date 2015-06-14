@@ -52,7 +52,7 @@ class admin_dao_userDAO extends classes_dao_AbstractDAO
                ,user.office_id as office_id
                ,user.loginname
                ,user.fullname
-               ,if(user.active=1,'sim','não') as active
+               ,if(user.active=1,'sim','nï¿½o') as active
                ,date_format(user.creation_date,'%d/%m/%Y') as creation_date
                ,user.description
                ,user.email
@@ -106,7 +106,7 @@ class admin_dao_userDAO extends classes_dao_AbstractDAO
       $ad = $this->afterDelete($formStructure,$formValues,$messages);
 
       if ( isset($_POST['id']) && isset($_POST['office_id'] )  && isset($_POST['groups'] )  ){
-         $admin = $this->controller->user->getProperty('id');
+         $admin = $this->controller->getUser()->getProperty('id');
          foreach ( $_POST['groups'] as $groupId=> $groupName ){
             $this->execute(" insert into usergroups (user_id,office_id,groups_id,admin_id) values (?,?,?,? ) " ,array($_POST['id'],$_POST['office_id'],$groupId,$admin) );
          }
@@ -136,7 +136,7 @@ class admin_dao_userDAO extends classes_dao_AbstractDAO
    function afterInsert($formStructure,$formValues,$messages){
 
 
-      //corrigindo office_id e creation_date do usuário recem criado.
+      //corrigindo office_id e creation_date do usuï¿½rio recem criado.
       $values = array($_POST['office_id'],date('Y-m-d'),$formValues['id'],$formValues['office_id']) ;
 
       $this->execute(" update user set

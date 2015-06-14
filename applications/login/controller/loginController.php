@@ -45,13 +45,13 @@ class login_controller_loginController extends classes_controller_AbstractSystem
             //classes_utils_cookies::writeSessionCookie($sessionId);
             classes_utils_session::writeSessionId($sessionId,$userId, $_COOKIE['PHPSESSID']);
 
-         	$this->controller->loger->log(LOGIN_SUCCESS);
+         	$this->controller->getLoger()->log(LOGIN_SUCCESS);
             classes_utils_jsFunctions::carregaFormViaPostParaUrl(SITE_ROOT.'/procap/default/',array('LITEFRAMESESSIONID'=>$sessionId));
 
             die;
          }
          else{
-         	$this->controller->loger->log(LOGIN_FAILURE);
+         	$this->controller->getLoger()->log(LOGIN_FAILURE);
          }
       }
 

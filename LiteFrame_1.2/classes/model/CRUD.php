@@ -30,7 +30,7 @@ class classes_model_CRUD {
          if( $this->crudValidate() ){
             $cols = $this->setPkVals($this->formStructure,$cols);
             if( in_array('beforeInsert',get_class_methods($this->dao)) ){
-               $res = $this->dao->beforeInsert($this->formStructure,$cols,$this->controller->messages);
+               $res = $this->dao->beforeInsert($this->formStructure,$cols,$this->controller->getMessages());
             }
             else{
                $res = true;
@@ -38,7 +38,7 @@ class classes_model_CRUD {
             if( $res===true ) {
                $this->controller->getMessages()->addSuccessMessage(  $this->dao->insert($this->formStructure,$cols) );
                if( in_array('afterInsert',get_class_methods($this->dao)) ){
-                  $this->dao->afterInsert($this->formStructure,$cols,$this->controller->messages);
+                  $this->dao->afterInsert($this->formStructure,$cols,$this->controller->getMessages());
                }
             }
          }
@@ -53,7 +53,7 @@ class classes_model_CRUD {
       elseif( $this->controller->getAction()->isUpdate() ){
          if(  $this->crudValidate()  ){
             if( in_array('beforeUpdate',get_class_methods($this->dao)) ){
-               $res = $this->dao->beforeUpdate($this->formStructure,$cols,$this->controller->messages);
+               $res = $this->dao->beforeUpdate($this->formStructure,$cols,$this->controller->getMessages());
             }
             else{
                $res = true;
@@ -61,7 +61,7 @@ class classes_model_CRUD {
             if( $res===true) {
                $this->controller->getMessages()->addSuccessMessage(  $this->dao->update($this->formStructure,$cols) );
                if( in_array('afterUpdate',get_class_methods($this->dao)) ){
-                  $this->dao->afterUpdate($this->formStructure,$cols,$this->controller->messages);
+                  $this->dao->afterUpdate($this->formStructure,$cols,$this->controller->getMessages());
                }
             }
          }
@@ -85,7 +85,7 @@ class classes_model_CRUD {
       elseif( $this->controller->getAction()->isDelete() ){
          if( $this->crudValidate() ) {
             if( in_array('beforeDelete',get_class_methods($this->dao)) ){
-               $res = $this->dao->beforeDelete($this->formStructure,$cols,$this->controller->messages);
+               $res = $this->dao->beforeDelete($this->formStructure,$cols,$this->controller->getMessages());
             }
             else{
                $res = true ;
@@ -93,7 +93,7 @@ class classes_model_CRUD {
             if( $res===true  ){
                $this->controller->getMessages()->addSuccessMessage(  $this->dao->delete($this->formStructure,$cols) );
                if( in_array('afterDelete',get_class_methods($this->dao)) ){
-                  $this->dao->afterDelete($this->formStructure,$cols,$this->controller->messages);
+                  $this->dao->afterDelete($this->formStructure,$cols,$this->controller->getMessages());
                }
             }
          }

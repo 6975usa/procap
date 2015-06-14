@@ -26,7 +26,7 @@ class login_controller_logoutController extends classes_controller_AbstractSyste
 
 	function execute(){
 
-		$this->controller->loger->log(LOGOUT_SUCCESS);
+		$this->controller->getLoger()->log(LOGOUT_SUCCESS);
 
 		$this->controller->getUser()->logout();
 
