@@ -28,21 +28,27 @@ class procap_controller_relatorioController extends classes_controller_AbstractS
             return new procap_controller_relatoriosController($this->controller);
         }
 
+        $model = new procap_model_relatorioModel($this->controller);
+        $this->controller->env->clienteNome = $model->getClienteNome($_POST['cliente_id']);
+
         switch ($_POST['tipo']) {
             case "ultimos_andamentos":
-                $model = new procap_model_relatorioModel($this->controller);
                 $this->controller->env->uaList = $model->getUltimosAndamentos($_POST['cliente_id']);
-                $this->controller->env->clienteNome = $model->getClienteNome($_POST['cliente_id']);
                 $this->controller->env->templ = APP_ROOT . '/procap/templates/relatorio.tpl';
-                $view = new procap_view_relatorioView($this->controller, $this->env);
                 break;
             case "ativos":
+                $this->controller->env->uaList = $model->getProcessosAtivos($_POST['cliente_id']);
+                $this->controller->env->templ = APP_ROOT . '/procap/templates/relatorio_processos_ativos.tpl';
                 break;
             case "baixados":
+                $this->controller->env->uaList = $model->getProcessosBaixados($_POST['cliente_id']);
+                $this->controller->env->templ = APP_ROOT . '/procap/templates/relatorio_processos_ativos.tpl';
                 break;
             default:
                 break;
         }
+
+        $view = new procap_view_relatorioView($this->controller, $this->env);
     }
 
 }

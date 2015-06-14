@@ -128,6 +128,45 @@ class procap_dao_relatorioDAO extends classes_dao_AbstractDAO {
         return $res->getRows();
     }
 
+    public function getProcessosAtivos($clientId) {
+
+        $sql = "SELECT p.`numero`, 
+                    IF(pes1.nome != null, pes1.nome,pes1.nome_fantasia) as cliente1 ,
+                    (select if(pes.nome!=null,pes.nome,pes.nome_fantasia)  from procap_pessoa pes where pes.id = p.cliente2_id) as cliente2, 
+                    pes2.nome as contraparte1, 
+                    (select if(pes.nome != null,pes.nome,pes.nome_fantasia) from procap_pessoa pes where pes.id = p.contraparte2_id) as contraparte2, 
+                    (select vara.descricao from procap_vara vara where vara.id = p.vara_id) as vara, 
+                    (select t.nomeabreviado from procap_tribunal t where t.id = p.`tribunal_id` ) as tribunal , 
+                    (select c.descricao from procap_comarca c where c.id = p.`comarca_id`) as comarca , 
+                    p.`valorcausa`
+                    from procap_processo p 
+                            inner join procap_pessoa pes1 on p.`cliente1_id` = pes1.`id` 
+                        inner join procap_pessoa pes2 on p.contraparte1_id = pes2.id
+                    where p.`cliente1_id` = ? and p.status_id = 2 ";
+        $res = $this->execute($sql, array($clientId));
+        return $res->getRows();
+    }
+
+
+    public function getProcessosBaixados($clientId) {
+
+        $sql = "SELECT p.`numero`, 
+                    IF(pes1.nome != null, pes1.nome,pes1.nome_fantasia) as cliente1 ,
+                    (select if(pes.nome!=null,pes.nome,pes.nome_fantasia)  from procap_pessoa pes where pes.id = p.cliente2_id) as cliente2, 
+                    pes2.nome as contraparte1, 
+                    (select if(pes.nome != null,pes.nome,pes.nome_fantasia) from procap_pessoa pes where pes.id = p.contraparte2_id) as contraparte2, 
+                    (select vara.descricao from procap_vara vara where vara.id = p.vara_id) as vara, 
+                    (select t.nome from procap_tribunal t where t.id = p.`tribunal_id` ) as tribunal , 
+                    (select c.descricao from procap_comarca c where c.id = p.`comarca_id`) as comarca , 
+                    p.`valorcausa`
+                    from procap_processo p 
+                            inner join procap_pessoa pes1 on p.`cliente1_id` = pes1.`id` 
+                        inner join procap_pessoa pes2 on p.contraparte1_id = pes2.id
+                    where p.`cliente1_id` = ? and p.status_id = 3 ";
+        $res = $this->execute($sql, array($clientId));
+        return $res->getRows();
+    }
+
 }
 
 ?>

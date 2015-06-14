@@ -16,56 +16,43 @@
  * @copyright	2010 Anselmo S Ribeiro
  * @licence	LGPL
  */
-
-
 class procap_model_relatorioModel extends classes_model_AbstractModel {
 
+    function __construct(classes_controller_SystemController $controller) {
+        parent::__construct($controller);
+    }
 
+    public function formConfiguration() {
+        
+    }
 
-   function __construct(classes_controller_SystemController $controller){
-      parent::__construct($controller);
-   }
+    function getUltimosAndamentos($clienteId) {
+        $uas = $this->facade->getUltimosAndamentos($clienteId);
+        foreach ($uas as $key => $ua) {
+            $uas[$key]['pecas'] = $this->getPecasDeAndamento($ua['andamento_id']);
+        }
+        return $uas;
+    }
 
+    function getPecasDeAndamento($andamentoId) {
+        return $this->facade->getPecasDeAndamento($andamentoId);
+    }
 
-   public function formConfiguration(){
+    function getProcessosAtivos($clientId) {
+        return $this->facade->getProcessosAtivos($clientId);
+    }
+    function getProcessosBaixados($clientId) {
+        return $this->facade->getProcessosBaixados($clientId);
+    }
 
-   }
+    function getClientes($officeId) {
+        return $this->facade->getClientes($officeId);
+    }
 
-
-   function getUltimosAndamentos($clienteId){
-      $uas = $this->facade->getUltimosAndamentos($clienteId);
-
-      foreach ($uas as $key=>$ua ){
-         $uas[$key]['pecas'] = $this->getPecasDeAndamento($ua['andamento_id']);
-      }
-
-      return $uas ;
-   }
-
-
-
-
-   function getPecasDeAndamento($andamentoId){
-      return $this->facade->getPecasDeAndamento($andamentoId);
-   }
-
-
-
-
-   function getClientes($officeId){
-      return $this->facade->getClientes($officeId);
-   }
-
-
-
-
-   function getClienteNome($clienteId){
-      return $this->facade->getClienteNome($clienteId);
-   }
-
-
+    function getClienteNome($clienteId) {
+        return $this->facade->getClienteNome($clienteId);
+    }
 
 }
-
 
 ?>
