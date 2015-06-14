@@ -36,14 +36,14 @@ class classes_model_CRUD {
                $res = true;
             }
             if( $res===true ) {
-               $this->controller->messages->addSuccessMessage(  $this->dao->insert($this->formStructure,$cols) );
+               $this->controller->getMessages()->addSuccessMessage(  $this->dao->insert($this->formStructure,$cols) );
                if( in_array('afterInsert',get_class_methods($this->dao)) ){
                   $this->dao->afterInsert($this->formStructure,$cols,$this->controller->messages);
                }
             }
          }
          else{
-            $this->controller->messages->addErrorMessage(INSERT_FAILURE);
+            $this->controller->getMessages()->addErrorMessage(INSERT_FAILURE);
          }
       }
 
@@ -59,14 +59,14 @@ class classes_model_CRUD {
                $res = true;
             }
             if( $res===true) {
-               $this->controller->messages->addSuccessMessage(  $this->dao->update($this->formStructure,$cols) );
+               $this->controller->getMessages()->addSuccessMessage(  $this->dao->update($this->formStructure,$cols) );
                if( in_array('afterUpdate',get_class_methods($this->dao)) ){
                   $this->dao->afterUpdate($this->formStructure,$cols,$this->controller->messages);
                }
             }
          }
          else{
-            $this->controller->messages->addErrorMessage(UPDATE_FAILURE);
+            $this->controller->getMessages()->addErrorMessage(UPDATE_FAILURE);
          }
       }
 
@@ -75,7 +75,7 @@ class classes_model_CRUD {
 
       // EDITING REGISTRY THAT CAME FROM LIST
       elseif( $this->controller->getAction()->isLsUpdate() ){
-         $this->controller->messages->addSuccessMessage(  $this->lsUpdateMsg );
+         $this->controller->getMessages()->addSuccessMessage(  $this->lsUpdateMsg );
       }
 
 
@@ -91,14 +91,14 @@ class classes_model_CRUD {
                $res = true ;
             }
             if( $res===true  ){
-               $this->controller->messages->addSuccessMessage(  $this->dao->delete($this->formStructure,$cols) );
+               $this->controller->getMessages()->addSuccessMessage(  $this->dao->delete($this->formStructure,$cols) );
                if( in_array('afterDelete',get_class_methods($this->dao)) ){
                   $this->dao->afterDelete($this->formStructure,$cols,$this->controller->messages);
                }
             }
          }
          else{
-            $this->controller->messages->addErrorMessage(DELETE_FAILURE);
+            $this->controller->getMessages()->addErrorMessage(DELETE_FAILURE);
          }
       }
 
@@ -112,7 +112,7 @@ class classes_model_CRUD {
                $element->setValue(null);
             }
          }
-         $this->controller->messages->addSuccessMessage(  $this->newRegistryMsg );
+         $this->controller->getMessages()->addSuccessMessage(  $this->newRegistryMsg );
       }
 
 

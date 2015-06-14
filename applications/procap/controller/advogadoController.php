@@ -33,16 +33,16 @@ class procap_controller_advogadoController extends  classes_controller_AbstractS
 
       $form =  $model->getForm( new procap_model_structure_advogadoFormStructure() ,'client' );
       if($form){
-         $form->getElement('office_id')->setValue($this->controller->user->getProperty('office_id'));
+         $form->getElement('office_id')->setValue($this->controller->getUser()->getProperty('office_id'));
       }
-      $this->controller->env->forms['advogadoForm'] =  $form;
+      $this->controller->getEnv()->forms['advogadoForm'] =  $form;
 
 
       $advogadoList =  $model->getList( new procap_model_structure_advogadoListStructure() );
-      $this->controller->env->lists['advogadoList'] =  $advogadoList;
+      $this->controller->getEnv()->lists['advogadoList'] =  $advogadoList;
 
 
-      $view = new procap_view_advogadoView($this->controller,$this->env);
+      $view = new procap_view_advogadoView($this->controller,$this->getEnv());
 
    }
 

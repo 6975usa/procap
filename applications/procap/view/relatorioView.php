@@ -34,9 +34,9 @@ class procap_view_relatorioView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('footer',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/footer.tpl' );
 
 
-      $this->assign('uaList', $this->controller->env->uaList );
-      $this->assign('clienteNome', $this->controller->env->clienteNome );
-      $this->assign('ultimosAndamentos',$this->controller->env->templ );
+      $this->assign('uaList', $this->controller->getEnv()->uaList );
+      $this->assign('clienteNome', $this->controller->getEnv()->clienteNome );
+      $this->assign('ultimosAndamentos',$this->controller->getEnv()->templ );
 
 
       $this->display(APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/defaultBody.tpl');

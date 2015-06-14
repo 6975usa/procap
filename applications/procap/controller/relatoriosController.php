@@ -28,10 +28,10 @@ class procap_controller_relatoriosController extends  classes_controller_Abstrac
 
 
       $model = new procap_model_relatorioModel($this->controller);
-      $this->controller->env->listClientes = $model->getClientes($this->controller->user->getProperty('office_id'));
+      $this->controller->getEnv()->listClientes = $model->getClientes($this->controller->getUser()->getProperty('office_id'));
 
 
-      $view = new procap_view_relatoriosView($this->controller,$this->env);
+      $view = new procap_view_relatoriosView($this->controller,$this->getEnv());
 
    }
 

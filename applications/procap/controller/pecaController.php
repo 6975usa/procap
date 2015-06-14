@@ -55,7 +55,7 @@ class procap_controller_pecaController extends classes_controller_AbstractSystem
             $this->acertaTextarea($form);
         }
 
-        $this->controller->env->forms['pecaForm'] = $form;
+        $this->controller->getEnv()->forms['pecaForm'] = $form;
 
         $_GET['setPerPage'] = 10000;
         $pecaList = $model->getList(new procap_model_structure_pecaListStructure());
@@ -68,12 +68,12 @@ class procap_controller_pecaController extends classes_controller_AbstractSystem
             }
         }
 
-        $this->controller->env->desc_html = $this->desc_html;
+        $this->controller->getEnv()->desc_html = $this->desc_html;
 
 
-        $this->controller->env->lists['pecaList'] = $pecaList;
+        $this->controller->getEnv()->lists['pecaList'] = $pecaList;
 
-        $view = new procap_view_pecaView($this->controller, $this->env);
+        $view = new procap_view_pecaView($this->controller, $this->getEnv());
     }
 
     function acertaTextarea($form) {

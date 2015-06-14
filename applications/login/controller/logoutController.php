@@ -28,7 +28,7 @@ class login_controller_logoutController extends  classes_controller_AbstractSyst
 
 		$this->controller->loger->log(LOGOUT_SUCCESS);
 
-		$this->controller->user->logout();
+		$this->controller->getUser()->logout();
 
 	}
 

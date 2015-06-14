@@ -29,13 +29,13 @@ class procap_controller_estadoCivilController extends  classes_controller_Abstra
 
 
       $form =  $model->getForm( new procap_model_structure_estadoCivilFormStructure() ,'client' );
-      $this->controller->env->forms['estadoCivilForm'] =  $form;
+      $this->controller->getEnv()->forms['estadoCivilForm'] =  $form;
 
 
       $estadoCivilList =  $model->getList( new procap_model_structure_estadoCivilListStructure() );
-      $this->controller->env->lists['estadoCivilList'] =  $estadoCivilList;
+      $this->controller->getEnv()->lists['estadoCivilList'] =  $estadoCivilList;
 
-      $view = new procap_view_estadoCivilView($this->controller,$this->env);
+      $view = new procap_view_estadoCivilView($this->controller,$this->getEnv());
 
    }
 

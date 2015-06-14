@@ -36,7 +36,7 @@ class admin_view_userView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('userList',APP_ROOT.'/admin/templates/userList.tpl' );
       $this->assign('userForm',APP_ROOT.'/admin/templates/userForm.tpl' );
 
-      $this->assign('groups',  $this->controller->env->request['groups'] );
+      $this->assign('groups',  $this->controller->getEnv()->request['groups'] );
 
 
 

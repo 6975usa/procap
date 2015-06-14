@@ -33,7 +33,7 @@ class procap_view_relatoriosView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('leftmenu',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/leftmenu.tpl' );
       $this->assign('footer',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/footer.tpl' );
 
-      $this->assign('listClientes', $this->controller->env->listClientes );
+      $this->assign('listClientes', $this->controller->getEnv()->listClientes );
 
  
       $this->assign('ultimosAndamentos',APP_ROOT.'/procap/templates/relatorios.tpl' );

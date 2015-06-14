@@ -26,7 +26,7 @@ class admin_controller_adminController extends  classes_controller_AbstractSyste
 
    function execute(){
 
-      $view = new admin_view_adminView($this->controller,$this->env);
+      $view = new admin_view_adminView($this->controller,$this->getEnv());
 
    }
 

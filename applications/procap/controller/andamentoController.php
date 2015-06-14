@@ -51,19 +51,19 @@ class procap_controller_andamentoController extends classes_controller_AbstractS
             //Faz com que o andamento sempre possa aparecer na agenda. Unless termino is null
             $form->getElement("agenda")->setValue("1");
             
-            $this->controller->env->forms['andamentoForm'] = $form;
+            $this->controller->getEnv()->forms['andamentoForm'] = $form;
             $this->acertaTextarea($form);
         } else {
             $_GET['setPerPage'] = 10000;
             $andamentoList = $model->getList(new procap_model_structure_andamentoListStructure());
-            $this->controller->env->lists['andamentoList'] = $model->setPecas($andamentoList);
+            $this->controller->getEnv()->lists['andamentoList'] = $model->setPecas($andamentoList);
         }
 
-        $this->controller->env->desc_html = $this->desc_html;
+        $this->controller->getEnv()->desc_html = $this->desc_html;
 
-        $this->controller->env->pastaProcesso = $model->getPastaDeProcesso($_GET['pc']);
+        $this->controller->getEnv()->pastaProcesso = $model->getPastaDeProcesso($_GET['pc']);
 
-        $view = new procap_view_andamentoView($this->controller, $this->env);
+        $view = new procap_view_andamentoView($this->controller, $this->getEnv());
     }
 
     private function acertaTextarea($form) {

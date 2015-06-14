@@ -29,12 +29,12 @@ class procap_controller_ritoController extends  classes_controller_AbstractSyste
 
 
       $form =  $model->getForm( new procap_model_structure_ritoFormStructure() ,'client' );
-      $this->controller->env->forms['ritoForm'] =  $form;
+      $this->controller->getEnv()->forms['ritoForm'] =  $form;
 
       $ritoList =  $model->getList( new procap_model_structure_ritoListStructure() );
-      $this->controller->env->lists['ritoList'] =  $ritoList;
+      $this->controller->getEnv()->lists['ritoList'] =  $ritoList;
 
-      $view = new procap_view_ritoView($this->controller,$this->env);
+      $view = new procap_view_ritoView($this->controller,$this->getEnv());
 
    }
 

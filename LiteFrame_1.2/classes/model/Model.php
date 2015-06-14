@@ -415,7 +415,7 @@ class classes_model_Model extends classes_model_CRUD  {
                $this->form->getElement($elementName)->setAttribute('id',$elementName) ;
                $this->form->getElement($elementName)->setAttribute('size','10') ;
                $this->form->getElement($elementName)->setAttribute('maxlength','10') ;
-               $this->controller->env->jscalendar[$elementName] = $code;
+               $this->controller->getEnv()->jscalendar[$elementName] = $code;
             }
          }
       }
@@ -440,7 +440,7 @@ class classes_model_Model extends classes_model_CRUD  {
                if(!empty($value)) {
                   $date = explode('/',$value);
                   if(!checkdate($date[1],$date[0],$date[2])){
-                     $this->controller->messages->addErrorMessage(INVALID_DATE);
+                     $this->controller->getMessages()->addErrorMessage(INVALID_DATE);
                      return false;
                   }
                }
@@ -578,7 +578,7 @@ class classes_model_Model extends classes_model_CRUD  {
          foreach ($cols as $colName=>$values){
             if(isset($values['qf_vals']) && !empty($values['qf_vals']) &&  $values['qf_type'] != 'hierselect') {
                if( !empty($_POST[$colName]) && !key_exists($_POST[$colName],$values['qf_vals'])){
-                  $this->controller->env->formErrorMessages[$colName] = INVALID_VALUE ;
+                  $this->controller->getEnv()->formErrorMessages[$colName] = INVALID_VALUE ;
                   $this->form->getElement($colName)->setAttribute('class','error') ;
                   return false;
                }

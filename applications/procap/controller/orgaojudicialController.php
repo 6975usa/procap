@@ -29,22 +29,22 @@ class procap_controller_orgaojudicialController extends  classes_controller_Abst
 
 
       $form =  $model->getForm( new procap_model_structure_orgaojudicialFormStructure() ,'client' );
-      $this->controller->env->forms['orgaojudicialForm'] =  $form;
+      $this->controller->getEnv()->forms['orgaojudicialForm'] =  $form;
 
       // pr($form);
 
 
       if(isset($_POST['id'])) {
-         $this->controller->env->request['turmas'] = $model->getTurmasDeOrgaoJudicial($_POST['id']);
+         $this->controller->getEnv()->request['turmas'] = $model->getTurmasDeOrgaoJudicial($_POST['id']);
       }
       else{
-         $this->controller->env->request['turmas'] = null;
+         $this->controller->getEnv()->request['turmas'] = null;
       }
 
       $orgaojudicialList =  $model->getList( new procap_model_structure_orgaojudicialListStructure() );
-      $this->controller->env->lists['orgaojudicialList'] =  $orgaojudicialList;
+      $this->controller->getEnv()->lists['orgaojudicialList'] =  $orgaojudicialList;
 
-      $view = new procap_view_orgaojudicialView($this->controller,$this->env);
+      $view = new procap_view_orgaojudicialView($this->controller,$this->getEnv());
 
    }
 

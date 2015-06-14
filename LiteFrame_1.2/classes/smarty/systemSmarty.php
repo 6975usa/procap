@@ -39,25 +39,25 @@ class classes_smarty_systemSmarty extends Smarty {
     function smartyExecute () {
         if (defined(STATIC_URL))
             $this->assign('static_url', STATIC_URL);
-        if (defined(SITE_ROOT))
+        if (defined(SITE_ROOT)) 
             $this->assign('site_url', SITE_ROOT);
         
-        $this->assign('messages', $this->controller->messages->getMessages());
+        $this->assign('messages', $this->controller->getMessages()->getMessages());
         $this->assign('crudAction', $this->controller->getAction()
             ->getCrudAction());
-        $this->assign('user', $this->controller->user);
-        $this->assign('formErrorMessages', (! empty($this->controller->env->formErrorMessages)) ? $this->controller->env->formErrorMessages : null);
+        $this->assign('user', $this->controller->getUser());
+        $this->assign('formErrorMessages', (! empty($this->controller->getEnv()->formErrorMessages)) ? $this->controller->getEnv()->formErrorMessages : null);
         $this->assign('site_url', SITE_ROOT);
         @$this->assign('welcomeTpl', APP_ROOT . '/procap/templates/' . DEFAULT_THEME . '/welcome.tpl');
-        $this->assign('user_name', $this->controller->user->getProperty('loginname'));
+        $this->assign('user_name', $this->controller->getUser()->getProperty('loginname'));
         $this->listOperations();
         $this->formOperations();
         $this->setUserMenu();
     }
 
     function setUserMenu () {
-        if ($this->controller->user->isLoged()) {
-            $this->assign('usermenu', $this->controller->user->getUserMenu());
+        if ($this->controller->getUser()->isLoged()) {
+            $this->assign('usermenu', $this->controller->getUser()->getUserMenu());
         }
     }
 
@@ -67,9 +67,9 @@ class classes_smarty_systemSmarty extends Smarty {
         $this->assign('static_url', STATIC_URL);
         
         $listSet = false;
-        // pr($this->controller->env->lists);
-        if (isset($this->controller->env->lists)) {
-            foreach ($this->controller->env->lists as $frm) {
+        // pr($this->controller->getEnv()->lists);
+        if (isset($this->controller->getEnv()->lists)) {
+            foreach ($this->controller->getEnv()->lists as $frm) {
                 if (! empty($frm)) {
                     $listSet = true;
                 }
@@ -106,10 +106,10 @@ class classes_smarty_systemSmarty extends Smarty {
         
         if ($formSet) {
             
-            $this->assign('forms', (isset($this->controller->env->forms)) ? $this->controller->env->forms : null);
+            $this->assign('forms', (isset($this->controller->getEnv()->forms)) ? $this->controller->getEnv()->forms : null);
             $this->assign('controller', $this->controller);
             
-            foreach ($this->controller->env->forms as $form) {
+            foreach ($this->controller->getEnv()->forms as $form) {
                 if ($form->formValidate) {
                     
                     foreach ($frm->_elements as $elem) {
@@ -149,8 +149,8 @@ class classes_smarty_systemSmarty extends Smarty {
 
                         // any other element type
                         else {
-                            if (isset($this->controller->env->jscalendar)) {
-                                $jscalendar = $this->controller->env->jscalendar;
+                            if (isset($this->controller->getEnv()->jscalendar)) {
+                                $jscalendar = $this->controller->getEnv()->jscalendar;
                                 if (isset($jscalendar[$element['name']])) {
                                     $element['html'] .= $jscalendar[$element['name']];
                                 }
@@ -167,7 +167,7 @@ class classes_smarty_systemSmarty extends Smarty {
                 }
             }
             
-            $messages = $this->controller->messages->getMessages();
+            $messages = $this->controller->getMessages()->getMessages();
             if (isset($messages['crud'])) {
                 $this->assign('messages', $messages['crud']);
             }

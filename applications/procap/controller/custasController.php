@@ -49,12 +49,12 @@ class procap_controller_custasController extends  classes_controller_AbstractSys
          }
       }
 
-      $this->controller->env->forms['custasForm'] =  $form;
+      $this->controller->getEnv()->forms['custasForm'] =  $form;
 
       $custasList =  $model->getList( new procap_model_structure_custasListStructure() );
-      $this->controller->env->lists['custasList'] =  $custasList;
+      $this->controller->getEnv()->lists['custasList'] =  $custasList;
 
-      $view = new procap_view_custasView($this->controller,$this->env);
+      $view = new procap_view_custasView($this->controller,$this->getEnv());
 
    }
 

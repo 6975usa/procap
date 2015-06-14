@@ -35,14 +35,14 @@ class procap_model_andamentoModel extends classes_model_AbstractModel {
 
             if (empty($fields['termino_data'])) {
 
-                $this->controller->env->formErrorMessages['termino_data'] = 'Termino nao pode ser vazio';
+                $this->controller->getEnv()->formErrorMessages['termino_data'] = 'Termino nao pode ser vazio';
                 $this->form->getElement('termino_data')->setAttribute('class', 'error');
 
                 $ret = false;
             }
             if (empty($fields['inicio_data'])) {
 
-                $this->controller->env->formErrorMessages['inicio_data'] = ' Inicio nao pode ser vazio';
+                $this->controller->getEnv()->formErrorMessages['inicio_data'] = ' Inicio nao pode ser vazio';
                 $this->form->getElement('inicio_data')->setAttribute('class', 'error');
 
                 $ret = false;

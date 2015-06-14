@@ -38,7 +38,7 @@ class procap_view_defaultView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('_form', APP_ROOT.'/procap/templates/agendaForm.tpl' );
 
       //variaveis de formulario
-      $this->assign('dia_da_agenda', $this->controller->env->dia_da_agenda );
+      $this->assign('dia_da_agenda', $this->controller->getEnv()->dia_da_agenda );
       $this->assign('request_uri', $_SERVER['REQUEST_URI'] );
 
 

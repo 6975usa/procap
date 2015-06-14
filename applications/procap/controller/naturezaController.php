@@ -29,13 +29,13 @@ class procap_controller_naturezaController extends  classes_controller_AbstractS
 
 
       $form =  $model->getForm( new procap_model_structure_naturezaFormStructure() ,'client' );
-      $this->controller->env->forms['naturezaForm'] =  $form;
+      $this->controller->getEnv()->forms['naturezaForm'] =  $form;
 
 
       $naturezaList =  $model->getList( new procap_model_structure_naturezaListStructure() );
-      $this->controller->env->lists['naturezaList'] =  $naturezaList;
+      $this->controller->getEnv()->lists['naturezaList'] =  $naturezaList;
 
-      $view = new procap_view_naturezaView($this->controller,$this->env);
+      $view = new procap_view_naturezaView($this->controller,$this->getEnv());
 
    }
 

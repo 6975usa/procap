@@ -31,22 +31,22 @@ class admin_controller_officeController extends  classes_controller_AbstractSyst
 
 
       $form =  $model->getForm( new admin_model_structure_officeFormStructure() ,'client' );
-      $this->controller->env->forms['officeForm'] =  $form;
+      $this->controller->getEnv()->forms['officeForm'] =  $form;
 
 
       $officeList =  $model->getList( new admin_model_structure_officeListStructure() );
-      $this->controller->env->lists['officeList'] =  $officeList;
+      $this->controller->getEnv()->lists['officeList'] =  $officeList;
 
 
       if(isset($_POST['id'])){
-         $this->controller->env->request['apps'] =  $model->getApps($_POST['id']);
+         $this->controller->getEnv()->request['apps'] =  $model->getApps($_POST['id']);
       }
       else{
-         $this->controller->env->request['apps'] =  $model->getApplications() ;
+         $this->controller->getEnv()->request['apps'] =  $model->getApplications() ;
       }
 
 
-      $view = new admin_view_officeView($this->controller,$this->env);
+      $view = new admin_view_officeView($this->controller,$this->getEnv());
 
    }
 

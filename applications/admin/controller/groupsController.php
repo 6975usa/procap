@@ -36,20 +36,20 @@ class admin_controller_groupsController extends  classes_controller_AbstractSyst
          $form->getElement('application_id')->freeze();
       }
 
-      $this->controller->env->forms['groupsForm'] =  $form;
+      $this->controller->getEnv()->forms['groupsForm'] =  $form;
 
       $groupsList =  $model->getList( new admin_model_structure_groupsListStructure() );
-      $this->controller->env->lists['groupsList'] =  $groupsList;
+      $this->controller->getEnv()->lists['groupsList'] =  $groupsList;
 
       if(isset($_POST['id'])){
-         $this->controller->env->request['actions'] =  $model->getAllActions() ;
+         $this->controller->getEnv()->request['actions'] =  $model->getAllActions() ;
       }
       else{
-         $this->controller->env->request['actions'] =  $model->getAllActions() ;
+         $this->controller->getEnv()->request['actions'] =  $model->getAllActions() ;
       }
 
 
-      $view = new admin_view_groupsView($this->controller,$this->env);
+      $view = new admin_view_groupsView($this->controller,$this->getEnv());
 
    }
 

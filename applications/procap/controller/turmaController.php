@@ -29,12 +29,12 @@ class procap_controller_turmaController extends  classes_controller_AbstractSyst
 
 
       $form =  $model->getForm( new procap_model_structure_turmaFormStructure() ,'client' );
-      $this->controller->env->forms['turmaForm'] =  $form;
+      $this->controller->getEnv()->forms['turmaForm'] =  $form;
 
       $turmaList =  $model->getList( new procap_model_structure_turmaListStructure() );
-      $this->controller->env->lists['turmaList'] =  $turmaList;
+      $this->controller->getEnv()->lists['turmaList'] =  $turmaList;
 
-      $view = new procap_view_turmaView($this->controller,$this->env);
+      $view = new procap_view_turmaView($this->controller,$this->getEnv());
 
    }
 

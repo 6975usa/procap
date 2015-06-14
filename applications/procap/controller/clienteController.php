@@ -33,7 +33,7 @@ class procap_controller_clienteController extends  classes_controller_AbstractSy
 
       $form =  $model->getForm( new procap_model_structure_clienteFormStructure() ,'client' );
       if($form){
-         $form->getElement('office_id')->setValue($this->controller->user->getProperty('office_id'));
+         $form->getElement('office_id')->setValue($this->controller->getUser()->getProperty('office_id'));
       }
 
 
@@ -82,23 +82,23 @@ class procap_controller_clienteController extends  classes_controller_AbstractSy
             }
          }
       }
-      $this->controller->env->request['template'] = $template;
+      $this->controller->getEnv()->request['template'] = $template;
 
 
 
 
-      $this->controller->env->request['mostrar_pessoa_fisica'] = $mostrar_pessoa_fisica;
-      $this->controller->env->request['mostrar_pessoa_juridica'] = $mostrar_pessoa_juridica;
-      $this->controller->env->request['mostrar_endereco'] = $mostrar_endereco;
-      $this->controller->env->request['mostrar_escolha'] = $mostrar_escolha;
+      $this->controller->getEnv()->request['mostrar_pessoa_fisica'] = $mostrar_pessoa_fisica;
+      $this->controller->getEnv()->request['mostrar_pessoa_juridica'] = $mostrar_pessoa_juridica;
+      $this->controller->getEnv()->request['mostrar_endereco'] = $mostrar_endereco;
+      $this->controller->getEnv()->request['mostrar_escolha'] = $mostrar_escolha;
 
-      $this->controller->env->forms['clienteForm'] =  $form;
+      $this->controller->getEnv()->forms['clienteForm'] =  $form;
 
 
       $clienteList =  $model->getList( new procap_model_structure_clienteListStructure() );
-      $this->controller->env->lists['clienteList'] =  $clienteList;
+      $this->controller->getEnv()->lists['clienteList'] =  $clienteList;
 
-      $view = new procap_view_clienteView($this->controller,$this->env);
+      $view = new procap_view_clienteView($this->controller,$this->getEnv());
 
    }
 

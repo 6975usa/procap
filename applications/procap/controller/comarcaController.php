@@ -29,12 +29,12 @@ class procap_controller_comarcaController extends  classes_controller_AbstractSy
 
 
       $form =  $model->getForm( new procap_model_structure_comarcaFormStructure() ,'client' );
-      $this->controller->env->forms['comarcaForm'] =  $form;
+      $this->controller->getEnv()->forms['comarcaForm'] =  $form;
 
       $comarcaList =  $model->getList( new procap_model_structure_comarcaListStructure() );
-      $this->controller->env->lists['comarcaList'] =  $comarcaList;
+      $this->controller->getEnv()->lists['comarcaList'] =  $comarcaList;
 
-      $view = new procap_view_comarcaView($this->controller,$this->env);
+      $view = new procap_view_comarcaView($this->controller,$this->getEnv());
 
    }
 

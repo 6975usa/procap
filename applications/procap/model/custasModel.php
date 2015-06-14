@@ -45,7 +45,7 @@ class procap_model_custasModel extends classes_model_AbstractModel {
       $valor = str_replace('.','',$fields['valor']);
       $valor = str_replace(',','.',$valor);
       if(!empty($valor) && !is_numeric($valor) ){
-         $this->controller->env->formErrorMessages['valor'] = 'deve ser n&uacurtemero' ;
+         $this->controller->getEnv()->formErrorMessages['valor'] = 'deve ser n&uacurtemero' ;
          $this->form->getElement('valor')->setAttribute('class','error') ;
          $return  =  false;
       }

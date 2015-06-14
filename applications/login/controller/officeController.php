@@ -43,8 +43,8 @@ class login_controller_officeController extends  classes_controller_AbstractSyst
       }
 
       $form->getElement('MM_insert')->setValue('Cadastrar');
-      $this->controller->env->forms['officeForm'] =  $form;
-      $view = new login_view_officeView($this->controller,$this->env);
+      $this->controller->getEnv()->forms['officeForm'] =  $form;
+      $view = new login_view_officeView($this->controller,$this->getEnv());
 
 
 

@@ -33,7 +33,7 @@ class procap_controller_partecontrariaController extends  classes_controller_Abs
 
       $form =  $model->getForm( new procap_model_structure_partecontrariaFormStructure() ,'client' );
       if($form){
-         $form->getElement('office_id')->setValue($this->controller->user->getProperty('office_id'));
+         $form->getElement('office_id')->setValue($this->controller->getUser()->getProperty('office_id'));
       }
 
       $action = $this->controller->getAction()->getCrudAction();
@@ -81,23 +81,23 @@ class procap_controller_partecontrariaController extends  classes_controller_Abs
             }
          }
       }
-      $this->controller->env->request['template'] = $template;
+      $this->controller->getEnv()->request['template'] = $template;
 
 
 
 
-      $this->controller->env->request['mostrar_pessoa_fisica'] = $mostrar_pessoa_fisica;
-      $this->controller->env->request['mostrar_pessoa_juridica'] = $mostrar_pessoa_juridica;
-      $this->controller->env->request['mostrar_endereco'] = $mostrar_endereco;
-      $this->controller->env->request['mostrar_escolha'] = $mostrar_escolha;
+      $this->controller->getEnv()->request['mostrar_pessoa_fisica'] = $mostrar_pessoa_fisica;
+      $this->controller->getEnv()->request['mostrar_pessoa_juridica'] = $mostrar_pessoa_juridica;
+      $this->controller->getEnv()->request['mostrar_endereco'] = $mostrar_endereco;
+      $this->controller->getEnv()->request['mostrar_escolha'] = $mostrar_escolha;
 
-      $this->controller->env->forms['partecontrariaForm'] =  $form;
+      $this->controller->getEnv()->forms['partecontrariaForm'] =  $form;
 
 
       $partecontrariaList =  $model->getList( new procap_model_structure_partecontrariaListStructure() );
-      $this->controller->env->lists['partecontrariaList'] =  $partecontrariaList;
+      $this->controller->getEnv()->lists['partecontrariaList'] =  $partecontrariaList;
 
-      $view = new procap_view_partecontrariaView($this->controller,$this->env);
+      $view = new procap_view_partecontrariaView($this->controller,$this->getEnv());
 
    }
 
