@@ -16,25 +16,35 @@
  * @copyright  2010 Anselmo S Ribeiro
  * @licence LGPL
  */
+class procap_controller_relatorioController extends classes_controller_AbstractSystemController {
 
+    function __construct($controller) {
+        $this->controller = $controller;
+    }
 
-class procap_controller_relatorioController extends  classes_controller_AbstractSystemController {
+    function execute() {
 
-   function  __construct($controller){
-      $this->controller = $controller;
-   }
+        if (!isset($_POST['tipo'])) {
+            return new procap_controller_relatoriosController($this->controller);
+        }
 
-   function execute(){
-
-
-      $model = new procap_model_relatorioModel($this->controller);
-
-      $this->controller->env->uaList = $model->getUltimosAndamentos($_POST['cliente_id']);
-      $this->controller->env->clienteNome = $model->getClienteNome($_POST['cliente_id']);
-
-      $view = new procap_view_relatorioView($this->controller,$this->env);
-
-   }
+        switch ($_POST['tipo']) {
+            case "ultimos_andamentos":
+                $model = new procap_model_relatorioModel($this->controller);
+                $this->controller->env->uaList = $model->getUltimosAndamentos($_POST['cliente_id']);
+                $this->controller->env->clienteNome = $model->getClienteNome($_POST['cliente_id']);
+                $this->controller->env->templ = APP_ROOT . '/procap/templates/relatorio.tpl';
+                $view = new procap_view_relatorioView($this->controller, $this->env);
+                break;
+            case "ativos":
+                break;
+            case "baixados":
+                break;
+            default:
+                break;
+        }
+    }
 
 }
+
 ?>
