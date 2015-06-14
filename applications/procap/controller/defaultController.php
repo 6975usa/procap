@@ -18,10 +18,10 @@
  */
 
 
-class procap_controller_defaultController extends  classes_controller_AbstractSystemController {
+class procap_controller_defaultController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 

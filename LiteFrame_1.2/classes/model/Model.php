@@ -35,7 +35,7 @@ class classes_model_Model extends classes_model_CRUD  {
 
 
 
-   function __construct($controller){
+   function __construct(classes_controller_SystemController $controller){
       $this->controller = $controller;
       $this->facade =  classes_Singleton::getInstance($this->controller->getApplication()->getName().'_dao_ApplicationDAOFacade',$controller);
    }

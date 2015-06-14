@@ -16,28 +16,28 @@
  * @copyright  2010 Anselmo S Ribeiro
  * @licence LGPL
  */
+class procap_controller_estadoCivilController extends classes_controller_AbstractSystemController {
+
+    /**     * @var classes_controller_SystemController     */ private $controller;
+
+    function __construct(classes_controller_SystemController $controller) {
+        $this->controller = $controller;
+    }
+
+    function execute() {
+        $model = new procap_model_estadoCivilModel($this->controller);
 
 
-class procap_controller_estadoCivilController extends  classes_controller_AbstractSystemController {
-
-   function  __construct($controller){
-      $this->controller = $controller;
-   }
-
-   function execute(){
-      $model = new procap_model_estadoCivilModel($this->controller);
+        $form = $model->getForm(new procap_model_structure_estadoCivilFormStructure(), 'client');
+        $this->controller->getEnv()->forms['estadoCivilForm'] = $form;
 
 
-      $form =  $model->getForm( new procap_model_structure_estadoCivilFormStructure() ,'client' );
-      $this->controller->getEnv()->forms['estadoCivilForm'] =  $form;
+        $estadoCivilList = $model->getList(new procap_model_structure_estadoCivilListStructure());
+        $this->controller->getEnv()->lists['estadoCivilList'] = $estadoCivilList;
 
-
-      $estadoCivilList =  $model->getList( new procap_model_structure_estadoCivilListStructure() );
-      $this->controller->getEnv()->lists['estadoCivilList'] =  $estadoCivilList;
-
-      $view = new procap_view_estadoCivilView($this->controller,$this->getEnv());
-
-   }
+        $view = new procap_view_estadoCivilView($this->controller, $this->getEnv());
+    }
 
 }
+
 ?>
