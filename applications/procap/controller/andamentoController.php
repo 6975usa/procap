@@ -19,14 +19,19 @@
 class procap_controller_andamentoController extends classes_controller_AbstractSystemController {
 
     private $desc_html = null;
+    
+    /**
+     * @var classes_controller_SystemController
+     */
+    private $controller;
 
-    function __construct($controller) {
+    function __construct(classes_controller_SystemController $controller) {
         $this->controller = $controller;
     }
 
     function execute() {
         $model = new procap_model_andamentoModel($this->controller);
-
+        
         $form = $model->getForm(new procap_model_structure_andamentoFormStructure(), 'client');
 
         if ($form) {
@@ -53,6 +58,11 @@ class procap_controller_andamentoController extends classes_controller_AbstractS
             
             $this->controller->getEnv()->forms['andamentoForm'] = $form;
             $this->acertaTextarea($form);
+            
+            if($this->controller->getAction()->isInsert()){
+                $model->savePecasDeAndamento();
+            }
+            
         } else {
             $_GET['setPerPage'] = 10000;
             $andamentoList = $model->getList(new procap_model_structure_andamentoListStructure());

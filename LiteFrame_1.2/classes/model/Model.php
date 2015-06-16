@@ -236,7 +236,7 @@ class classes_model_Model extends classes_model_CRUD {
      * @return HTML_QuickForm
      * @throws Exception
      */
-    function getForm(classes_model_structure_Structure $formStructure , $validationSide = "server") {
+    function getForm(classes_model_structure_Structure $formStructure, $validationSide = "server") {
         $action = $this->controller->getAction()->getCrudAction();
         switch ($action) {
             case 'lsUpdate':
@@ -331,6 +331,22 @@ class classes_model_Model extends classes_model_CRUD {
 
     function getFormStructureColsForValidation() {
         $fs = $this->formStructure;
+        $cols = array();
+        foreach ($fs->getCols() as $colName => $col) {
+            if (isset($col['form']) && $col['form'] === true) {
+                if (!(isset($col['crud']) && $col['crud'] === false)) {
+                    $cols[] = $colName;
+                }
+            } else {
+                if (!(isset($col['form']) && $col['form'] === false)) {
+                    throw new Exception("Index 'form' not defined for '$colName'. Choose true|false. ");
+                }
+            }
+        }
+        return $cols;
+    }
+
+    function getFSCols(classes_model_structure_Structure $fs) {
         $cols = array();
         foreach ($fs->getCols() as $colName => $col) {
             if (isset($col['form']) && $col['form'] === true) {
@@ -727,6 +743,16 @@ class classes_model_Model extends classes_model_CRUD {
         foreach ($this->form->_elements as $element) {
             $element->setAttribute('id', $element->_attributes['name']);
         }
+    }
+
+    public function getExportValues(HTML_QuickForm $form, classes_model_structure_Structure $formStructure) {
+        $values = $form->exportValues($this->getFSCols($formStructure));
+        foreach ($values as $colName => $value) {
+            if (is_array($value)) {
+                @$values[$colName] = $value[count($value) - 1];
+            }
+        }
+        return $values;
     }
 
 }

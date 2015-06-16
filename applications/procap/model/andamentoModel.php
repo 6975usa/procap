@@ -18,8 +18,11 @@
  */
 class procap_model_andamentoModel extends classes_model_AbstractModel {
 
+    private $controller;
+
     function __construct(classes_controller_SystemController $controller) {
         parent::__construct($controller);
+        $this->controller = $controller;
     }
 
     public function formConfiguration() {
@@ -63,6 +66,33 @@ class procap_model_andamentoModel extends classes_model_AbstractModel {
             unset($andamentos->data[$key]['andamento_id']);
         }
         return $andamentos;
+    }
+
+    public function savePecasDeAndamento() {
+
+        $pecaDao = new procap_dao_pecaDAO();
+        $values = array();
+
+        if (!empty($_FILES['arquivo1']) && !empty($_POST["descricao1"])) {
+            $values[] = array("file" => 'arquivo1', "desc" => "descricao1");
+        }
+        if (!empty($_FILES['arquivo2']) && !empty($_POST["descricao2"])) {
+            $values[] = array("file" => 'arquivo2', "desc" => "descricao2");
+        }
+        if (!empty($_FILES['arquivo3']) && !empty($_POST["descricao3"])) {
+            $values[] = array("file" => 'arquivo3', "desc" => "descricao3");
+        }
+
+        foreach ($values as $val) {
+            $arq = STATIC_URL . '/procap/arquivos/' . $_POST["processo_id"] . DS . $_FILES[$val['file']]['name'];
+            $pecaDao->savePeca($_POST["processo_id"], $_POST[$val["desc"]], $_POST["andamento_id"], $arq);
+
+            $this->moveFile($val["file"]);
+        }
+    }
+
+    function moveFile($file) {
+        
     }
 
 }
