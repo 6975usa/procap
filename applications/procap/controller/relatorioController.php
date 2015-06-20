@@ -18,7 +18,7 @@
  */
 class procap_controller_relatorioController extends classes_controller_AbstractSystemController {
 
-    function __construct($controller) {
+    function __construct(classes_controller_SystemController $controller) {
         $this->controller = $controller;
     }
 
@@ -42,7 +42,7 @@ class procap_controller_relatorioController extends classes_controller_AbstractS
                 break;
             case "baixados":
                 $this->controller->getEnv()->uaList = $model->getProcessosBaixados($_POST['cliente_id']);
-                $this->controller->getEnv()->templ = APP_ROOT . '/procap/templates/relatorio_processos_ativos.tpl';
+                $this->controller->getEnv()->templ = APP_ROOT . '/procap/templates/relatorio_processos_baixados.tpl';
                 break;
             default:
                 break;

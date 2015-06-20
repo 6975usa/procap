@@ -745,7 +745,7 @@ class classes_model_Model extends classes_model_CRUD {
         }
     }
 
-    public function getExportValues(HTML_QuickForm $form, classes_model_structure_Structure $formStructure) {
+    public function getFromValues(HTML_QuickForm $form, classes_model_structure_Structure $formStructure) {
         $values = $form->exportValues($this->getFSCols($formStructure));
         foreach ($values as $colName => $value) {
             if (is_array($value)) {

@@ -54,19 +54,19 @@
                     <th>Tribunal</th>
                     <th>Comarca</th>
                     <th>Valor</th>
-                    <!--                     <th>Pe�as</th>-->
+                    <!--                     <th>Pe&ccedil;as</th>-->
                 </tr>
             </thead>
             <tbody  id="listTbody">
                 {s foreach from=$uaList  key=k  item=processo s}
                 <tr>
                     <td>{s $processo.numero s}</TD>
-                    <td>{s $processo.cliente1 s} {s if $processo.cliente2 s}<br/>{s /if s} {s $processo.cliente2 s}</TD>
-                    <td>{s $processo.contraparte1 s}  {s if $processo.contraparte2 s}<br/>{s /if s} {s $processo.contraparte2 s}</TD>
+                    <td>{s $processo.cliente s}</TD>
+                    <td>{s $processo.contraparte s}</TD>
                     <td>{s $processo.vara s}</TD>
                     <td>{s $processo.tribunal s}</TD>
                     <td>{s $processo.camarca s}</TD>
-                    <td>{s $processo.valorcausa s}</TD>
+                    <td>{s $processo.valor s}</TD>
                 </tr>
                 {s /foreach s}
             </tbody>

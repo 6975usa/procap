@@ -18,8 +18,6 @@
  */
 class procap_model_andamentoModel extends classes_model_AbstractModel {
 
-    private $controller;
-
     function __construct(classes_controller_SystemController $controller) {
         parent::__construct($controller);
         $this->controller = $controller;

@@ -9,41 +9,38 @@
 
 /**
  *
- * @package	LiteFrame - lightWeight FrameWork
- * @version	1.0
- * @since	1.0
- * @author	Anselmo S Ribeiro <anselmo.sr@gmail.com>
- * @copyright	2010 Anselmo S Ribeiro
- * @licence	LGPL
+ * @package LiteFrame - lightWeight FrameWork
+ * @version 1.0
+ * @since 1.0
+ * @author Anselmo S Ribeiro <anselmo.sr@gmail.com>
+ * @copyright 2010 Anselmo S Ribeiro
+ *            @licence LGPL
  */
 class procap_dao_relatorioDAO extends classes_dao_AbstractDAO {
 
     public $table = 'procap_andamento';
 
-    function __construct() {
+    function __construct () {
         parent::__construct();
     }
 
-    public function setConnString() {
+    public function setConnString () {
         return procap_config_DatabaseConfiguration::getConn('procap');
     }
 
-    public function setMdb2Conn() {
+    public function setMdb2Conn () {
         return procap_config_DatabaseConfiguration::getConn('procap');
     }
 
-    public function getConnInfo() {
+    public function getConnInfo () {
         return procap_config_DatabaseConfiguration::getConnInfo('procap');
     }
 
-    public function getListNames() {
-        
-    }
+    public function getListNames () {}
 
-    public function getUltimosAndamentos($clienteId) {
-
+    public function getUltimosAndamentos ($clienteId) {
         $user = classes_Singleton::getInstance('classes_controller_user');
-
+        
         switch ($user->inGroup('Super Administrador')) {
             case true:
                 $sql = "
@@ -75,10 +72,13 @@ class procap_dao_relatorioDAO extends classes_dao_AbstractDAO {
                   order by termino_data desc
                   limit  20
                   ";
-                $res = $this->execute($sql, array($clienteId, $clienteId));
+                $res = $this->execute($sql, array(
+                        $clienteId,
+                        $clienteId
+                ));
                 return $res->getRows();
                 break;
-
+            
             default:
                 $office_id = $user->getProperty('office_id');
                 $sql = "
@@ -112,61 +112,59 @@ class procap_dao_relatorioDAO extends classes_dao_AbstractDAO {
                   order by termino_data desc
                   limit 20
                   ";
-                $res = $this->execute($sql, array($clienteId, $clienteId, $office_id));
+                $res = $this->execute($sql, array(
+                        $clienteId,
+                        $clienteId,
+                        $office_id
+                ));
                 return $res->getRows();
                 break;
         }
     }
 
-    function getNextIdVal($pk) {
-        
-    }
+    function getNextIdVal ($pk) {}
 
-    function getPecasDeAndamento($andamentoId) {
+    function getPecasDeAndamento ($andamentoId) {
         $sql = " select descricao from procap_peca where andamento_id = ?";
-        $res = $this->execute($sql, array($andamentoId));
+        $res = $this->execute($sql, array(
+                $andamentoId
+        ));
         return $res->getRows();
     }
 
-    public function getProcessosAtivos($clientId) {
-
-        $sql = "SELECT p.`numero`, 
-                    IF(pes1.nome != null, pes1.nome,pes1.nome_fantasia) as cliente1 ,
-                    (select if(pes.nome!=null,pes.nome,pes.nome_fantasia)  from procap_pessoa pes where pes.id = p.cliente2_id) as cliente2, 
-                    pes2.nome as contraparte1, 
-                    (select if(pes.nome != null,pes.nome,pes.nome_fantasia) from procap_pessoa pes where pes.id = p.contraparte2_id) as contraparte2, 
-                    (select vara.descricao from procap_vara vara where vara.id = p.vara_id) as vara, 
-                    (select t.nomeabreviado from procap_tribunal t where t.id = p.`tribunal_id` ) as tribunal , 
-                    (select c.descricao from procap_comarca c where c.id = p.`comarca_id`) as comarca , 
-                    p.`valorcausa`
-                    from procap_processo p 
-                            inner join procap_pessoa pes1 on p.`cliente1_id` = pes1.`id` 
-                        inner join procap_pessoa pes2 on p.contraparte1_id = pes2.id
-                    where p.`cliente1_id` = ? and p.status_id = 2 ";
-        $res = $this->execute($sql, array($clientId));
+    public function getProcessosAtivos ($clientId) {
+        $sql = "SELECT 
+                	p.numero, 
+                    concat(ifnull(pes.nome,''),ifnull(pes.nome_fantasia,'')) as cliente, 
+                    (select concat(ifnull(pes1.nome,''),ifnull(pes1.nome_fantasia,'')) from procap_pessoa pes1 where pes1.id = p.contraparte1_id) as contraparte,
+                    (select v.descricao from procap_vara v where v.id = p.vara_id) as vara,
+                    (select t.nomeabreviado from procap_tribunal t where t.id = p.tribunal_id) as tribunal,
+                    (select c.descricao from procap_comarca c where c.id = p.comarca_id) as comarca,
+                    p.valorcausa as valor
+                from procap_processo p inner join procap_pessoa pes on pes.id = p.cliente1_id
+                where p.`cliente1_id` = ? and p.status_id = 2 ";
+        $res = $this->execute($sql, array(
+                $clientId
+        ));
         return $res->getRows();
     }
 
-
-    public function getProcessosBaixados($clientId) {
-
-        $sql = "SELECT p.`numero`, 
-                    IF(pes1.nome != null, pes1.nome,pes1.nome_fantasia) as cliente1 ,
-                    (select if(pes.nome!=null,pes.nome,pes.nome_fantasia)  from procap_pessoa pes where pes.id = p.cliente2_id) as cliente2, 
-                    pes2.nome as contraparte1, 
-                    (select if(pes.nome != null,pes.nome,pes.nome_fantasia) from procap_pessoa pes where pes.id = p.contraparte2_id) as contraparte2, 
-                    (select vara.descricao from procap_vara vara where vara.id = p.vara_id) as vara, 
-                    (select t.nome from procap_tribunal t where t.id = p.`tribunal_id` ) as tribunal , 
-                    (select c.descricao from procap_comarca c where c.id = p.`comarca_id`) as comarca , 
-                    p.`valorcausa`
-                    from procap_processo p 
-                            inner join procap_pessoa pes1 on p.`cliente1_id` = pes1.`id` 
-                        inner join procap_pessoa pes2 on p.contraparte1_id = pes2.id
-                    where p.`cliente1_id` = ? and p.status_id = 3 ";
-        $res = $this->execute($sql, array($clientId));
+    public function getProcessosBaixados ($clientId) {
+        $sql = "SELECT 
+                	p.numero, 
+                    concat(ifnull(pes.nome,''),ifnull(pes.nome_fantasia,'')) as cliente,
+                    (select concat(ifnull(pes1.nome,''),ifnull(pes1.nome_fantasia,'')) from procap_pessoa pes1 where pes1.id = p.contraparte1_id) as contraparte,
+                    (select v.descricao from procap_vara v where v.id = p.vara_id) as vara,
+                    (select t.nomeabreviado from procap_tribunal t where t.id = p.tribunal_id) as tribunal,
+                    (select c.descricao from procap_comarca c where c.id = p.comarca_id) as comarca,
+                    p.valorcausa as valor
+                from procap_processo p inner join procap_pessoa pes on pes.id = p.cliente1_id
+                where p.`cliente1_id` = ? and p.status_id = 3 ";
+        $res = $this->execute($sql, array(
+                $clientId
+        ));
         return $res->getRows();
     }
-
 }
 
 ?>

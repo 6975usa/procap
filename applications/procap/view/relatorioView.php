@@ -21,7 +21,7 @@
 class procap_view_relatorioView extends classes_smarty_abstractSystemSmarty  {
 
 
-   function __construct($controller, $env){
+   function __construct(classes_controller_SystemController $controller, $env){
       parent::__construct($controller, $env);
    }
 

@@ -340,6 +340,7 @@ class classes_dao_SystemDAO
     */
    function execute($sql,$options = array() ){
       $rs = $this->conn->execute($sql,$options);
+      //var_dump(array($sql,$options));die;
       if($this->conn->errorMsg()){
          throw new Exception($this->conn->errorMsg());
       }
