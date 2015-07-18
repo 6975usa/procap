@@ -225,8 +225,8 @@ class classes_view_TemplateIt extends HTML_Template_IT
 
 
    function setJsCalendar(){
-      if(isset($this->controller->env->jscalendar) && ($this->controller->env->jscalendar)>0){
-         foreach ($this->controller->env->jscalendar as $elementName=>$code){
+      if(isset($this->controller->getEnv()->jscalendar) && ($this->controller->getEnv()->jscalendar)>0){
+         foreach ($this->controller->getEnv()->jscalendar as $elementName=>$code){
             $this->assign($elementName.'_jscalendar',$code);
          }
       }

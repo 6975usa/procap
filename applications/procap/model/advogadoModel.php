@@ -38,7 +38,7 @@ class procap_model_advogadoModel extends classes_model_AbstractModel {
       $ret = true;
 
       if( $this->dao->nomeLoginJaAtribuido($fields['user_id'] , $fields['id']) ) {
-         $this->controller->env->formErrorMessages['user_id'] = ' Já atribuído a outro advogado ' ;
+         $this->controller->getEnv()->formErrorMessages['user_id'] = ' Já atribuído a outro advogado ' ;
          $this->form->getElement('user_id')->setAttribute('class','error') ;
          $ret =  false;
       }

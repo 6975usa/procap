@@ -90,7 +90,7 @@ class login_dao_officeDAO extends classes_dao_AbstractDAO
 
 
       //Inserindo novo usuário
-      //$values['password'] = $this->controller->env->sanitize($vals['password'],'html');
+      //$values['password'] = $this->controller->getEnv()->sanitize($vals['password'],'html');
       $values['password'] = classes_utils_cripto::createHash($vals['password']);
 
       $sql =" insert into user (id,office_id,loginname,password,fullname,active,creation_date,description,email,image) values (?,?,?,?,?,?,?,?,?,?) ";

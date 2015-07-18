@@ -46,7 +46,7 @@ class procap_model_agendaModel extends classes_model_AbstractModel {
 
          if( empty($fields['termino_data'])  ) {
 
-            $this->controller->env->formErrorMessages['termino_data'] = ' não pode ser vazio' ;
+            $this->controller->getEnv()->formErrorMessages['termino_data'] = ' não pode ser vazio' ;
             $this->form->getElement('termino_data')->setAttribute('class','error') ;
 
             $alert = classes_utils_jsFunctions::alert('Quando o compromisso aparece na agenda \n\r Datas de Início e Término não podem ser vazias');
@@ -57,7 +57,7 @@ class procap_model_agendaModel extends classes_model_AbstractModel {
          }
          if( empty($fields['inicio_data'])  ) {
 
-            $this->controller->env->formErrorMessages['inicio_data'] = ' não pode ser vazio' ;
+            $this->controller->getEnv()->formErrorMessages['inicio_data'] = ' não pode ser vazio' ;
             $this->form->getElement('inicio_data')->setAttribute('class','error') ;
 
             $alert = classes_utils_jsFunctions::alert('Quando o compromisso aparece na agenda \n\r Datas de Início e Término não podem ser vazias');

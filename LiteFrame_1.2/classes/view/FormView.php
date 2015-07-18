@@ -28,7 +28,7 @@ class classes_view_FormView extends classes_AbstractTemplateIt {
 
       $this->loadTplFile($this->tpl);
 
-      //$this->assign('list',$this->controller->env->list);
+      //$this->assign('list',$this->controller->getEnv()->list);
 
       //$this->display();
 

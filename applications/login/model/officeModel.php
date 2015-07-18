@@ -58,28 +58,28 @@ class login_model_officeModel extends classes_model_AbstractModel {
 
       if($fields['user_password']<>$fields['user_confirmpassword']){
          $this->controller->messages->addErrorMessage('Senhas não conferem.');
-         $this->controller->env->formErrorMessages['user_confirmpassword'] = 'Senhas diferentes' ;
+         $this->controller->getEnv()->formErrorMessages['user_confirmpassword'] = 'Senhas diferentes' ;
          $return = false;
       }
 
 
       if( $this->facade->getDao('login_dao_officeDAO')->officeLoginNameExists($fields['name']) ) {
          $this->form->getElement('name')->setAttribute('class','error');
-         $this->controller->env->formErrorMessages['name'] = 'Nome de login ja existe' ;
+         $this->controller->getEnv()->formErrorMessages['name'] = 'Nome de login ja existe' ;
          $return  = false;
       }
 
 
       if( $this->facade->getDao('login_dao_officeDAO')->userLoginNameExists($_POST['user_loginname'],$_POST['name'])){
          $this->form->getElement('user_loginname')->setAttribute('class','error');
-         $this->controller->env->formErrorMessages['user_loginname'] = 'Nome de login ja existe' ;
+         $this->controller->getEnv()->formErrorMessages['user_loginname'] = 'Nome de login ja existe' ;
          $return  = false;
       }
 
 
       if( $this->facade->getDao('login_dao_officeDAO')->emailExists($_POST['user_email'])){
          $this->form->getElement('user_email')->setAttribute('class','error');
-         $this->controller->env->formErrorMessages['user_email'] = 'email ja existe' ;
+         $this->controller->getEnv()->formErrorMessages['user_email'] = 'email ja existe' ;
          $return = false;
       }
 

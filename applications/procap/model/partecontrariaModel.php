@@ -45,12 +45,12 @@ class procap_model_partecontrariaModel extends classes_model_AbstractModel {
 
          if( isset($_POST['partecontraria'])  && $_POST['partecontraria']=='pessoa_fisica'){
             if(empty($fields['nome']) ) {
-               $this->controller->env->formErrorMessages['nome'] = ' não pode ser vazio ' ;
+               $this->controller->getEnv()->formErrorMessages['nome'] = ' não pode ser vazio ' ;
                $this->form->getElement('nome')->setAttribute('class','error') ;
                $ret =  false;
             }
             if(empty($fields['sexo']) ) {
-               $this->controller->env->formErrorMessages['sexo'] = ' não pode ser vazio ' ;
+               $this->controller->getEnv()->formErrorMessages['sexo'] = ' não pode ser vazio ' ;
                $this->form->getElement('sexo')->setAttribute('class','error') ;
                $ret = false;
             }
@@ -58,7 +58,7 @@ class procap_model_partecontrariaModel extends classes_model_AbstractModel {
 
          elseif( isset($_POST['partecontraria'])  && $_POST['partecontraria']=='pessoa_juridica'){
             if(empty($fields['nome_fantasia']) ) {
-               $this->controller->env->formErrorMessages['nome_fantasia'] = ' não pode ser vazio ' ;
+               $this->controller->getEnv()->formErrorMessages['nome_fantasia'] = ' não pode ser vazio ' ;
                $this->form->getElement('nome_fantasia')->setAttribute('class','error') ;
                $ret =  false;
             }

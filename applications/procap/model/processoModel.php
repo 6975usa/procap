@@ -43,7 +43,7 @@ class procap_model_processoModel extends classes_model_AbstractModel {
 
       //controlando numeração do processo
       if( $this->controller->getAction()->isNewRecord()   &&  $this->facade->getDao('procap_dao_processoDAO')->nrProcessoJaExiste($fields['numero']) ) {
-         $this->controller->env->formErrorMessages['numero'] = ' já existe ' ;
+         $this->controller->getEnv()->formErrorMessages['numero'] = ' já existe ' ;
          $this->form->getElement('numero')->setAttribute('class','error') ;
          $return  =  false;
       }
@@ -51,7 +51,7 @@ class procap_model_processoModel extends classes_model_AbstractModel {
 
       //o mesmo cliente só participa uma vez de cada processo
       if($fields['cliente1_id'] == $fields['cliente2_id']){
-         $this->controller->env->formErrorMessages['cliente2_id'] = 'não pode ser igual' ;
+         $this->controller->getEnv()->formErrorMessages['cliente2_id'] = 'não pode ser igual' ;
          $this->form->getElement('cliente2_id')->setAttribute('class','error') ;
          $return  =  false;
       }
@@ -59,7 +59,7 @@ class procap_model_processoModel extends classes_model_AbstractModel {
 
       // a mesma contraparte só participa uma vez de cada processo
       if($fields['contraparte1_id'] == $fields['contraparte2_id']){
-         $this->controller->env->formErrorMessages['contraparte2_id'] = 'não pode ser igual' ;
+         $this->controller->getEnv()->formErrorMessages['contraparte2_id'] = 'não pode ser igual' ;
          $this->form->getElement('contraparte2_id')->setAttribute('class','error') ;
          $return  =  false;
       }
@@ -68,7 +68,7 @@ class procap_model_processoModel extends classes_model_AbstractModel {
       // valor da causa deve ser numero
       $valorcausa = str_replace(',','',$fields['valorcausa']);
       if(!empty($valorcausa) && !is_numeric($valorcausa) ){
-         $this->controller->env->formErrorMessages['valorcausa'] = 'deve ser número' ;
+         $this->controller->getEnv()->formErrorMessages['valorcausa'] = 'deve ser número' ;
          $this->form->getElement('valorcausa')->setAttribute('class','error') ;
          $return  =  false;
       }
@@ -77,7 +77,7 @@ class procap_model_processoModel extends classes_model_AbstractModel {
       // valor repercussao economica deve ser numero
       $valorrepercussaoeconomica = str_replace(',','',$fields['valorrepercussaoeconomica']);
       if(!empty($valorrepercussaoeconomica) && !is_numeric($valorrepercussaoeconomica) ){
-         $this->controller->env->formErrorMessages['valorrepercussaoeconomica'] = 'deve ser número' ;
+         $this->controller->getEnv()->formErrorMessages['valorrepercussaoeconomica'] = 'deve ser número' ;
          $this->form->getElement('valorrepercussaoeconomica')->setAttribute('class','error') ;
          $return  =  false;
       }
