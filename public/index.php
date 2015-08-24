@@ -17,8 +17,6 @@
  * @licence	LGPL
  */
 
-//echo '<h2>Em Manute&ccedil;&atilde;o</h2>'; die('Por favor aguarde.');
-
 define('LITEFRAME_VERSION'   ,'LiteFrame_1.2');
 
 require_once(dirname(__FILE__).'/../'.LITEFRAME_VERSION.'/config/auto_prepend.inc.php');
