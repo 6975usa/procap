@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_statusController extends  classes_controller_AbstractSystemController {
+class procap_controller_statusController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,12 +29,12 @@ class procap_controller_statusController extends  classes_controller_AbstractSys
 
 
       $form =  $model->getForm( new procap_model_structure_statusFormStructure() ,'client' );
-      $this->controller->env->forms['statusForm'] =  $form;
+      $this->controller->getEnv()->forms['statusForm'] =  $form;
 
       $statusList =  $model->getList( new procap_model_structure_statusListStructure() );
-      $this->controller->env->lists['statusList'] =  $statusList;
+      $this->controller->getEnv()->lists['statusList'] =  $statusList;
 
-      $view = new procap_view_statusView($this->controller,$this->env);
+      $view = new procap_view_statusView($this->controller,$this->getEnv());
 
    }
 

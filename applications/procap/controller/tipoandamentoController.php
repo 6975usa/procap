@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_tipoandamentoController extends  classes_controller_AbstractSystemController {
+class procap_controller_tipoandamentoController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,12 +29,12 @@ class procap_controller_tipoandamentoController extends  classes_controller_Abst
 
 
       $form =  $model->getForm( new procap_model_structure_tipoandamentoFormStructure() ,'client' );
-      $this->controller->env->forms['tipoandamentoForm'] =  $form;
+      $this->controller->getEnv()->forms['tipoandamentoForm'] =  $form;
 
       $tipoandamentoList =  $model->getList( new procap_model_structure_tipoandamentoListStructure() );
-      $this->controller->env->lists['tipoandamentoList'] =  $tipoandamentoList;
+      $this->controller->getEnv()->lists['tipoandamentoList'] =  $tipoandamentoList;
 
-      $view = new procap_view_tipoandamentoView($this->controller,$this->env);
+      $view = new procap_view_tipoandamentoView($this->controller,$this->getEnv());
 
    }
 

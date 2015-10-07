@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_varaController extends  classes_controller_AbstractSystemController {
+class procap_controller_varaController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,12 +29,12 @@ class procap_controller_varaController extends  classes_controller_AbstractSyste
 
 
       $form =  $model->getForm( new procap_model_structure_varaFormStructure() ,'client' );
-      $this->controller->env->forms['varaForm'] =  $form;
+      $this->controller->getEnv()->forms['varaForm'] =  $form;
 
       $varaList =  $model->getList( new procap_model_structure_varaListStructure() );
-      $this->controller->env->lists['varaList'] =  $varaList;
+      $this->controller->getEnv()->lists['varaList'] =  $varaList;
 
-      $view = new procap_view_varaView($this->controller,$this->env);
+      $view = new procap_view_varaView($this->controller,$this->getEnv());
 
    }
 

@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_processoadvogadoController extends  classes_controller_AbstractSystemController {
+class procap_controller_processoadvogadoController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -49,12 +49,12 @@ class procap_controller_processoadvogadoController extends  classes_controller_A
          }
       }
 
-      $this->controller->env->forms['processoadvogadoForm'] =  $form;
+      $this->controller->getEnv()->forms['processoadvogadoForm'] =  $form;
 
       $processoadvogadoList =  $model->getList( new procap_model_structure_processoadvogadoListStructure() );
-      $this->controller->env->lists['processoadvogadoList'] =  $processoadvogadoList;
+      $this->controller->getEnv()->lists['processoadvogadoList'] =  $processoadvogadoList;
 
-      $view = new procap_view_processoadvogadoView($this->controller,$this->env);
+      $view = new procap_view_processoadvogadoView($this->controller,$this->getEnv());
 
    }
 

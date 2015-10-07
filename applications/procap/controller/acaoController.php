@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_acaoController extends  classes_controller_AbstractSystemController {
+class procap_controller_acaoController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,13 +29,13 @@ class procap_controller_acaoController extends  classes_controller_AbstractSyste
 
 
       $form =  $model->getForm( new procap_model_structure_acaoFormStructure() ,'client' );
-      $this->controller->env->forms['acaoForm'] =  $form;
+      $this->controller->getEnv()->forms['acaoForm'] =  $form;
 
 
       $acaoList =  $model->getList( new procap_model_structure_acaoListStructure() );
-      $this->controller->env->lists['acaoList'] =  $acaoList;
+      $this->controller->getEnv()->lists['acaoList'] =  $acaoList;
 
-      $view = new procap_view_acaoView($this->controller,$this->env);
+      $view = new procap_view_acaoView($this->controller,$this->getEnv());
 
    }
 

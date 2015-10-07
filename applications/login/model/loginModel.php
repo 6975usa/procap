@@ -39,9 +39,9 @@ class login_model_loginModel extends classes_model_AbstractModel {
    function formValidator($fields){
       $return = true;
 
-      $user = $this->controller->user;
+      $user = $this->controller->getUser();
       if(  !$user->validateLogin( $fields['name'] ,$fields['password'], $fields['office'] )) {
-         $this->controller->messages->addErrorMessage(INVALID_LOGIN);
+         $this->controller->getMessages()->addErrorMessage(INVALID_LOGIN);
          $return  = false;
       }
 

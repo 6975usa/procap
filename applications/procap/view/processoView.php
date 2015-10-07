@@ -33,21 +33,21 @@ class procap_view_processoView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('leftmenu',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/leftmenu.tpl' );
       $this->assign('footer',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/footer.tpl' );
 
-      $this->assign('processoNumero', $this->controller->env->processoNumero  );
-      $this->assign('processoCodigo', $this->controller->env->processoCodigo  );
+      $this->assign('processoNumero', $this->controller->getEnv()->processoNumero  );
+      $this->assign('processoCodigo', $this->controller->getEnv()->processoCodigo  );
       $this->assign('defaultTheme', DEFAULT_THEME );
 
 
-      $this->assign( 'permiteCustas' , $this->controller->user->actionIsAllowedToUser('procap','custas') );
-      $this->assign( 'permiteListiconsortes' , $this->controller->user->actionIsAllowedToUser('procap','listiconsorte') );
-      $this->assign( 'permiteAdvogados' , $this->controller->user->actionIsAllowedToUser('procap','processoadvogado') );
-      $this->assign( 'permiteAndamentos' , $this->controller->user->actionIsAllowedToUser('procap','andamento') );
-      $this->assign( 'permitePecas' , $this->controller->user->actionIsAllowedToUser('procap','peca') );
+      $this->assign( 'permiteCustas' , $this->controller->getUser()->actionIsAllowedToUser('procap','custas') );
+      $this->assign( 'permiteListiconsortes' , $this->controller->getUser()->actionIsAllowedToUser('procap','listiconsorte') );
+      $this->assign( 'permiteAdvogados' , $this->controller->getUser()->actionIsAllowedToUser('procap','processoadvogado') );
+      $this->assign( 'permiteAndamentos' , $this->controller->getUser()->actionIsAllowedToUser('procap','andamento') );
+      $this->assign( 'permitePecas' , $this->controller->getUser()->actionIsAllowedToUser('procap','peca') );
       
-      $this->assign( 'find_txt' , $this->controller->env->find_txt  ) ;
+      $this->assign( 'find_txt' , $this->controller->getEnv()->find_txt  ) ;
 
       $this->assign('_list',APP_ROOT.'/procap/templates/processoList.tpl' );
-      $this->assign('_form', $this->controller->env->formTemplate );
+      $this->assign('_form', $this->controller->getEnv()->formTemplate );
 
       $this->display(APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/defaultBody.tpl');
 

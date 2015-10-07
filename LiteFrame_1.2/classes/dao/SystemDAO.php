@@ -331,12 +331,19 @@ class classes_dao_SystemDAO
    }
 
 
+   /**
+    * 
+    * @param type $sql
+    * @param type $options
+    * @return ADORecordSet_mysql
+    * @throws Exception
+    */
    function execute($sql,$options = array() ){
       $rs = $this->conn->execute($sql,$options);
+      //var_dump(array($sql,$options));die;
       if($this->conn->errorMsg()){
          throw new Exception($this->conn->errorMsg());
       }
-
       return $rs;
    }
 

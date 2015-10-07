@@ -30,20 +30,20 @@ class classes_model_CRUD {
          if( $this->crudValidate() ){
             $cols = $this->setPkVals($this->formStructure,$cols);
             if( in_array('beforeInsert',get_class_methods($this->dao)) ){
-               $res = $this->dao->beforeInsert($this->formStructure,$cols,$this->controller->messages);
+               $res = $this->dao->beforeInsert($this->formStructure,$cols,$this->controller->getMessages());
             }
             else{
                $res = true;
             }
             if( $res===true ) {
-               $this->controller->messages->addSuccessMessage(  $this->dao->insert($this->formStructure,$cols) );
+               $this->controller->getMessages()->addSuccessMessage(  $this->dao->insert($this->formStructure,$cols) );
                if( in_array('afterInsert',get_class_methods($this->dao)) ){
-                  $this->dao->afterInsert($this->formStructure,$cols,$this->controller->messages);
+                  $this->dao->afterInsert($this->formStructure,$cols,$this->controller->getMessages());
                }
             }
          }
          else{
-            $this->controller->messages->addErrorMessage(INSERT_FAILURE);
+            $this->controller->getMessages()->addErrorMessage(INSERT_FAILURE);
          }
       }
 
@@ -53,20 +53,20 @@ class classes_model_CRUD {
       elseif( $this->controller->getAction()->isUpdate() ){
          if(  $this->crudValidate()  ){
             if( in_array('beforeUpdate',get_class_methods($this->dao)) ){
-               $res = $this->dao->beforeUpdate($this->formStructure,$cols,$this->controller->messages);
+               $res = $this->dao->beforeUpdate($this->formStructure,$cols,$this->controller->getMessages());
             }
             else{
                $res = true;
             }
             if( $res===true) {
-               $this->controller->messages->addSuccessMessage(  $this->dao->update($this->formStructure,$cols) );
+               $this->controller->getMessages()->addSuccessMessage(  $this->dao->update($this->formStructure,$cols) );
                if( in_array('afterUpdate',get_class_methods($this->dao)) ){
-                  $this->dao->afterUpdate($this->formStructure,$cols,$this->controller->messages);
+                  $this->dao->afterUpdate($this->formStructure,$cols,$this->controller->getMessages());
                }
             }
          }
          else{
-            $this->controller->messages->addErrorMessage(UPDATE_FAILURE);
+            $this->controller->getMessages()->addErrorMessage(UPDATE_FAILURE);
          }
       }
 
@@ -75,7 +75,7 @@ class classes_model_CRUD {
 
       // EDITING REGISTRY THAT CAME FROM LIST
       elseif( $this->controller->getAction()->isLsUpdate() ){
-         $this->controller->messages->addSuccessMessage(  $this->lsUpdateMsg );
+         $this->controller->getMessages()->addSuccessMessage(  $this->lsUpdateMsg );
       }
 
 
@@ -85,20 +85,20 @@ class classes_model_CRUD {
       elseif( $this->controller->getAction()->isDelete() ){
          if( $this->crudValidate() ) {
             if( in_array('beforeDelete',get_class_methods($this->dao)) ){
-               $res = $this->dao->beforeDelete($this->formStructure,$cols,$this->controller->messages);
+               $res = $this->dao->beforeDelete($this->formStructure,$cols,$this->controller->getMessages());
             }
             else{
                $res = true ;
             }
             if( $res===true  ){
-               $this->controller->messages->addSuccessMessage(  $this->dao->delete($this->formStructure,$cols) );
+               $this->controller->getMessages()->addSuccessMessage(  $this->dao->delete($this->formStructure,$cols) );
                if( in_array('afterDelete',get_class_methods($this->dao)) ){
-                  $this->dao->afterDelete($this->formStructure,$cols,$this->controller->messages);
+                  $this->dao->afterDelete($this->formStructure,$cols,$this->controller->getMessages());
                }
             }
          }
          else{
-            $this->controller->messages->addErrorMessage(DELETE_FAILURE);
+            $this->controller->getMessages()->addErrorMessage(DELETE_FAILURE);
          }
       }
 
@@ -112,7 +112,7 @@ class classes_model_CRUD {
                $element->setValue(null);
             }
          }
-         $this->controller->messages->addSuccessMessage(  $this->newRegistryMsg );
+         $this->controller->getMessages()->addSuccessMessage(  $this->newRegistryMsg );
       }
 
 

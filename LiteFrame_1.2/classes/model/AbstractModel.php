@@ -1,6 +1,6 @@
 <?php
 /**
- * Este arquivo ã parte do programa LiteFrame - lightWeight FrameWork
+ * Este arquivo ï¿½ parte do programa LiteFrame - lightWeight FrameWork
  *
  * Copyright (C) 2010 Anselmo S Ribeiro
  *
@@ -18,7 +18,7 @@
 
 abstract class classes_model_AbstractModel extends classes_model_Model {
 
-   function __construct($controller){
+   function __construct(classes_controller_SystemController $controller){
       parent::__construct($controller);
    }
 

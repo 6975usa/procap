@@ -34,14 +34,14 @@ class procap_view_partecontrariaView extends classes_smarty_abstractSystemSmarty
       $this->assign('footer',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/footer.tpl' );
 
 
-      $this->assign('mostrar_pessoa_fisica',$this->controller->env->request['mostrar_pessoa_fisica'] );
-      $this->assign('mostrar_pessoa_juridica',$this->controller->env->request['mostrar_pessoa_juridica'] );
-      $this->assign('mostrar_endereco',$this->controller->env->request['mostrar_endereco'] );
-      $this->assign('mostrar_escolha',$this->controller->env->request['mostrar_escolha'] );
+      $this->assign('mostrar_pessoa_fisica',$this->controller->getEnv()->request['mostrar_pessoa_fisica'] );
+      $this->assign('mostrar_pessoa_juridica',$this->controller->getEnv()->request['mostrar_pessoa_juridica'] );
+      $this->assign('mostrar_endereco',$this->controller->getEnv()->request['mostrar_endereco'] );
+      $this->assign('mostrar_escolha',$this->controller->getEnv()->request['mostrar_escolha'] );
 
       $this->assign('_list',APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/defaultList.tpl' );
 
-      $this->assign('_form', $this->controller->env->request['template'] );
+      $this->assign('_form', $this->controller->getEnv()->request['template'] );
 
 
       $this->display(APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/defaultBody.tpl');

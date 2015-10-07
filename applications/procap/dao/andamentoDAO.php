@@ -53,7 +53,7 @@ class procap_dao_andamentoDAO extends classes_dao_AbstractDAO
                ,concat(date_format(a.termino_data,'%d/%m/%Y'),' ', case weekday(a.termino_data) when 6 then 'Dom' when 0 then 'Seg' when 1 then 'Ter'when 2 then 'Qua' when 3 then 'Qui' when 4 then 'Sex' when 5 then 'Sab' End ) as termino_data
                ,concat(date_format(a.conclusao_data,'%d/%m/%Y'),'-', case weekday(a.conclusao_data) when 6 then 'Dom' when 0 then 'Seg' when 1 then 'Ter'when 2 then 'Qua' when 3 then 'Qui' when 4 then 'Sex' when 5 then 'Sab' End ) as conclusao_data
                ,p.nome as advogado
-               ,a.descricao
+               ,a.descricao as descricao
                ,case a.agenda when 1 then 'Sim' when 0 then 'Não' End as agenda
                ,a.id as andamento_id
             from procap_andamento as a

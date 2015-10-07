@@ -258,7 +258,7 @@ class classes_controller_ActionController{
       if(empty($this->config)){
          $this->setConfig();
       }
-      return $this->config;
+      return $this->config; 
    }
 
 
@@ -266,7 +266,7 @@ class classes_controller_ActionController{
 
 
    function setConfig(){
-      $confName = $this->controller->application->getName().'_'.'config_ApplicationConfig';
+      $confName = $this->controller->getApplication()->getName().'_'.'config_ApplicationConfig';
       require_once( APP_ROOT.DS.str_replace('_',DS,$confName).'.php');
       $this->config = new $confName();
    }

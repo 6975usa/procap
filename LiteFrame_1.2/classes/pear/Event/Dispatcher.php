@@ -115,19 +115,6 @@ class Event_Dispatcher
     var $_notificationClass = null;
 
     /**
-     * PHP4 constructor
-     *
-     * Please use {@link getInstance()} instead.
-     *
-     * @access  private
-     * @param   string      Name of the notification dispatcher.
-     */
-    function Event_Dispatcher($name)
-    {
-        Event_Dispatcher::__construct($name);
-    }
-
-    /**
      * PHP5 constructor
      *
      * Please use {@link getInstance()} instead.
@@ -246,7 +233,7 @@ class Event_Dispatcher
      */
     function &post(&$object, $nName, $info = array(), $pending = true, $bubble = true)
     {
-        $notification =& new $this->_notificationClass($object, $nName, $info);
+        $notification = new $this->_notificationClass($object, $nName, $info);
         return $this->postNotification($notification, $pending, $bubble);
     }
 

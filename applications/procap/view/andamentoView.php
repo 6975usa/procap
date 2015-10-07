@@ -36,8 +36,8 @@ class procap_view_andamentoView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('_list',APP_ROOT.'/procap/templates/andamentoList.tpl' );
       $this->assign('_form',APP_ROOT.'/procap/templates/andamentoForm.tpl' );
 
-      $this->assign('pastaProcesso', $this->controller->env->pastaProcesso );
-
+      $this->assign('pastaProcesso', $this->controller->getEnv()->pastaProcesso );
+      $this->assign('desc_html', $this->controller->getEnv()->desc_html );
 
       $this->display(APP_ROOT.'/procap/templates/'.DEFAULT_THEME.'/defaultBody_2.tpl');
 

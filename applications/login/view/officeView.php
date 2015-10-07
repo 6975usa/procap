@@ -32,7 +32,7 @@ class login_view_officeView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('officeForm',APP_ROOT.'/login/templates/officeForm.tpl' );
       $this->assign('footer',APP_ROOT.'/login/templates/footer.tpl' );
 
-      $this->assign('username',$this->controller->user->getProperty('loginname') );
+      $this->assign('username',$this->controller->getUser()->getProperty('loginname') );
 
       $this->display(APP_ROOT.'/login/templates/office.tpl');
 

@@ -63,7 +63,7 @@ class admin_config_DatabaseConfiguration extends classes_dao_AbstractDatabaseCon
     */
    public static function getRemoteConnInfo($dao){
       switch ($dao) {
-
+         
          case null:
          case '':
             throw new Exception('dao not defined: '.$dao);

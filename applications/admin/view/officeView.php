@@ -38,7 +38,7 @@ class admin_view_officeView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('officeForm',APP_ROOT.'/admin/templates/officeForm.tpl' );
 
 
-      $this->assign('apps',  $this->controller->env->request['apps']  );
+      $this->assign('apps',  $this->controller->getEnv()->request['apps']  );
 
       $this->display(APP_ROOT.'/admin/templates/office.tpl');
 

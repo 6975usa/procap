@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_tribunalController extends  classes_controller_AbstractSystemController {
+class procap_controller_tribunalController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,22 +29,22 @@ class procap_controller_tribunalController extends  classes_controller_AbstractS
 
 
       $form =  $model->getForm( new procap_model_structure_tribunalFormStructure() ,'client' );
-      $this->controller->env->forms['tribunalForm'] =  $form;
+      $this->controller->getEnv()->forms['tribunalForm'] =  $form;
 
       // pr($form);
 
 
       if(isset($_POST['id'])) {
-         $this->controller->env->request['turmas'] = $model->getTurmasDeTribunal($_POST['id']);
+         $this->controller->getEnv()->request['turmas'] = $model->getTurmasDeTribunal($_POST['id']);
       }
       else{
-         $this->controller->env->request['turmas'] = null;
+         $this->controller->getEnv()->request['turmas'] = null;
       }
 
       $tribunalList =  $model->getList( new procap_model_structure_tribunalListStructure() );
-      $this->controller->env->lists['tribunalList'] =  $tribunalList;
+      $this->controller->getEnv()->lists['tribunalList'] =  $tribunalList;
 
-      $view = new procap_view_tribunalView($this->controller,$this->env);
+      $view = new procap_view_tribunalView($this->controller,$this->getEnv());
 
    }
 

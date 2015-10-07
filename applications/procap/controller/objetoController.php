@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_objetoController extends  classes_controller_AbstractSystemController {
+class procap_controller_objetoController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,12 +29,12 @@ class procap_controller_objetoController extends  classes_controller_AbstractSys
 
 
       $form =  $model->getForm( new procap_model_structure_objetoFormStructure() ,'client' );
-      $this->controller->env->forms['objetoForm'] =  $form;
+      $this->controller->getEnv()->forms['objetoForm'] =  $form;
 
       $objetoList =  $model->getList( new procap_model_structure_objetoListStructure() );
-      $this->controller->env->lists['objetoList'] =  $objetoList;
+      $this->controller->getEnv()->lists['objetoList'] =  $objetoList;
 
-      $view = new procap_view_objetoView($this->controller,$this->env);
+      $view = new procap_view_objetoView($this->controller,$this->getEnv());
 
    }
 

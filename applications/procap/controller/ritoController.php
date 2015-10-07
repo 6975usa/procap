@@ -13,30 +13,28 @@
  * @version 1.0
  * @since   1.0
  * @author  Anselmo S Ribeiro <anselmo.sr@gmail.com>
- * @copyright  2010 Anselmo S Ribeiro
+ * @copyright  2010 Anselmo S Ribeiro 
  * @licence LGPL
  */
+class procap_controller_ritoController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
+
+    function __construct(classes_controller_SystemController $controller) {
+        $this->controller = $controller;
+    }
+
+    function execute() {
+        $model = new procap_model_ritoModel($this->controller);
 
 
-class procap_controller_ritoController extends  classes_controller_AbstractSystemController {
+        $form = $model->getForm(new procap_model_structure_ritoFormStructure(), 'client');
+        $this->controller->getEnv()->forms['ritoForm'] = $form;
 
-   function  __construct($controller){
-      $this->controller = $controller;
-   }
+        $ritoList = $model->getList(new procap_model_structure_ritoListStructure());
+        $this->controller->getEnv()->lists['ritoList'] = $ritoList;
 
-   function execute(){
-      $model = new procap_model_ritoModel($this->controller);
-
-
-      $form =  $model->getForm( new procap_model_structure_ritoFormStructure() ,'client' );
-      $this->controller->env->forms['ritoForm'] =  $form;
-
-      $ritoList =  $model->getList( new procap_model_structure_ritoListStructure() );
-      $this->controller->env->lists['ritoList'] =  $ritoList;
-
-      $view = new procap_view_ritoView($this->controller,$this->env);
-
-   }
+        $view = new procap_view_ritoView($this->controller, $this->getEnv());
+    }
 
 }
+
 ?>

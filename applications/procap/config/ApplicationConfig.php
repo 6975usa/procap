@@ -80,7 +80,7 @@ class procap_config_ApplicationConfig{
       'tipoandamento' => 'procap_controller_tipoandamentoController',
       'peca' => 'procap_controller_pecaController',
       'relatorios' => 'procap_controller_relatoriosController',
-      'relatorio/ultimosAndamentos' => 'procap_controller_ultimosAndamentosController',
+      'relatorio/ultimosAndamentos' => 'procap_controller_relatorioController',
       );
    }
 

@@ -95,7 +95,10 @@ class classes_model_Pager extends Pager
       $op='';
       foreach ($request as $key=>$value){
          if($key != $avoid){
-            $op .= '&'.$key.'='.$value;
+         	if(is_array($value))
+            	$op .= '&'.$key.'='.$value[0];
+         	else 
+            	$op .= '&'.$key.'='.$value;
          }
       }
 

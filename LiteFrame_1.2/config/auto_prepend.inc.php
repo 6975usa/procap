@@ -8,7 +8,8 @@ try{
       define('SERVER_ADDR','local');
       define('DEBUG_ALLOWED',true);
       ini_set('display_errors','on');
-      error_reporting(E_ALL ^ E_DEPRECATED);
+      error_reporting(E_ALL ^ E_STRICT ^ E_DEPRECATED );
+      //error_reporting(E_ALL  ^ E_DEPRECATED );
    }
    else{
       //REMOTE
@@ -28,9 +29,9 @@ try{
    require_once 'custom/logConstants.inc.php';
 
    /** INCLUDE DIRECTORY */
-   set_include_path(
-   get_include_path()
-   .PATH_SEPARATOR.SHARE_ROOT
+   set_include_path(  
+   //get_include_path().
+   	PATH_SEPARATOR.SHARE_ROOT
    .PATH_SEPARATOR.APPLICATIONS_ROOT
    .PATH_SEPARATOR.PEAR_ROOT
    .PATH_SEPARATOR.CLASSES_ROOT.'/adodb'

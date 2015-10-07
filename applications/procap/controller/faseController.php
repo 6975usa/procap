@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_faseController extends  classes_controller_AbstractSystemController {
+class procap_controller_faseController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,12 +29,12 @@ class procap_controller_faseController extends  classes_controller_AbstractSyste
 
 
       $form =  $model->getForm( new procap_model_structure_faseFormStructure() ,'client' );
-      $this->controller->env->forms['faseForm'] =  $form;
+      $this->controller->getEnv()->forms['faseForm'] =  $form;
 
       $faseList =  $model->getList( new procap_model_structure_faseListStructure() );
-      $this->controller->env->lists['faseList'] =  $faseList;
+      $this->controller->getEnv()->lists['faseList'] =  $faseList;
 
-      $view = new procap_view_faseView($this->controller,$this->env);
+      $view = new procap_view_faseView($this->controller,$this->getEnv());
 
    }
 

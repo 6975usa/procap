@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_tratamentoController extends  classes_controller_AbstractSystemController {
+class procap_controller_tratamentoController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,13 +29,13 @@ class procap_controller_tratamentoController extends  classes_controller_Abstrac
 
 
       $form =  $model->getForm( new procap_model_structure_tratamentoFormStructure() ,'client' );
-      $this->controller->env->forms['tratamentoForm'] =  $form;
+      $this->controller->getEnv()->forms['tratamentoForm'] =  $form;
 
 
       $tratamentoList =  $model->getList( new procap_model_structure_tratamentoListStructure() );
-      $this->controller->env->lists['tratamentoList'] =  $tratamentoList;
+      $this->controller->getEnv()->lists['tratamentoList'] =  $tratamentoList;
 
-      $view = new procap_view_tratamentoView($this->controller,$this->env);
+      $view = new procap_view_tratamentoView($this->controller,$this->getEnv());
 
    }
 

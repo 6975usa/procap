@@ -37,7 +37,7 @@ class admin_view_groupsView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('groupsForm',APP_ROOT.'/admin/templates/groupsForm.tpl' );
 
 
-      $this->assign('actions', $this->controller->env->request['actions']  );
+      $this->assign('actions', $this->controller->getEnv()->request['actions']  );
 
 
 

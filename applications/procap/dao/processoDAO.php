@@ -16,33 +16,29 @@
  * @copyright	2010 Anselmo S Ribeiro
  * @licence	LGPL
  */
+class procap_dao_processoDAO extends classes_dao_AbstractDAO {
 
-class procap_dao_processoDAO extends classes_dao_AbstractDAO
-{
+    public $table = 'procap_processo';
 
-   public $table = 'procap_processo';
+    function __construct() {
+        parent::__construct();
+    }
 
-   function __construct( ){
-      parent::__construct();
-   }
+    public function setConnString() {
+        return procap_config_DatabaseConfiguration::getConn('procap');
+    }
 
+    public function setMdb2Conn() {
+        return procap_config_DatabaseConfiguration::getConn('procap');
+    }
 
-   public function setConnString(){
-      return procap_config_DatabaseConfiguration::getConn('procap');
-   }
+    public function getConnInfo() {
+        return procap_config_DatabaseConfiguration::getConnInfo('procap');
+    }
 
-   public function setMdb2Conn(){
-      return procap_config_DatabaseConfiguration::getConn('procap');
-   }
-
-   public function getConnInfo(){
-      return procap_config_DatabaseConfiguration::getConnInfo('procap');
-   }
-
-
-   public function getListNames(){
-      return  array(
-      'processoList' => "
+    public function getListNames() {
+        return array(
+            'processoList' => "
             SELECT distinct
                p.id
                ,p.numero
@@ -78,100 +74,62 @@ class procap_dao_processoDAO extends classes_dao_AbstractDAO
                left join procap_tribunal as tribunal on tribunal.id = p.tribunal_id
                left join procap_vara as vara on vara.id = p.vara_id
             "
-            );
-   }
+        );
+    }
 
+    function getNextIdVal($pk) {
+        return $this->conn->genId($this->table . $pk);
+    }
 
-
-
-
-
-   function getNextIdVal($pk){
-       return $this->conn->genId($this->table.$pk) ;
-   }
-
-
-
-
-
-   function getProcessosPai(){
-      $sql = "
+    function getProcessosPai() {
+        $sql = "
                select distinct id as codigo  , numero as descricao
                from procap_processo
                where processopai = 0 or processopai is null
                order by descricao
                ";
-      $res = $this->execute($sql);
-      return $res->getAssoc() ;
+        $res = $this->execute($sql);
+        return $res->getAssoc();
+    }
 
-   }
-
-
-
-
-
-   function getProcessos(){
-      $sql = "
+    function getProcessos() {
+        $sql = "
                select distinct id as codigo  , numero as descricao
                from procap_processo
                order by descricao
                ";
-      $res = $this->execute($sql);
-      return $res->getAssoc() ;
+        $res = $this->execute($sql);
+        return $res->getAssoc();
+    }
 
-   }
+    function beforeInsert($formStructure, $formValues, $messages) {
+        return !$this->nrProcessoJaExiste($formValues['numero']);
+    }
 
+    function nrProcessoJaExiste($processoNr) {
 
+        $sql = " select * from procap_processo where numero = ? ";
 
+        $res = $this->execute($sql, array($processoNr));
 
-   function beforeInsert($formStructure,$formValues,$messages){
-      return !$this->nrProcessoJaExiste($formValues['numero']);
-   }
+        if ($res->numRows() > 0) {
+            $msg = classes_Singleton::getInstance('classes_controller_Messages');
+            $msg->addErrorMessage('Nï¿½mero de Processo jï¿½ existe.');
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-
-
-
-
-
-   function nrProcessoJaExiste($processoNr){
-
-      $sql = " select * from procap_processo where numero = ? ";
-
-      $res = $this->execute($sql,array($processoNr) );
-
-      if( $res->numRows() > 0){
-         $msg = classes_Singleton::getInstance('classes_controller_Messages');
-         $msg->addErrorMessage('Número de Processo já existe.');
-         return true;
-      }
-      else{
-         return false;
-      }
-   }
-
-
-
-
-
-
-
-
-
-
-
-   function getPastaDeProcesso($procId){
-      $sql = "
+    function getPastaDeProcesso($procId) {
+        $sql = "
                select  pasta
                from procap_processo as processo
                where processo.id = ?
                ";
-      $res = $this->execute($sql , array($procId ) );
-      return $res->fields('pasta') ;
-
-   }
-
-
-
+        $res = $this->execute($sql, array($procId));
+        return $res->fields('pasta');
+    }
 
 }
 

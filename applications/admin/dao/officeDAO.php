@@ -42,8 +42,8 @@ class admin_dao_officeDAO extends classes_dao_AbstractDAO
 
 	public function getListNames(){
 
-		if(isset($this->controller->env->request['id'])){
-			//$w = "where user.office_id = '".$this->controller->env->request['id']."' ";
+		if(isset($this->controller->getEnv()->request['id'])){
+			//$w = "where user.office_id = '".$this->controller->getEnv()->request['id']."' ";
 		}
 		else{
 			$w = null;

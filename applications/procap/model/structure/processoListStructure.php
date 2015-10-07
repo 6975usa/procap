@@ -48,13 +48,13 @@ class procap_model_structure_processoListStructure extends classes_model_structu
           );
       $this->fields = array(
             'numero'=>array(
-               'label'=>'Número',
+               'label'=>'Numero',
                ),
             'cliente'=>array(
                'label'=>'Cliente',
                ),
             'partecontraria'=>array(
-               'label'=>'Parte Contrária',
+               'label'=>'Parte Contraria',
                ),
             'vara'=>array(
                'label'=>'Vara',

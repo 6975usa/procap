@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Este arquivo é  parte do programa LiteFrame - lightWeight FrameWork
+ * Este arquivo ï¿½  parte do programa LiteFrame - lightWeight FrameWork
  *
  * Copyright (C) 2010 Anselmo S Ribeiro
  *
@@ -18,10 +18,10 @@
  */
 
 
-class procap_controller_defaultController extends  classes_controller_AbstractSystemController {
+class procap_controller_defaultController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -69,19 +69,19 @@ class procap_controller_defaultController extends  classes_controller_AbstractSy
                }
             }
          }
-         $this->controller->env->dia_da_agenda = $_GET['dia_da_agenda'];
+         $this->controller->getEnv()->dia_da_agenda = $_GET['dia_da_agenda'];
 
 
 
          $model = new procap_model_agendaModel($this->controller);
 
-
+                  
          //Preenchendo data de conclusao do andamento
          if(!empty($_POST['concluido'])){
             $andamentoId = $_POST['concluido'];
-            $andamentoId = $this->controller->env->sanitizeMany($andamentoId,'int');
-            $andamentoId = $this->controller->env->sanitizeMany($andamentoId,'nohtml');
-            $andamentoId = $this->controller->env->sanitizeMany($andamentoId,'nosql');
+            $andamentoId = $this->controller->getEnv()->sanitizeMany($andamentoId,'int');
+            $andamentoId = $this->controller->getEnv()->sanitizeMany($andamentoId,'nohtml');
+            $andamentoId = $this->controller->getEnv()->sanitizeMany($andamentoId,'nosql');
             $model->marcarConclusaoAndamento($andamentoId);
 
          }
@@ -89,22 +89,22 @@ class procap_controller_defaultController extends  classes_controller_AbstractSy
 
 
          $form =  $model->getForm( new procap_model_structure_agendaFormStructure('client' ) ) ;
-         $this->controller->env->forms['agendaForm'] =  $form;
+         $this->controller->getEnv()->forms['agendaForm'] =  $form;
 
          $_GET['setPerPage'] = 1000 ;
          $agendaList =  $model->getList( new procap_model_structure_agendaListStructure() );
-         $this->controller->env->lists['agendaList'] =  $agendaList ;
+         $this->controller->getEnv()->lists['agendaList'] =  $agendaList ;
          unset($_GET['setPerPage']);
 
          if($agendaList){
             foreach ($agendaList->data as $key=>$data ) {
                if(! strstr($data['conclusao_data'],'/')){
-                  $this->controller->env->lists['agendaList']->data[$key]['conclusao_data'] = null ;
+                  $this->controller->getEnv()->lists['agendaList']->data[$key]['conclusao_data'] = null ;
                }
             }
          }
 
-         $view = new procap_view_defaultView($this->controller,$this->env);
+         $view = new procap_view_defaultView($this->controller,$this->getEnv());
 
       }
       catch (Exception $e){

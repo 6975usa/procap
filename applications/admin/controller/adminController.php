@@ -18,15 +18,15 @@
  */
 
 
-class admin_controller_adminController extends  classes_controller_AbstractSystemController {
+class admin_controller_adminController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
    function execute(){
 
-      $view = new admin_view_adminView($this->controller,$this->env);
+      $view = new admin_view_adminView($this->controller,$this->getEnv());
 
    }
 

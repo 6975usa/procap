@@ -18,9 +18,9 @@
  */
 
 
-class admin_controller_userController extends  classes_controller_AbstractSystemController {
+class admin_controller_userController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -30,20 +30,20 @@ class admin_controller_userController extends  classes_controller_AbstractSystem
       $model = new admin_model_userModel($this->controller);
 
       if( $this->controller->getAction()->isNewRecord() ){
-         $this->controller->env->request['groups'] =  array();
+         $this->controller->getEnv()->request['groups'] =  array();
       }
       else{
-         $this->controller->env->request['groups'] = $model->getGroups() ;
+         $this->controller->getEnv()->request['groups'] = $model->getGroups() ;
       }
 
 
       $form =  $model->getForm( new admin_model_structure_userFormStructure() ,'client' );
-      $this->controller->env->forms['userForm'] =  $form;
+      $this->controller->getEnv()->forms['userForm'] =  $form;
 
       $userList =  $model->getList( new admin_model_structure_userListStructure() );
-      $this->controller->env->lists['userList'] =  $userList;
+      $this->controller->getEnv()->lists['userList'] =  $userList;
 
-      $view = new admin_view_userView($this->controller,$this->env);
+      $view = new admin_view_userView($this->controller,$this->getEnv());
 
    }
 

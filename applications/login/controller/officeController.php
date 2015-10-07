@@ -18,9 +18,9 @@
  */
 
 
-class login_controller_officeController extends  classes_controller_AbstractSystemController {
+class login_controller_officeController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -43,8 +43,8 @@ class login_controller_officeController extends  classes_controller_AbstractSyst
       }
 
       $form->getElement('MM_insert')->setValue('Cadastrar');
-      $this->controller->env->forms['officeForm'] =  $form;
-      $view = new login_view_officeView($this->controller,$this->env);
+      $this->controller->getEnv()->forms['officeForm'] =  $form;
+      $view = new login_view_officeView($this->controller,$this->getEnv());
 
 
 

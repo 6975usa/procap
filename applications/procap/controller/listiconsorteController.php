@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_listiconsorteController extends  classes_controller_AbstractSystemController {
+class procap_controller_listiconsorteController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -49,12 +49,12 @@ class procap_controller_listiconsorteController extends  classes_controller_Abst
          }
       }
 
-      $this->controller->env->forms['listiconsorteForm'] =  $form;
+      $this->controller->getEnv()->forms['listiconsorteForm'] =  $form;
 
       $listiconsorteList =  $model->getList( new procap_model_structure_listiconsorteListStructure() );
-      $this->controller->env->lists['listiconsorteList'] =  $listiconsorteList;
+      $this->controller->getEnv()->lists['listiconsorteList'] =  $listiconsorteList;
 
-      $view = new procap_view_listiconsorteView($this->controller,$this->env);
+      $view = new procap_view_listiconsorteView($this->controller,$this->getEnv());
 
    }
 

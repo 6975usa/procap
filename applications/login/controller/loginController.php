@@ -18,9 +18,9 @@
  */
 
 
-class login_controller_loginController extends  classes_controller_AbstractSystemController {
+class login_controller_loginController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -38,28 +38,28 @@ class login_controller_loginController extends  classes_controller_AbstractSyste
          if($model->crudValidate()){
 
             $sessionId = classes_utils_session::generateSessionId();
-            $userId = $this->controller->user->getUserIdByName($_POST['name'],$_POST['office']);
+            $userId = $this->controller->getUser()->getUserIdByName($_POST['name'],$_POST['office']);
 
-            $this->controller->user->login($sessionId , $userId);
+            $this->controller->getUser()->login($sessionId , $userId);
 
             //classes_utils_cookies::writeSessionCookie($sessionId);
             classes_utils_session::writeSessionId($sessionId,$userId, $_COOKIE['PHPSESSID']);
 
-         	$this->controller->loger->log(LOGIN_SUCCESS);
+         	$this->controller->getLoger()->log(LOGIN_SUCCESS);
             classes_utils_jsFunctions::carregaFormViaPostParaUrl(SITE_ROOT.'/procap/default/',array('LITEFRAMESESSIONID'=>$sessionId));
 
             die;
          }
          else{
-         	$this->controller->loger->log(LOGIN_FAILURE);
+         	$this->controller->getLoger()->log(LOGIN_FAILURE);
          }
       }
 
       $form->getElement('MM_insert')->setValue('Entrar');
 
-      $this->controller->env->forms['loginForm'] =  $form;
+      $this->controller->getEnv()->forms['loginForm'] =  $form;
 
-      $view = new login_view_loginView($this->controller,$this->env);
+      $view = new login_view_loginView($this->controller,$this->getEnv());
 
    }
 

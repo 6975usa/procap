@@ -18,20 +18,20 @@
  */
 
 
-class procap_controller_relatoriosController extends  classes_controller_AbstractSystemController {
+class procap_controller_relatoriosController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
    function execute(){
 
 
-      $model = new procap_model_ultimosAndamentosModel($this->controller);
-      $this->controller->env->listClientes = $model->getClientes($this->controller->user->getProperty('office_id'));
+      $model = new procap_model_relatorioModel($this->controller);
+      $this->controller->getEnv()->listClientes = $model->getClientes($this->controller->getUser()->getProperty('office_id'));
 
 
-      $view = new procap_view_relatoriosView($this->controller,$this->env);
+      $view = new procap_view_relatoriosView($this->controller,$this->getEnv());
 
    }
 

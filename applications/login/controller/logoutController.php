@@ -18,17 +18,17 @@
  */
 
 
-class login_controller_logoutController extends  classes_controller_AbstractSystemController {
+class login_controller_logoutController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-	function  __construct($controller){
+	function __construct(classes_controller_SystemController $controller) {
 		$this->controller = $controller;
 	}
 
 	function execute(){
 
-		$this->controller->loger->log(LOGOUT_SUCCESS);
+		$this->controller->getLoger()->log(LOGOUT_SUCCESS);
 
-		$this->controller->user->logout();
+		$this->controller->getUser()->logout();
 
 	}
 

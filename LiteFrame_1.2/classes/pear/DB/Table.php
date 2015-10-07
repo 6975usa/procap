@@ -2020,7 +2020,7 @@ class DB_Table extends DB_Table_Base
      * @see HTML_QuickForm
      * @see DB_Table_QuickForm
      */
-   function &getForm($columns = null, $array_name = null, $args = array(), $clientValidate = null, $formFilters = null) {
+   function getForm($columns = null, $array_name = null, $args = array(), $clientValidate = null, $formFilters = null) {
       include_once 'DB/Table/QuickForm.php';
       $coldefs = $this->_getFormColDefs($columns);
       $form = DB_Table_QuickForm::getForm($coldefs, $array_name, $args, $clientValidate, $formFilters);

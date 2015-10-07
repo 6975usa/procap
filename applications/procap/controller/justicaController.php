@@ -18,9 +18,9 @@
  */
 
 
-class procap_controller_justicaController extends  classes_controller_AbstractSystemController {
+class procap_controller_justicaController extends classes_controller_AbstractSystemController {    /**     * @var classes_controller_SystemController     */    private $controller;
 
-   function  __construct($controller){
+   function __construct(classes_controller_SystemController $controller) {
       $this->controller = $controller;
    }
 
@@ -29,13 +29,13 @@ class procap_controller_justicaController extends  classes_controller_AbstractSy
 
 
       $form =  $model->getForm( new procap_model_structure_justicaFormStructure() ,'client' );
-      $this->controller->env->forms['justicaForm'] =  $form;
+      $this->controller->getEnv()->forms['justicaForm'] =  $form;
 
 
       $justicaList =  $model->getList( new procap_model_structure_justicaListStructure() );
-      $this->controller->env->lists['justicaList'] =  $justicaList;
+      $this->controller->getEnv()->lists['justicaList'] =  $justicaList;
 
-      $view = new procap_view_justicaView($this->controller,$this->env);
+      $view = new procap_view_justicaView($this->controller,$this->getEnv());
 
    }
 

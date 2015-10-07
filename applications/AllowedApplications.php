@@ -18,4 +18,3 @@ class applications_AllowedAplications {
 }
 
 
-?>

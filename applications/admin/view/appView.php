@@ -37,7 +37,7 @@ class admin_view_appView extends classes_smarty_abstractSystemSmarty  {
       $this->assign('appForm',APP_ROOT.'/admin/templates/appForm.tpl' );
 
 
-      $this->assign('appGroups',  $this->controller->env->request['appGroups']  );
+      $this->assign('appGroups',  $this->controller->getEnv()->request['appGroups']  );
 
       $this->display(APP_ROOT.'/admin/templates/app.tpl');
 
