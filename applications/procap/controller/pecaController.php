@@ -38,19 +38,19 @@ class procap_controller_pecaController extends classes_controller_AbstractSystem
 
             $form->getElement('processo_id')->setValue($_GET['pc']);
             if ($form->elementExists(INSERT_BUTTON_NAME)) {
-                $form->getElement(INSERT_BUTTON_NAME)->setValue('Salvar Pe&ccedil;a');
+                $form->getElement(INSERT_BUTTON_NAME)->setValue('Salvar Peca');
             }
             if ($form->elementExists(UPDATE_BUTTON_NAME)) {
-                $form->getElement(UPDATE_BUTTON_NAME)->setValue('Salvar Pe&ccedil;a');
+                $form->getElement(UPDATE_BUTTON_NAME)->setValue('Salvar Peca');
             }
             if ($form->elementExists(NEW_BUTTON_NAME)) {
-                $form->getElement(NEW_BUTTON_NAME)->setValue('Novo Pe&ccedil;a');
+                $form->getElement(NEW_BUTTON_NAME)->setValue('Novo Peca');
             }
             if ($form->elementExists(DELETE_BUTTON_NAME)) {
-                $form->getElement(DELETE_BUTTON_NAME)->setValue('Excluir Pe&ccedil;a');
+                $form->getElement(DELETE_BUTTON_NAME)->setValue('Excluir Peca');
             }
             if ($form->elementExists(LIST_BUTTON_NAME)) {
-                $form->getElement(LIST_BUTTON_NAME)->setValue('Ver Pe&ccedil;a');
+                $form->getElement(LIST_BUTTON_NAME)->setValue('Ver Pecas');
             }
             $this->acertaTextarea($form);
         }
