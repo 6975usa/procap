@@ -34,11 +34,11 @@ class procap_model_andamentoModel extends classes_model_AbstractModel {
 		$ret = true;
 		
 		if (! empty( $fields ['agenda'] ) && $fields ['agenda'] == 1) {
-			if (empty( $fields ['termino_data'] )) {
+			/* if (empty( $fields ['termino_data'] )) {
 				$this->controller->getEnv()->formErrorMessages ['termino_data'] = 'Termino nao pode ser vazio';
 				$this->form->getElement( 'termino_data' )->setAttribute( 'class', 'error' );
 				$ret = false;
-			}
+			} */
 			if (empty( $fields ['inicio_data'] )) {
 				$this->controller->getEnv()->formErrorMessages ['inicio_data'] = ' Inicio nao pode ser vazio';
 				$this->form->getElement( 'inicio_data' )->setAttribute( 'class', 'error' );
@@ -47,7 +47,7 @@ class procap_model_andamentoModel extends classes_model_AbstractModel {
 		}
 		
 		// Validando arquivo de upload
-		$arquivos [] = $this->form->getElement( 'arquivo_peca1' );
+		/* $arquivos [] = $this->form->getElement( 'arquivo_peca1' );
 		$arquivos [] = $this->form->getElement( 'arquivo_peca2' );
 		$arquivos [] = $this->form->getElement( 'arquivo_peca3' );
 		
@@ -69,7 +69,7 @@ class procap_model_andamentoModel extends classes_model_AbstractModel {
 					$ret = false;
 				}
 			}
-		}
+		} */
 		
 		return $ret;
 	}

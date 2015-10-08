@@ -67,9 +67,9 @@ class procap_model_structure_andamentoFormStructure extends classes_model_struct
 						'qf_label' => 'Processo',
 						'qf_type' => 'hidden',
 						'qf_rules' => array (
-								'required' => 'n&atilde;o pode ser vazio',
+								'required' => 'nao pode ser vazio',
 								'maxlength' => array (
-										'm&aacute;ximo de 10 caracteres',
+										'maximo de 10 caracteres',
 										10 
 								) 
 						) 
@@ -86,9 +86,9 @@ class procap_model_structure_andamentoFormStructure extends classes_model_struct
 								'functionName' => 'getFases' 
 						),
 						'qf_rules' => array (
-								'required' => 'n&atilde;o pode ser vazio',
+								'required' => 'nao pode ser vazio',
 								'maxlength' => array (
-										'm&aacute;ximo de 10 caracteres',
+										'maximo de 10 caracteres',
 										10 
 								) 
 						) 
@@ -105,9 +105,9 @@ class procap_model_structure_andamentoFormStructure extends classes_model_struct
 								'functionName' => 'getTodosAdvogados' 
 						),
 						'qf_rules' => array (
-								'required' => 'n&atilde;o pode ser vazio',
+								'required' => 'nao pode ser vazio',
 								'maxlength' => array (
-										'm&aacute;ximo de 10 caracteres',
+										'maximo de 10 caracteres',
 										10 
 								) 
 						) 
@@ -143,7 +143,7 @@ class procap_model_structure_andamentoFormStructure extends classes_model_struct
 						'form' => true,
 						'jscalendar' => true,
 						'size' => 10,
-						'qf_label' => 'Conclus&atilde;o',
+						'qf_label' => 'Conclusao',
 						'qf_rules' => array (
 								'maxlength' => array (
 										'maximo de 10 caracteres',
@@ -159,7 +159,7 @@ class procap_model_structure_andamentoFormStructure extends classes_model_struct
 						'qf_type' => 'hidden',
 						'qf_rules' => array (
 								'required' => 'Agenda nao pode ser vazio',
-								'numeric' => 's&oacute; n&uacute;mero',
+								'numeric' => 'so numero',
 								'maxlength' => array (
 										'maximo de 1 caracteres',
 										1 
@@ -174,10 +174,10 @@ class procap_model_structure_andamentoFormStructure extends classes_model_struct
 						'size' => 500,
 						'form' => true,
 						'validate' => true,
-						'qf_label' => 'Descri&ccedil;&atilde;o',
+						'qf_label' => 'Descricao',
 						'qf_type' => 'textarea',
 						'qf_rules' => array (
-								'required' => 'n&atilde;o pode ser vazio',
+								'required' => 'nao pode ser vazio',
 								'maxlength' => array (
 										'maximo de 500 caracteres',
 										500 
