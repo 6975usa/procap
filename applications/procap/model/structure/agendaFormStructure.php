@@ -145,7 +145,7 @@ class procap_model_structure_agendaFormStructure extends classes_model_structure
       'qf_label' => 'Término',
       'qf_rules' =>
          array(
-         'required' => 'não pode ser vazio',
+         //'required' => 'não pode ser vazio',
          'maxlength' => array('máximo de 10 caracteres',10),
          ),
       ),

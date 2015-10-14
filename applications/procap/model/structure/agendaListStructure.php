@@ -84,7 +84,7 @@ class procap_model_structure_agendaListStructure extends classes_model_structure
          array(
             'termino_data'=>array(
                'fields'=>array('id'),
-               'target'=>'',
+               'target'=>'', 
                'action'=>'',
             ),
             'numero'=>array(

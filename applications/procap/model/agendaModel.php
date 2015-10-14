@@ -44,7 +44,7 @@ class procap_model_agendaModel extends classes_model_AbstractModel {
 
       if( !empty($fields['agenda']) && $fields['agenda']==1 ) {
 
-         if( empty($fields['termino_data'])  ) {
+/*          if( empty($fields['termino_data'])  ) {
 
             $this->controller->getEnv()->formErrorMessages['termino_data'] = ' não pode ser vazio' ;
             $this->form->getElement('termino_data')->setAttribute('class','error') ;
@@ -54,7 +54,7 @@ class procap_model_agendaModel extends classes_model_AbstractModel {
 
             $ret =  false;
 
-         }
+         } */
          if( empty($fields['inicio_data'])  ) {
 
             $this->controller->getEnv()->formErrorMessages['inicio_data'] = ' não pode ser vazio' ;
