@@ -61,7 +61,7 @@ class procap_dao_andamentoDAO extends classes_dao_AbstractDAO
                inner join procap_fase as f on f.id = a.fase_id
                left join procap_pessoa as p on p.id = a.advogado_id
             where a.processo_id = '".$_GET['pc']."'
-            order by a.termino_data desc
+            order by a.inicio_data desc, a.termino_data desc
             "
             );
    }
