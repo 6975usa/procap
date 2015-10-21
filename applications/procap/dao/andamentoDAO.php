@@ -89,6 +89,7 @@ class procap_dao_andamentoDAO extends classes_dao_AbstractDAO
          order by procap_andamento.termino_data desc  ";
       $res = $this->execute($sql,array($_GET['pc']));
       return $res->getAssoc() ;
+      //TODO acertar a lista das pecas
    }
 
 
